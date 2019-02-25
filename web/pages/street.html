@@ -106,7 +106,8 @@
             border-right: 1px solid white;
             display: flex;
             flex-direction: column;
-            align-content: space-between;
+            /*align-content: flex-end;*/
+            
         }
 
         #portfolio {
@@ -114,19 +115,20 @@
             margin-right: auto;
             margin-left: auto;
             text-align: center;
-            /*border: 1px solid white;*/
+            border: 1px solid white;
             /*padding: 25px;*/
             /*padding-top: 25px;*/
-            margin-top: 10px;
-            padding: 0 15px 0 15px;
+            margin : auto;
+            padding: 15px;
             writing-mode: vertical-rl;
             /*text-orientation: sideways;*/
         }
 
         #menuburger {
-            /*border: 1px solid white;*/
+            border: 1px solid white;
             text-align: center;
-            margin-bottom: 1em;
+            /*margin-bottom: 1em;*/
+            padding: 15px 0 15px 0;
         }
 
         section {
@@ -184,13 +186,15 @@
         </div>
 
         <div class="liseret">
-            <div id="portfolio">
-                <p>PORTFOLIO SEBGAC</p>
-            </div>
+            
             <div id="menuburger">
                 <a href="#" onclick="openNav()">
                     <i class="fas fa-bars"></i>
                 </a>
+            </div>
+            
+            <div id="portfolio">
+                <p>PORTFOLIO SEBGAC</p>
             </div>
         </div>
     </header>
