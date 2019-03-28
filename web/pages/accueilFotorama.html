@@ -1,211 +1,202 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SebGacPhoto</title>
 
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>SebGacPhoto</title>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-    <link
-      href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css"
-      rel="stylesheet"
-    />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" />
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 
-      body {
-        width: 100%;
-        background-color: black;
-        color: white;
-        font-family: "Roboto", sans-serif;
-        display: inline-flex;
-      }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
+    body {
+      width: 100%;
+      background-color: black;
+      color: white;
+      font-family: "Roboto", sans-serif;
+      display: inline-flex;
+    }
 
-      header {
-        display: inline-flex;
-        /*width: 20%;*/
-      }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-      .menuGauche {
-        border-right: 1px solid white;
-        width: 200px;
-        /*height: 1000px;*/
-        min-height: 100vh;
-        /*flex-grow: 1;*/
-        display: flex;
-        flex-direction: column;
-        /*justify-content: center;*/
-        /*justify-content: center;*/
-        /*align-items: stretch;*/
-      }
+    header {
+      display: inline-flex;
+      /*width: 20%;*/
+    }
 
-      .menuGauche h2 {
-        border: 1px solid white;
-        /*text-align: center;*/
-        padding: 20px;
-        /*flex-grow: 1;*/
-        margin: auto;
-      }
+    .menuGauche {
+      border-right: 1px solid white;
+      width: 200px;
+      /*height: 1000px;*/
+      min-height: 100vh;
+      /*flex-grow: 1;*/
+      display: flex;
+      flex-direction: column;
+      /*justify-content: center;*/
+      /*justify-content: center;*/
+      /*align-items: stretch;*/
+    }
 
-      .menuGauche nav {
-        border: 1px solid white;
-        /*margin: auto;*/
-        /*flex-grow: 3;*/
-        display: flex;
-        flex-direction: column;
-        margin-top: 50vh;
-        margin-left: 10px;
-      }
+    .menuGauche h2 {
+      /* border: 1px solid white; */
+      /*text-align: center;*/
+      padding: 20px;
+      /*flex-grow: 1;*/
+      margin: auto;
+    }
 
-      .menuGauche ul {
-        border: 1px solid white;
-        flex-grow: 3;
-        padding: 20px;
-      }
+    .menuGauche nav {
+      /* border: 1px solid white; */
+      /*margin: auto;*/
+      /* padding: auto; */
+      /*flex-grow: 3;*/
+      display: flex;
+      flex-direction: column;
+      margin-top: 50vh;
+      margin-left: 10px;
+    }
 
-      .menuGauche li {
-        list-style: none;
-      }
+    .menuGauche ul {
+      /* border: 1px solid white; */
+      flex-grow: 3;
+      padding: 20px;
+    }
 
-      #about {
-        /*border: 1px solid white;*/
-        padding: 20px;
+    .menuGauche li {
+      list-style: none;
+    }
 
-        /*margin-top: auto;*/
-        /*flex-grow: 1;*/
-        /*align-content: flex-end;*/
-      }
+    #about {
+      /* border: 1px solid white; */
+      padding: 20px;
 
-      .liseret {
-        /*flex-grow: 1;*/
-        width: 50px;
-        border-right: 1px solid white;
-        display: flex;
-        flex-direction: column;
-        align-content: space-between;
-      }
+      /*margin-top: auto;*/
+      /*flex-grow: 1;*/
+      /*align-content: flex-end;*/
+    }
 
-      #portfolio {
-        margin-bottom: auto;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center;
-        /*border: 1px solid white;*/
-        /*padding: 25px;*/
-        /*padding-top: 25px;*/
-        margin-top: 10px;
-        padding: 0 15px 0 15px;
-        writing-mode: vertical-rl;
-        /*text-orientation: sideways;*/
-      }
+    .liseret {
+      /*flex-grow: 1;*/
+      width: 50px;
+      border-right: 1px solid white;
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
+    }
 
-      #menuburger {
-        /*border: 1px solid white;*/
-        text-align: center;
-        margin-bottom: 1em;
-      }
+    #portfolio {
+      margin-bottom: auto;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+      /* border: 1px solid white; */
+      /*padding: 25px;*/
+      /*padding-top: 25px;*/
+      transform: rotate(-90deg) translate(22%, -147%);
+      width: 400%;
+      margin: auto;
+      padding: 15px;
+      /*text-orientation: sideways;*/
+    }
 
-      section {
-        width: 100%;
-        border: 1px solid white;
-        display: flex;
-        flex-direction: column;
-        /*align-content: stretch;*/
-      }
+    #menuburger {
+      /* border: 1px solid white; */
+      text-align: center;
+      /* margin-bottom: 1em; */
+      padding: 15px 0 15px 0;
+    }
 
-      section .titre {
-        flex-grow: 1;
-        /*width: 100%;*/
-        border: 1px solid white;
-        /*            margin-top: auto;
+
+    section {
+      width: 100%;
+      /* border: 1px solid white; */
+      display: flex;
+      flex-direction: column;
+      /*align-content: stretch;*/
+    }
+
+    section .titre {
+      flex-grow: 1;
+      /*width: 100%;*/
+      /* border: 1px solid white; */
+      /*            margin-top: auto;
             margin-bottom: auto;*/
-        padding: 20px;
-        text-align: center;
-        align-content: stretch;
-      }
+      padding: 20px;
+      text-align: center;
+      align-content: stretch;
+    }
 
-      section #carrousel {
-        width: 96%;
-        flex-grow: 8;
-        /*width:100%;*/
-        border: 1px solid white;
-        margin: auto;
-        text-align: center;
-      }
-    </style>
-  </head>
+    section #carrousel {
+      width: 96%;
+      flex-grow: 8;
+      /*width:100%;*/
+      /* border: 1px solid white; */
+      margin: auto;
+      text-align: center;
+    }
+  </style>
+</head>
 
-  <body>
-    <header>
-      <div class="menuGauche">
-        <a href="accueil.html">
-          <h2 id="titre1">SebGac</h2>
+<body>
+  <header>
+    <div class="menuGauche">
+      <a href="accueil.html">
+        <h2 id="titre1">SebGac</h2>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#">Voyage</a></li>
+          <li><a href="#">Mariage</a></li>
+          <li><a href="#">Street</a></li>
+          <li><a href="#">Architecture</a></li>
+          <li><a href="#">Portrait</a></li>
+        </ul>
+        <div id="about">
+          <a href="#">ABOUT</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="liseret">
+      <div id="menuburger">
+        <a href="#" onclick="openNav()">
+          <i class="fas fa-bars"></i>
         </a>
-        <nav>
-          <ul>
-            <li><a href="#">Voyage</a></li>
-            <li><a href="#">Mariage</a></li>
-            <li><a href="#">Street</a></li>
-            <li><a href="#">Architecture</a></li>
-            <li><a href="#">Portrait</a></li>
-          </ul>
-          <div id="about">
-            <a href="#">ABOUT</a>
-          </div>
-        </nav>
+      </div>
+      <div id="portfolio">
+        <p>PORTFOLIO SEBGAC</p>
       </div>
 
-      <div class="liseret">
-        <div id="portfolio">
-          <p>PORTFOLIO SEBGAC</p>
-        </div>
-        <div id="menuburger">
-          <a href="#" onclick="openNav()">
-            <i class="fas fa-bars"></i>
-          </a>
-        </div>
-      </div>
-    </header>
+    </div>
+  </header>
 
-    <section>
-      <div class="titre">
-        <h2>Galerie Photo Street</h2>
-      </div>
-      <div id="carrousel">
-        <div
-          class="fotorama"
-          data-width="63%"
-          data-ratio="800/600"
-          data-nav="thumbs"
-          data-fit="contain"
-          data-tumbwidth="30"
-          data-tumbheight="30"          
-        >
+  <section>
+    <div class="titre">
+      <h2>Galerie Photo Street</h2>
+    </div>
+    <div id="carrousel">
+      <div>
+        <div class="fotorama" data-width="100%" data-height="88%" data-ratio="800/600" data-nav="thumbs"
+          data-fit="contain" data-thumbwidth="30" data-thumbheight="30" data-arrows="true" data-click="true"
+          data-swipe="true" data-trackpad="true" data-keyboard="true" data-allowfullscreen="true">
           <img src="street2.jpg" />
           <img src="street3.jpg" />
           <img src="street4.jpg" />
@@ -217,6 +208,9 @@
           <img src="street10.jpg" />
         </div>
       </div>
-    </section>
-  </body>
+
+    </div>
+  </section>
+</body>
+
 </html>
