@@ -44,12 +44,11 @@
     }
 
     .menuGauche {
-      border-right: 1px solid white;
       width: 200px;
       /*height: 1000px;*/
       min-height: 100vh;
       /*flex-grow: 1;*/
-      display: flex;
+      display: none;
       flex-direction: column;
       /*justify-content: center;*/
       /*justify-content: center;*/
@@ -88,15 +87,22 @@
     #about {
       /* border: 1px solid white; */
       padding: 20px;
-
+      display: flex;
+      flex-direction: column;
       /*margin-top: auto;*/
       /*flex-grow: 1;*/
       /*align-content: flex-end;*/
     }
 
+    #about a {
+      padding-top: 5px;
+    }
+
     .liseret {
       /*flex-grow: 1;*/
-      width: 50px;
+      width: 52px;
+      min-height: 100vh;
+      border-left: 1px solid white;
       border-right: 1px solid white;
       display: flex;
       flex-direction: column;
@@ -112,7 +118,7 @@
       /*padding: 25px;*/
       /*padding-top: 25px;*/
       transform: rotate(-90deg) translate(22%, -147%);
-      width: 400%;
+      width: 388%;
       margin: auto;
       padding: 15px;
       /*text-orientation: sideways;*/
@@ -122,7 +128,7 @@
       /* border: 1px solid white; */
       text-align: center;
       /* margin-bottom: 1em; */
-      padding: 15px 0 15px 0;
+      padding: 15px 0 15px 1px;
     }
 
 
@@ -171,7 +177,9 @@
           <li><a href="#">Portrait</a></li>
         </ul>
         <div id="about">
-          <a href="#">ABOUT</a>
+          <a href="#">SUR MOI</a>
+          <a href="#">CONTACT</a>
+          <a href="#">LIVRE D'OR</a>
         </div>
       </nav>
     </div>
@@ -179,14 +187,13 @@
     <div class="liseret">
       <div id="menuburger">
         <a id="bouton" href="#">
-          <i class="fas fa-times"></i> 
+          <i id="icone" class="fas fa-bars"></i> 
         </a>
       </div>
       <div id="portfolio">
         <p>PORTFOLIO SEBGAC</p>
       </div>
     </div>
-
 
   </header>
 

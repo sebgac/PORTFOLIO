@@ -2,14 +2,23 @@
 
     $(function () {
 
-        // transformer le bouton menu en bouton fermer et vice versa avec click toogle
+        // on définit une variable repère
+
+        var menuOuvert = false
 
         $('a#bouton').on('click', function () {
-            $('i')
-                .toogleClass('fas fa-times')
-                .toogleClass('fas fa-bars');
-            $('#portfolio').hide();
-            $('.menuGauche').css('display','none');
+        // changement de l'icone avec les classes fontawesome
+            $('i#icone')
+                .toggleClass('fas fa-times')
+                .toggleClass('fas fa-bars');
+            if (menuOuvert == false){
+                $('.menuGauche').css('display','flex');
+                menuOuvert = true;
+            } else if (menuOuvert == true){
+                $('.menuGauche').css('display','none');
+                menuOuvert = false;
+            };
+
         });
 
         // quand on clique sur le menu burger, ouvrir le menu à gauche
