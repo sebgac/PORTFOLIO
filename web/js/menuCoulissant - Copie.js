@@ -18,36 +18,22 @@
             // Affichage / disparition du menu en lui-même
 
             if (menuOuvert == false) {
-                /* $('.menuGauche').css('display', 'flex'); */
-                $('header,section').css('transform', 'translate(0)');
-                /* $('section').css('transform', 'translate(0)'); */
+                $('.menuGauche').css('display', 'flex');
                 menuOuvert = true;
             } else if (menuOuvert == true) {
-                /* $('.menuGauche').css('display', 'none'); */
-                $('header,section').css('transform', 'translate(-220px)');
-                /* $('section').css('transform', 'translate(-220px)'); */
+                $('.menuGauche').css('display', 'none');
                 menuOuvert = false;
             };
-
         });
-
-        // test à supprimer
-
-       /*  $('a#bouton').on('click', function () {
-            $('.titre').css('transform', 'translate(500px)');
-
-        }); */
-
 
         // + Flexibilité / click à l'extérieur du header ferme le menuGauche
 
-/*         $('section').on('click', function () {
+        $('section').on('click', function () {
             if (menuOuvert == true) {
                 $('.menuGauche').css('display', 'none');
                 menuOuvert = false;
-            };      
-
-        }); */
+            };            
+        });
 
         // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage
 
@@ -62,7 +48,6 @@
                 $('.continents').remove();
                 continentOuvert = false;
             };
-
         });
 
         // Faire de même avec les sous catégories pays
@@ -77,7 +62,6 @@
                 $('.asie').remove();
                 asieOuvert = false;
             };
-
         });
 
         var europeOuvert = false;
@@ -90,7 +74,6 @@
                 $('.europe').remove();
                 europeOuvert = false;
             };
-
         });
 
         var amsudOuvert = false;
@@ -103,7 +86,6 @@
                 $('.amsud').remove();
                 amsudOuvert = false;
             };
-
         });
 
         // Lorsqu'on clique sur une autre catégorie que celle ouverte, on ferme la catégorie en cours
@@ -115,7 +97,6 @@
                 $('.asie').remove();
                 asieOuvert = false;
             };
-
         });
 
         // Pour le continent Europe
@@ -125,7 +106,6 @@
                 $('.europe').remove();
                 europeOuvert = false;
             };
-
         });
 
         // Pour le continent AmSud
@@ -135,7 +115,6 @@
                 $('.amsud').remove();
                 amsudOuvert = false;
             };
-
         });
 
         // Rendre le bouton + visible lorsqu'on survole la catégorie Voyages

@@ -1,5 +1,9 @@
 - rendre le menu déroulant
 - faire du javascript pour qu'il aille cherche le nom des images en incrémentant automatiquement
-- rajouter icone pour indiquer sous catégories
 - laisser le nom des catégories ouvertes en couleurs
-- fermer automatiquement une catégorie continent si on clique sur une autre catégorie continent
+- refaire ferme menu click section
+
+pb :
+
+- transition du menu avec translate qui se fonctionne pas (animation)
+-problème de centrage du caroussel avant/après full screen

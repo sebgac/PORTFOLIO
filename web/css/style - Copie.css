@@ -15,11 +15,7 @@
     background-color: black;
     color: white;
     font-family: "Roboto", sans-serif;
-  }
-
-  #general{
     display: inline-flex;
-    width:100%;    
   }
 
 /* Style général des liens */
@@ -33,9 +29,7 @@
 
   header {
     display: inline-flex;
-    transform : translate(-220px);
-    transition-property: transform;
-    transition-delay: 500ms;
+    /* transform: translate(-218px); */
   }
 
 /* Style de la 1ere div du header */
@@ -46,12 +40,10 @@
 /*       min-height: 100vh; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    
   }
 
   .menuGauche h2 {
-    /* border: 1px solid white; */
+    border: 1px solid white;
     padding: 20px 0;
     margin: auto;
   }
@@ -59,15 +51,15 @@
 /* Dans la nav : flex column pour mettre en boite les div internes */
 
   .menuGauche nav {
-    /* border: 1px solid white; */
+    border: 1px solid white;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10vh;
+    margin-top: 50vh;
     margin-left: 10px;
   }
 
   .menuGauche ul {
-    /* border: 1px solid white; */
+    border: 1px solid white;
     flex-grow: 3;
     padding: 10px 0;
   }
@@ -104,7 +96,7 @@
 /* Div contenant liens vers pages about / moi / contact ... */
 
   #about {
-    /* border: 1px solid white; */
+    border: 1px solid white;
     padding: 20px 0;
     display: flex;
     flex-direction: column;
@@ -129,7 +121,7 @@
   }
 
   #menuburger {
-    /* border: 1px solid white; */
+    border: 1px solid white;
     text-align: center;
     padding: 15px 0 15px 1px;
     transition : all 0.5s ease-out;
@@ -144,7 +136,7 @@
     margin-right: auto;
     margin-left: auto; */
     /* text-align: center; */
-    /* border: 1px solid white; */
+    border: 1px solid white;
     transform: rotate(-90deg) translate(22%, -147%);
     width: 388%;
     margin: auto;
@@ -155,30 +147,22 @@
 
   section {
     width: 100%;
-    /* border: 1px solid white; */
+    border: 1px solid white;
     display: flex;
     flex-direction: column;
-    transform : translate(-220px);
-    transition-property: transform;
-    transition-delay: 500ms;
   }
 
   section .titre {
     flex-grow: 1;
     padding: 20px;
     text-align: center;
-    /* transition-property: transform;
-    transition-duration: 1s; */
+    /* align-content: stretch; */
   }
-
-  /* section .titre:hover {
-    transform: translate(500px);
-  } */
 
   section #carrousel {
     width: 96%;
     flex-grow: 8;
-    /* border: 1px solid white; */
+    border: 1px solid white;
     margin: auto;
    /*  text-align: center; */
   }
