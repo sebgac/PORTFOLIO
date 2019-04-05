@@ -2,6 +2,17 @@
 
     $(function () {
 
+        // Essai fix fotorama fullscreen pb
+
+       /*  $('.fotorama').on('fotorama:fullscreenenter', function () {
+            $(this).data('fotorama').setOptions({ fit: 'contain' });
+        });
+
+        $('.fotorama').on('fotorama:fullscreenexit', function () {
+            $(this).data('fotorama').setOptions({ fit: 'contain' });
+        }); */
+
+
         // Réalisation d'un menu "coulissant" qui s'ouvre et se ferme via un bouton menu
 
         var menuOuvert = false
@@ -20,14 +31,14 @@
             if (menuOuvert == false) {
                 /* $('.menuGauche').css('display', 'flex'); */
                 $('header,section').css('transform', 'translate(0)');
-                $('.titre').css('transform', 'translate(0)');
-                $('.menuGauche nav').css('transform', 'translate(0)');
+                /*  $('.titre').css('transform', 'translate(0)');
+                 $('.menuGauche nav').css('transform', 'translate(0)'); */
                 menuOuvert = true;
             } else if (menuOuvert == true) {
                 /* $('.menuGauche').css('display', 'none'); */
                 $('header,section').css('transform', 'translate(-220px)');
-                $('.titre').css('transform', 'translate(220px)');
-                $('.menuGauche nav').css('transform', 'translate(220px)');
+                /* $('.titre').css('transform', 'translate(220px)');
+                $('.menuGauche nav').css('transform', 'translate(220px)'); */
                 menuOuvert = false;
             };
 
@@ -40,28 +51,33 @@
         });
  */
 
-       
+
         // + Flexibilité / click à l'extérieur du header ferme le menuGauche
 
-/*         $('section').on('click', function () {
-            if (menuOuvert == true) {
-                $('.menuGauche').css('display', 'none');
-                menuOuvert = false;
-            };      
-
-        }); */
+        /*         $('section').on('click', function () {
+                    if (menuOuvert == true) {
+                        $('.menuGauche').css('display', 'none');
+                        menuOuvert = false;
+                    };      
+        
+                }); */
 
         // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage
 
         var continentOuvert = false;
-
+        $('.continents').hide();   
 
         $('#voyages').on('click', function () {
-            if (continentOuvert == false) {
-                $('.menuGauche li:first-child').append('<ul class="continents"><li><a id="asie" href="#">Asie</a>  <i class="fas fa-plus"></i></li><li><a id="europe" href="#">Europe</a>  <i class="fas fa-plus"></i></li><li><a id="amsud" href="#">AmSud</a>  <i class="fas fa-plus"></i></li></ul>');
+            if (continentOuvert == false) {                
+                /* $('.menuGauche li:first-child').append('<ul class="continents"><li><a id="asie" href="#">Asie</a>  <i class="fas fa-plus"></i></li><li><a id="europe" href="#">Europe</a>  <i class="fas fa-plus"></i></li><li><a id="amsud" href="#">AmSud</a>  <i class="fas fa-plus"></i></li></ul>'); */
+                /* $('.menuGauche li:first-child').slideDown("normal"); */
+                /* $('.menuGauche li:first-child').append('<ul class="continents"><li> </li><li> </li><li> </li></ul>'); */
+                $('.continents').slideDown("normal");   
                 continentOuvert = true;
             } else if (continentOuvert == true) {
-                $('.continents').remove();
+                /* $('.continents').remove(); */
+                $('.continents').slideUp("normal");
+                /* $('.continents').remove(); */
                 continentOuvert = false;
             };
 
@@ -70,39 +86,45 @@
         // Faire de même avec les sous catégories pays
 
         var asieOuvert = false;
+        $('.asie').hide();
 
         $(document).on('click', '#asie', function () {
             if (asieOuvert == false) {
-                $('.continents li:first-child').append('<ul class="asie"><li><a id="inde" href="#">Inde</a></li><li><a id="japon" href="#">Japon</a></li><li><a id="coree" href="#">Corée du Sud</a></li><li><a id="mongolie" href="#">Mongolie</a></li><li><a id="chine" href="#">Chine</a></li><li><a id="vietnam" href="#">Vietnam</a></li><li><a id="laos" href="#">Laos</a></li><li><a id="thailande" href="#">Thailande</a></li></ul>');
+                /* $('.continents li:first-child').append('<ul class="asie"><li><a id="inde" href="#">Inde</a></li><li><a id="japon" href="#">Japon</a></li><li><a id="coree" href="#">Corée du Sud</a></li><li><a id="mongolie" href="#">Mongolie</a></li><li><a id="chine" href="#">Chine</a></li><li><a id="vietnam" href="#">Vietnam</a></li><li><a id="laos" href="#">Laos</a></li><li><a id="thailande" href="#">Thailande</a></li></ul>'); */
+                $('.asie').slideDown("normal");
                 asieOuvert = true;
             } else if (asieOuvert == true) {
-                $('.asie').remove();
+                $('.asie').slideUp("normal");
                 asieOuvert = false;
             };
 
         });
 
         var europeOuvert = false;
+        $('.europe').hide();
 
         $(document).on('click', '#europe', function () {
             if (europeOuvert == false) {
-                $('.continents li:nth-child(2)').append('<ul class="europe"><li><a id="france" href="#">France</a></li><li><a id="allemagne" href="#">Allemagne</a></li><li><a id="autriche" href="#">Autriche</a></li><li><a id="slovenie" href="#">Slovénie</a></li><li><a id="croatie" href="#">Croatie</a></li><li><a id="montenegro" href="#">Monténegro</a></li><li><a id="albanie" href="#">Albanie</a></li><li><a id="grece" href="#">Grèce</a></li><li><a id="Turquie" href="#">Turquie</a></li></ul>');
+                /* $('.continents li:nth-child(2)').append('<ul class="europe"><li><a id="france" href="#">France</a></li><li><a id="allemagne" href="#">Allemagne</a></li><li><a id="autriche" href="#">Autriche</a></li><li><a id="slovenie" href="#">Slovénie</a></li><li><a id="croatie" href="#">Croatie</a></li><li><a id="montenegro" href="#">Monténegro</a></li><li><a id="albanie" href="#">Albanie</a></li><li><a id="grece" href="#">Grèce</a></li><li><a id="Turquie" href="#">Turquie</a></li></ul>'); */
+                $('.europe').slideDown("normal");
                 europeOuvert = true;
             } else if (europeOuvert == true) {
-                $('.europe').remove();
+                $('.europe').slideUp("normal");
                 europeOuvert = false;
             };
 
         });
 
         var amsudOuvert = false;
+        $('.amsud').hide();
 
         $(document).on('click', '#amsud', function () {
             if (amsudOuvert == false) {
-                $('.continents li:nth-child(3)').append('<ul class="amsud"><li><a id="chili" href="#">Chili</a></li><li><a id="bolivie" href="#">Bolivie</a></li><li><a id="perou" href="#">Pérou</a></li><li><a id="argentine" href="#">Argentine</a></li></ul>');
+                /* $('.continents li:nth-child(3)').append('<ul class="amsud"><li><a id="chili" href="#">Chili</a></li><li><a id="bolivie" href="#">Bolivie</a></li><li><a id="perou" href="#">Pérou</a></li><li><a id="argentine" href="#">Argentine</a></li></ul>'); */
+                $('.amsud').slideDown("normal");
                 amsudOuvert = true;
             } else if (amsudOuvert == true) {
-                $('.amsud').remove();
+                $('.amsud').slideUp("normal");
                 amsudOuvert = false;
             };
 
