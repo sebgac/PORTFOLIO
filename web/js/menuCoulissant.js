@@ -63,20 +63,26 @@
                 }); */
 
         // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage
+        // + changer l'icone fleche haut/bas
 
         var continentOuvert = false;
-        $('.continents').hide();   
+        $('.continents').hide(); 
+        $('#voyages i.fas.fa-arrow-up').hide();  
 
         $('#voyages').on('click', function () {
             if (continentOuvert == false) {                
                 /* $('.menuGauche li:first-child').append('<ul class="continents"><li><a id="asie" href="#">Asie</a>  <i class="fas fa-plus"></i></li><li><a id="europe" href="#">Europe</a>  <i class="fas fa-plus"></i></li><li><a id="amsud" href="#">AmSud</a>  <i class="fas fa-plus"></i></li></ul>'); */
                 /* $('.menuGauche li:first-child').slideDown("normal"); */
                 /* $('.menuGauche li:first-child').append('<ul class="continents"><li> </li><li> </li><li> </li></ul>'); */
-                $('.continents').slideDown("normal");   
+                $('.continents').slideDown("normal");
+                $('#voyages i.fas.fa-arrow-up').show();
+                $('#voyages i.fas.fa-arrow-down').hide();   
                 continentOuvert = true;
             } else if (continentOuvert == true) {
                 /* $('.continents').remove(); */
                 $('.continents').slideUp("normal");
+                $('#voyages i.fas.fa-arrow-down').show();
+                $('#voyages i.fas.fa-arrow-up').hide(); 
                 /* $('.continents').remove(); */
                 continentOuvert = false;
             };
@@ -87,14 +93,19 @@
 
         var asieOuvert = false;
         $('.asie').hide();
+        $('#asie i.fas.fa-arrow-up').hide();
 
         $(document).on('click', '#asie', function () {
             if (asieOuvert == false) {
                 /* $('.continents li:first-child').append('<ul class="asie"><li><a id="inde" href="#">Inde</a></li><li><a id="japon" href="#">Japon</a></li><li><a id="coree" href="#">Corée du Sud</a></li><li><a id="mongolie" href="#">Mongolie</a></li><li><a id="chine" href="#">Chine</a></li><li><a id="vietnam" href="#">Vietnam</a></li><li><a id="laos" href="#">Laos</a></li><li><a id="thailande" href="#">Thailande</a></li></ul>'); */
                 $('.asie').slideDown("normal");
+                $('#asie i.fas.fa-arrow-up').show();
+                $('#asie i.fas.fa-arrow-down').hide();   
                 asieOuvert = true;
             } else if (asieOuvert == true) {
                 $('.asie').slideUp("normal");
+                $('#asie i.fas.fa-arrow-down').show();
+                $('#asie i.fas.fa-arrow-up').hide(); 
                 asieOuvert = false;
             };
 
@@ -102,14 +113,19 @@
 
         var europeOuvert = false;
         $('.europe').hide();
+        $('#europe i.fas.fa-arrow-up').hide();
 
         $(document).on('click', '#europe', function () {
             if (europeOuvert == false) {
                 /* $('.continents li:nth-child(2)').append('<ul class="europe"><li><a id="france" href="#">France</a></li><li><a id="allemagne" href="#">Allemagne</a></li><li><a id="autriche" href="#">Autriche</a></li><li><a id="slovenie" href="#">Slovénie</a></li><li><a id="croatie" href="#">Croatie</a></li><li><a id="montenegro" href="#">Monténegro</a></li><li><a id="albanie" href="#">Albanie</a></li><li><a id="grece" href="#">Grèce</a></li><li><a id="Turquie" href="#">Turquie</a></li></ul>'); */
                 $('.europe').slideDown("normal");
+                $('#europe i.fas.fa-arrow-up').show();
+                $('#europe i.fas.fa-arrow-down').hide();   
                 europeOuvert = true;
             } else if (europeOuvert == true) {
                 $('.europe').slideUp("normal");
+                $('#europe i.fas.fa-arrow-down').show();
+                $('#europe i.fas.fa-arrow-up').hide(); 
                 europeOuvert = false;
             };
 
@@ -117,26 +133,34 @@
 
         var amsudOuvert = false;
         $('.amsud').hide();
+        $('#amsud i.fas.fa-arrow-up').hide();
 
         $(document).on('click', '#amsud', function () {
             if (amsudOuvert == false) {
                 /* $('.continents li:nth-child(3)').append('<ul class="amsud"><li><a id="chili" href="#">Chili</a></li><li><a id="bolivie" href="#">Bolivie</a></li><li><a id="perou" href="#">Pérou</a></li><li><a id="argentine" href="#">Argentine</a></li></ul>'); */
                 $('.amsud').slideDown("normal");
+                $('#amsud i.fas.fa-arrow-up').show();
+                $('#amsud i.fas.fa-arrow-down').hide(); 
                 amsudOuvert = true;
             } else if (amsudOuvert == true) {
                 $('.amsud').slideUp("normal");
+                $('#amsud i.fas.fa-arrow-down').show();
+                $('#amsud i.fas.fa-arrow-up').hide(); 
                 amsudOuvert = false;
             };
 
         });
 
         // Lorsqu'on clique sur une autre catégorie que celle ouverte, on ferme la catégorie en cours
+        // et on change le sens de la flèche fas
 
         // Pour le continent Asie
 
         $(document).on('click', '#amsud,#europe', function () {
             if (asieOuvert == true) {
-                $('.asie').remove();
+                $('.asie').slideUp("normal");
+                $('#asie i.fas.fa-arrow-down').show();
+                $('#asie i.fas.fa-arrow-up').hide(); 
                 asieOuvert = false;
             };
 
@@ -146,7 +170,9 @@
 
         $(document).on('click', '#asie,#amsud', function () {
             if (europeOuvert == true) {
-                $('.europe').remove();
+                $('.europe').slideUp("normal");
+                $('#europe i.fas.fa-arrow-down').show();
+                $('#europe i.fas.fa-arrow-up').hide(); 
                 europeOuvert = false;
             };
 
@@ -156,7 +182,9 @@
 
         $(document).on('click', '#asie,#europe', function () {
             if (amsudOuvert == true) {
-                $('.amsud').remove();
+                $('.amsud').slideUp("normal");
+                $('#amsud i.fas.fa-arrow-down').show();
+                $('#amsud i.fas.fa-arrow-up').hide(); 
                 amsudOuvert = false;
             };
 

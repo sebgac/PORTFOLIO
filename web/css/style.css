@@ -53,7 +53,7 @@
   }
 
   .menuGauche h2 {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     padding: 20px 0;
     margin: auto;
   }
@@ -61,7 +61,7 @@
 /* Dans la nav : flex column pour mettre en boite les div internes */
 
   .menuGauche nav {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     display: flex;
     flex-direction: column;
     margin-bottom: 10vh;
@@ -73,7 +73,7 @@
   }
 
   .menuGauche ul {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     flex-grow: 3;
     padding: 10px 0;
    
@@ -101,7 +101,7 @@
 
 /* Opacité 0 pour l'icone +, modifiée avec jQuery */
 
-  i.fas.fa-plus {
+  i.fas.fa-arrow-down, i.fas.fa-arrow-up{
     color:red;
     opacity: 0;
     font-size: 10px;
@@ -111,7 +111,7 @@
 /* Div contenant liens vers pages about / moi / contact ... */
 
   #about {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     padding: 20px 0;
     display: flex;
     flex-direction: column;
@@ -136,7 +136,7 @@
   }
 
   #menuburger {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     text-align: center;
     padding: 15px 0 15px 1px;
     transition : all 0.5s ease-out;
@@ -151,7 +151,7 @@
     margin-right: auto;
     margin-left: auto; */
     /* text-align: center; */
-    border: 1px solid white;
+    /* border: 1px solid white; */
     transform: rotate(-90deg) translate(22%, -147%);
     width: 388%;
     margin: auto;
@@ -163,7 +163,7 @@
 
   section {
     width: 100%;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     display: flex;
     flex-direction: column;
     transform : translate(-220px);
@@ -190,7 +190,7 @@
     width: 96%;
     /* height: 100vh; */
     flex-grow: 8;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     margin: auto;
    /*  text-align: center; */
   }
