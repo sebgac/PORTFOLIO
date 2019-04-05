@@ -28,15 +28,12 @@
 
 /* Mise en inline flex des 2 div menuGauche et liseret */
 
-  #header{
-    
-  }
-
+  
   header {
     display: inline-flex;
-    transform : translate(-220px);
+    /* transform : translate(-220px);
     transition-property: transform;
-    transition-delay: 500ms;
+    transition-delay: 500ms; */
     
   }
 
@@ -102,7 +99,7 @@
 /* Opacité 0 pour l'icone +, modifiée avec jQuery */
 
   i.fas.fa-arrow-down, i.fas.fa-arrow-up{
-    color:red;
+    /* color:red; */
     opacity: 0;
     font-size: 10px;
     vertical-align: middle;
@@ -166,9 +163,9 @@
     /* border: 1px solid white; */
     display: flex;
     flex-direction: column;
-    transform : translate(-220px);
+    /* transform : translate(-220px);
     transition-property: transform;
-    transition-delay: 500ms;
+    transition-delay: 500ms; */
   }
     
   
