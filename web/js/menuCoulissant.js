@@ -20,12 +20,12 @@
             if (menuOuvert == false) {
                 /* $('.menuGauche').css('display', 'flex'); */
                 $('header,section').css('transform', 'translate(0)');
-                /* $('section').css('transform', 'translate(0)'); */
+                $('.titre').css('transform', 'translate(0)');
                 menuOuvert = true;
             } else if (menuOuvert == true) {
                 /* $('.menuGauche').css('display', 'none'); */
                 $('header,section').css('transform', 'translate(-220px)');
-                /* $('section').css('transform', 'translate(-220px)'); */
+                $('.titre').css('transform', 'translate(220px)');
                 menuOuvert = false;
             };
 
@@ -33,12 +33,12 @@
 
         // test à supprimer
 
-       /*  $('a#bouton').on('click', function () {
-            $('.titre').css('transform', 'translate(500px)');
+        /* $('a#bouton').on('click', function () {
+            $('.titre').css('transform', 'translate(220px)');
+        });
+ */
 
-        }); */
-
-
+       
         // + Flexibilité / click à l'extérieur du header ferme le menuGauche
 
 /*         $('section').on('click', function () {
