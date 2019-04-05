@@ -21,11 +21,13 @@
                 /* $('.menuGauche').css('display', 'flex'); */
                 $('header,section').css('transform', 'translate(0)');
                 $('.titre').css('transform', 'translate(0)');
+                $('.menuGauche nav').css('transform', 'translate(0)');
                 menuOuvert = true;
             } else if (menuOuvert == true) {
                 /* $('.menuGauche').css('display', 'none'); */
                 $('header,section').css('transform', 'translate(-220px)');
                 $('.titre').css('transform', 'translate(220px)');
+                $('.menuGauche nav').css('transform', 'translate(220px)');
                 menuOuvert = false;
             };
 
