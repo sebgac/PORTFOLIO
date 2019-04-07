@@ -51,6 +51,18 @@
 
         });
 
+        // A essayer, slide Toogle, pour faire glisser les éléments latéralement, à essayer sur les div internes pourquoi pas
+
+/*        
+https://www.learningjquery.com/2009/02/slide-elements-in-different-directions
+
+Horizontal Slides
+Animate Width
+We can also slide elements to the left and right. The simplest way is to animate the element's width property.
+
+[js]$(document).ready(function() { $('#slidewidth button').click(function() { $(this).next().animate({width: 'toggle'}); }); });[/js]
+In this case it's not necessary for the sliding element to be positioned. */
+
         // + Flexibilité / click à l'extérieur du header ferme le menuGauche 
         // A adapter quand pb de menu résolu
 
