@@ -75,6 +75,7 @@
       .menuGauche nav {
         border: 1px solid white;
         /*margin: auto;*/
+        /* padding: auto; */
         /*flex-grow: 3;*/
         display: flex;
         flex-direction: column;
@@ -197,25 +198,36 @@
         <h2>Galerie Photo Street</h2>
       </div>
       <div id="carrousel">
-        <div
-          class="fotorama"
-          data-width="63%"
-          data-ratio="800/600"
-          data-nav="thumbs"
-          data-fit="contain"
-          data-tumbwidth="30"
-          data-tumbheight="30"          
-        >
-          <img src="street2.jpg" />
-          <img src="street3.jpg" />
-          <img src="street4.jpg" />
-          <img src="street5.jpg" />
-          <img src="street6.jpg" />
-          <img src="street7.jpg" />
-          <img src="street8.jpg" />
-          <img src="street9.jpg" />
-          <img src="street10.jpg" />
-        </div>
+        
+                <div
+                class="fotorama"
+                data-width="100%" 
+                data-height="88%"          
+                data-ratio="800/600"
+                data-nav="thumbs"
+                data-fit="contain"
+                data-thumbwidth="30" 
+                data-thumbheight="30"  
+                data-arrows="true"
+                data-click="true"
+                data-swipe="true"
+                data-trackpad="true"
+                data-keyboard="true"
+                data-allowfullscreen="true"
+                
+              >
+                <img src="street2.jpg" />
+                <img src="street3.jpg" />
+                <img src="street4.jpg" />
+                <img src="street5.jpg" />
+                <img src="street6.jpg" />
+                <img src="street7.jpg" />
+                <img src="street8.jpg" />
+                <img src="street9.jpg" />
+                <img src="street10.jpg" />
+              </div>
+        
+        
       </div>
     </section>
   </body>
