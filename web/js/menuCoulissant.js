@@ -35,14 +35,16 @@
 
             if (menuOuvert == false) {
                 /* $('.menuGauche').css('display', 'flex'); */
-                $('.menuGauche').show(500);
-                $('header,section').css('transform', 'translate(0)');
+                /* $('.menuGauche').show(500); */
+                $('.menuGauche').toggle('slide');
+                /* $('header,section').css('transform', 'translate(0)'); */
                 /*  $('.titre').css('transform', 'translate(0)');
                  $('.menuGauche nav').css('transform', 'translate(0)'); */
                 menuOuvert = true;
             } else if (menuOuvert == true) {
                 /* $('.menuGauche').css('display', 'none'); */
-                $('.menuGauche').hide(500);
+                /* $('.menuGauche').hide(500); */
+                $('.menuGauche').toggle('slide');
                 /* $('header,section').css('transform', 'translate(-220px)'); */
                 /* $('.titre').css('transform', 'translate(220px)');
                 $('.menuGauche nav').css('transform', 'translate(220px)'); */
