@@ -1,0 +1,168 @@
+/* Note : les border: 1px solid white servent pour situer les boites */
+
+/* On reset les paramètres */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+/* Style général + définition des premières div en flex */
+
+  body {
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    display: inline-flex;
+  }
+
+/* Style général des liens */
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+/* Mise en inline flex des 2 div menuGauche et liseret */
+
+  header {
+    display: inline-flex;
+    /* transform: translate(-218px); */
+  }
+
+/* Style de la 1ere div du header */
+
+  .menuGauche {
+    width: 200px;
+    margin-left:20px;
+/*       min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menuGauche h2 {
+    border: 1px solid white;
+    padding: 20px 0;
+    margin: auto;
+  }
+
+/* Dans la nav : flex column pour mettre en boite les div internes */
+
+  .menuGauche nav {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50vh;
+    margin-left: 10px;
+  }
+
+  .menuGauche ul {
+    border: 1px solid white;
+    flex-grow: 3;
+    padding: 10px 0;
+  }
+
+  .menuGauche li {
+    list-style: none;
+  }
+  
+/* Définition de l'animation pour les liens du menu */
+
+  .menuGauche li a, #about a{
+    transition : all 0.5s ease-out;
+  }
+
+  .menuGauche li a:hover, #about a:hover{
+    color:red;
+  }
+
+/* Petite marge pour différencier les pays des continents */
+
+  .asie a, .europe a, .amsud a {
+      padding-left:10px;
+  }
+
+/* Opacité 0 pour l'icone +, modifiée avec jQuery */
+
+  i.fas.fa-plus {
+    color:red;
+    opacity: 0;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+/* Div contenant liens vers pages about / moi / contact ... */
+
+  #about {
+    border: 1px solid white;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #about a {
+    padding-top: 5px;
+  }
+
+/* Style de la 2 div du header, le petit liseret */
+
+  .liseret {
+    /*flex-grow: 1;*/
+    width: 52px;
+    min-height: 100vh;
+    border-width: 0 1px 0 1px;
+    border-color: white;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+/*    align-content: space-between; */
+  }
+
+  #menuburger {
+    border: 1px solid white;
+    text-align: center;
+    padding: 15px 0 15px 1px;
+    transition : all 0.5s ease-out;
+  }
+
+  #menuburger:hover {
+    color: red;    
+  }
+
+  #portfolio {
+/*    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto; */
+    /* text-align: center; */
+    border: 1px solid white;
+    transform: rotate(-90deg) translate(22%, -147%);
+    width: 388%;
+    margin: auto;
+    padding: 15px;
+  }
+
+/* Div Principale contenant le titre et le caroussel */
+
+  section {
+    width: 100%;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  section .titre {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+    /* align-content: stretch; */
+  }
+
+  section #carrousel {
+    width: 96%;
+    flex-grow: 8;
+    border: 1px solid white;
+    margin: auto;
+   /*  text-align: center; */
+  }

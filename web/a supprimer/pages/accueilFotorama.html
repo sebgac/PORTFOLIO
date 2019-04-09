@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SebGacPhoto</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css"
+      rel="stylesheet"
+    />
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        background-color: black;
+        color: white;
+        font-family: "Roboto", sans-serif;
+        display: inline-flex;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      header {
+        display: inline-flex;
+        /*width: 20%;*/
+      }
+
+      .menuGauche {
+        border-right: 1px solid white;
+        width: 200px;
+        /*height: 1000px;*/
+        min-height: 100vh;
+        /*flex-grow: 1;*/
+        display: flex;
+        flex-direction: column;
+        /*justify-content: center;*/
+        /*justify-content: center;*/
+        /*align-items: stretch;*/
+      }
+
+      .menuGauche h2 {
+        border: 1px solid white;
+        /*text-align: center;*/
+        padding: 20px;
+        /*flex-grow: 1;*/
+        margin: auto;
+      }
+
+      .menuGauche nav {
+        border: 1px solid white;
+        /*margin: auto;*/
+        /* padding: auto; */
+        /*flex-grow: 3;*/
+        display: flex;
+        flex-direction: column;
+        margin-top: 50vh;
+        margin-left: 10px;
+      }
+
+      .menuGauche ul {
+        border: 1px solid white;
+        flex-grow: 3;
+        padding: 20px;
+      }
+
+      .menuGauche li {
+        list-style: none;
+      }
+
+      #about {
+        /*border: 1px solid white;*/
+        padding: 20px;
+
+        /*margin-top: auto;*/
+        /*flex-grow: 1;*/
+        /*align-content: flex-end;*/
+      }
+
+      .liseret {
+        /*flex-grow: 1;*/
+        width: 50px;
+        border-right: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+      }
+
+      #portfolio {
+        margin-bottom: auto;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        /*border: 1px solid white;*/
+        /*padding: 25px;*/
+        /*padding-top: 25px;*/
+        margin-top: 10px;
+        padding: 0 15px 0 15px;
+        writing-mode: vertical-rl;
+        /*text-orientation: sideways;*/
+      }
+
+      #menuburger {
+        /*border: 1px solid white;*/
+        text-align: center;
+        margin-bottom: 1em;
+      }
+
+      section {
+        width: 100%;
+        border: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        /*align-content: stretch;*/
+      }
+
+      section .titre {
+        flex-grow: 1;
+        /*width: 100%;*/
+        border: 1px solid white;
+        /*            margin-top: auto;
+            margin-bottom: auto;*/
+        padding: 20px;
+        text-align: center;
+        align-content: stretch;
+      }
+
+      section #carrousel {
+        width: 96%;
+        flex-grow: 8;
+        /*width:100%;*/
+        border: 1px solid white;
+        margin: auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="menuGauche">
+        <a href="accueil.html">
+          <h2 id="titre1">SebGac</h2>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="#">Voyage</a></li>
+            <li><a href="#">Mariage</a></li>
+            <li><a href="#">Street</a></li>
+            <li><a href="#">Architecture</a></li>
+            <li><a href="#">Portrait</a></li>
+          </ul>
+          <div id="about">
+            <a href="#">ABOUT</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="liseret">
+        <div id="portfolio">
+          <p>PORTFOLIO SEBGAC</p>
+        </div>
+        <div id="menuburger">
+          <a href="#" onclick="openNav()">
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="titre">
+        <h2>Galerie Photo Street</h2>
+      </div>
+      <div id="carrousel">
+        <div>
+                <div
+                class="fotorama"
+                data-width="100%" 
+                data-height="88%"          
+                data-ratio="800/600"
+                data-nav="thumbs"
+                data-fit="contain"
+                data-thumbwidth="30" 
+                data-thumbheight="30"  
+                data-arrows="true"
+                data-click="true"
+                data-swipe="true"
+                data-trackpad="true"
+                data-keyboard="true"
+                data-allowfullscreen="true"
+                
+              >
+                <img src="street2.jpg" />
+                <img src="street3.jpg" />
+                <img src="street4.jpg" />
+                <img src="street5.jpg" />
+                <img src="street6.jpg" />
+                <img src="street7.jpg" />
+                <img src="street8.jpg" />
+                <img src="street9.jpg" />
+                <img src="street10.jpg" />
+              </div>
+        </div> 
+        
+      </div>
+    </section>
+  </body>
+</html>

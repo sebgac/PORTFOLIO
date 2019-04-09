@@ -1,0 +1,9 @@
+- rendre le menu déroulant
+- faire du javascript pour qu'il aille cherche le nom des images en incrémentant automatiquement
+- laisser le nom des catégories ouvertes en couleurs
+- refaire ferme menu click section
+
+pb :
+
+- transition du menu avec translate qui se fonctionne pas (animation)
+-problème de centrage du caroussel avant/après full screen
