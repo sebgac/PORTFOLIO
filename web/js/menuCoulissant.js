@@ -4,13 +4,13 @@
 
         // Essai fix fotorama fullscreen pb
 
-       /*  $('.fotorama').on('fotorama:fullscreenenter', function () {
-            $(this).data('fotorama').setOptions({ fit: 'contain' });
-        });
-
-        $('.fotorama').on('fotorama:fullscreenexit', function () {
-            $(this).data('fotorama').setOptions({ fit: 'contain' });
-        }); */
+        /*  $('.fotorama').on('fotorama:fullscreenenter', function () {
+             $(this).data('fotorama').setOptions({ fit: 'contain' });
+         });
+ 
+         $('.fotorama').on('fotorama:fullscreenexit', function () {
+             $(this).data('fotorama').setOptions({ fit: 'contain' });
+         }); */
 
 
         // Réalisation d'un menu "coulissant" qui s'ouvre et se ferme via un bouton menu
@@ -18,9 +18,11 @@
         // on fixe une valeur repère qui indique que le menu est fermé
         var menuOuvert = false
         // de base, le menu est caché
-        $('.menuGauche').hide();
+        /* $('.menuGauche').hide(); */
+        /* $('section .titre').hide(); */
 
-        $('a#bouton').on('click', function () {
+
+        $('.liseret').on('click', function () {
 
             // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
 
@@ -32,63 +34,70 @@
             // Affichage / disparition du menu en lui-même
             // Note : j'ai trouvé une solution avec les fonctions show et hide, mais ce n'est pas ce que je veux
             // But : faire bougé les div de manière à ce que le texte vienne du côté gauche de l'écran (essai avec transform qui ne fonctionne pas)
+            // A essayer, mettre le body en relative et bouger les balises section et header
+
 
             if (menuOuvert == false) {
                 /* $('.menuGauche').css('display', 'flex'); */
                 /* $('header,section').css('transform', 'translate(0)'); */
                 /* $('.menuGauche').show(500); */
-                $('.menuGauche').toggle('slide');
+                /* $('.menuGauche').toggle('slide'); */
+                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
+                /* $('section .titre').slideDown(); */
                 menuOuvert = true;
             } else if (menuOuvert == true) {
                 /* $('.menuGauche').css('display', 'none'); */
                 /* $('header,section').css('transform', 'translate(-220px)'); */
                 /* $('.menuGauche').hide(500); */
-                $('.menuGauche').toggle('slide');
+                /* $('.menuGauche').toggle('slide'); */
+                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
+                /* $('section .titre').slideUp(); */
                 menuOuvert = false;
             };
 
         });
 
-        // A essayer, slide Toogle, pour faire glisser les éléments latéralement, à essayer sur les div internes pourquoi pas
+        // Fermeture du menu lorsqu'on clique sur la section (peut-etre à retirer, pas super UX)
 
-/*        
-https://www.learningjquery.com/2009/02/slide-elements-in-different-directions
+        $('section').on('click', function () {
 
-Horizontal Slides
-Animate Width
-We can also slide elements to the left and right. The simplest way is to animate the element's width property.
+            // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
 
-[js]$(document).ready(function() { $('#slidewidth button').click(function() { $(this).next().animate({width: 'toggle'}); }); });[/js]
-In this case it's not necessary for the sliding element to be positioned. */
+            if (menuOuvert == true) {
 
-        // + Flexibilité / click à l'extérieur du header ferme le menuGauche 
-        // A adapter quand pb de menu résolu
+                $('i#icone').fadeOut(0)
+                    .toggleClass('fas fa-times')
+                    .fadeIn(500)
+                    .toggleClass('fas fa-bars');
 
-        /*         $('section').on('click', function () {
-                    if (menuOuvert == true) {
-                        $('.menuGauche').css('display', 'none');
-                        menuOuvert = false;
-                    };      
-        
-                }); */
+                /* $('.menuGauche').css('display', 'none'); */
+                /* $('header,section').css('transform', 'translate(-220px)'); */
+                /* $('.menuGauche').hide(500); */
+                /* $('.menuGauche').toggle('slide'); */
+                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
+                /* $('section .titre').slideUp(); */
+                menuOuvert = false;
+            };
+
+        });
 
         // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage
         // + changer l'icone fleche haut/bas
 
         var continentOuvert = false;
-        $('.continents').hide(); 
-        $('#voyages i.fas.fa-arrow-up').hide();  
+        $('.continents').hide();
+        $('#voyages i.fas.fa-arrow-up').hide();
 
         $('#voyages').on('click', function () {
-            if (continentOuvert == false) {                
+            if (continentOuvert == false) {
                 $('.continents').slideDown(500);
                 $('#voyages i.fas.fa-arrow-up').show(500);
-                $('#voyages i.fas.fa-arrow-down').hide();   
+                $('#voyages i.fas.fa-arrow-down').hide();
                 continentOuvert = true;
             } else if (continentOuvert == true) {
                 $('.continents').slideUp(500);
                 $('#voyages i.fas.fa-arrow-down').show(500);
-                $('#voyages i.fas.fa-arrow-up').hide(); 
+                $('#voyages i.fas.fa-arrow-up').hide();
                 continentOuvert = false;
             };
 
@@ -104,12 +113,12 @@ In this case it's not necessary for the sliding element to be positioned. */
             if (asieOuvert == false) {
                 $('.asie').slideDown(500);
                 $('#asie i.fas.fa-arrow-up').show(500);
-                $('#asie i.fas.fa-arrow-down').hide();   
+                $('#asie i.fas.fa-arrow-down').hide();
                 asieOuvert = true;
             } else if (asieOuvert == true) {
                 $('.asie').slideUp("normal");
                 $('#asie i.fas.fa-arrow-down').show(500);
-                $('#asie i.fas.fa-arrow-up').hide(); 
+                $('#asie i.fas.fa-arrow-up').hide();
                 asieOuvert = false;
             };
 
@@ -123,12 +132,12 @@ In this case it's not necessary for the sliding element to be positioned. */
             if (europeOuvert == false) {
                 $('.europe').slideDown(500);
                 $('#europe i.fas.fa-arrow-up').show(500);
-                $('#europe i.fas.fa-arrow-down').hide();   
+                $('#europe i.fas.fa-arrow-down').hide();
                 europeOuvert = true;
             } else if (europeOuvert == true) {
                 $('.europe').slideUp("normal");
                 $('#europe i.fas.fa-arrow-down').show(500);
-                $('#europe i.fas.fa-arrow-up').hide(); 
+                $('#europe i.fas.fa-arrow-up').hide();
                 europeOuvert = false;
             };
 
@@ -142,12 +151,12 @@ In this case it's not necessary for the sliding element to be positioned. */
             if (amsudOuvert == false) {
                 $('.amsud').slideDown(500);
                 $('#amsud i.fas.fa-arrow-up').show(500);
-                $('#amsud i.fas.fa-arrow-down').hide(); 
+                $('#amsud i.fas.fa-arrow-down').hide();
                 amsudOuvert = true;
             } else if (amsudOuvert == true) {
                 $('.amsud').slideUp(500);
                 $('#amsud i.fas.fa-arrow-down').show(500);
-                $('#amsud i.fas.fa-arrow-up').hide(); 
+                $('#amsud i.fas.fa-arrow-up').hide();
                 amsudOuvert = false;
             };
 
@@ -162,7 +171,7 @@ In this case it's not necessary for the sliding element to be positioned. */
             if (asieOuvert == true) {
                 $('.asie').slideUp("normal");
                 $('#asie i.fas.fa-arrow-down').show();
-                $('#asie i.fas.fa-arrow-up').hide(); 
+                $('#asie i.fas.fa-arrow-up').hide();
                 asieOuvert = false;
             };
 
@@ -174,7 +183,7 @@ In this case it's not necessary for the sliding element to be positioned. */
             if (europeOuvert == true) {
                 $('.europe').slideUp("normal");
                 $('#europe i.fas.fa-arrow-down').show();
-                $('#europe i.fas.fa-arrow-up').hide(); 
+                $('#europe i.fas.fa-arrow-up').hide();
                 europeOuvert = false;
             };
 
@@ -186,7 +195,7 @@ In this case it's not necessary for the sliding element to be positioned. */
             if (amsudOuvert == true) {
                 $('.amsud').slideUp("normal");
                 $('#amsud i.fas.fa-arrow-down').show();
-                $('#amsud i.fas.fa-arrow-up').hide(); 
+                $('#amsud i.fas.fa-arrow-up').hide();
                 amsudOuvert = false;
             };
 
