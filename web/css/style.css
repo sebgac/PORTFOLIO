@@ -23,6 +23,7 @@ body {
   /* font-family: 'Inconsolata', monospace;
   font-size:1.3em; */
   display: inline-flex;
+  overflow:hidden;  
 }
 
 /* Style général des liens */
@@ -223,12 +224,12 @@ section h2 {
   } */
 
 section #caroussel {
-  /* width: 96%; */
+  width: 96%;
   /* height: 100vh; */
   /* flex-grow: 8; */
   /* border: 1px solid white; */
   /* margin: auto; */
-  /*  text-align: center; */
+   text-align: center;
   transform: translate(-240px);
   transition-property: transform;
   transition-duration: 500ms;

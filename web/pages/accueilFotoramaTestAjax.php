@@ -8,7 +8,7 @@
   <title>SebGacPhoto</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-  
+  <link href="../css/style.css" rel="stylesheet" />
   <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
@@ -69,9 +69,9 @@
           <li><a id="mariage" href="#">Mariage</a></li>
         </ul>
         <div id="about">
-          <a id="moi" href="#">SUR MOI</a>
-          <a id="contact" href="#">CONTACT</a>
-          <a id="livre" href="#">LIVRE D'OR</a>
+          <a href="#">SUR MOI</a>
+          <a href="#">CONTACT</a>
+          <a href="#">LIVRE D'OR</a>
         </div>
       </nav>
     </div>
@@ -97,12 +97,12 @@
       <div class="fotorama" data-maxwidth="100%" data-maxheight="90%" data-ratio="800/600" data-nav="thumbs"
         data-fit="contain" data-thumbwidth="30" data-thumbheight="30" data-arrows="true" data-click="true"
         data-swipe="true" data-trackpad="true" data-keyboard="true" data-allowfullscreen="true">
-        <img src="images/accueil/accueil1.jpg" />
-        <img src="images/accueil/accueil2.jpg" />
-        <img src="images/accueil/accueil3.jpg" />
-        <img src="images/accueil/accueil4.jpg" />
-        <img src="images/accueil/accueil5.jpg" />
-        <img src="images/accueil/accueil6.jpg" />
+        <img src="../images/accueil/accueil1.jpg" />
+        <img src="../images/accueil/accueil2.jpg" />
+        <img src="../images/accueil/accueil3.jpg" />
+        <img src="../images/accueil/accueil4.jpg" />
+        <img src="../images/accueil/accueil5.jpg" />
+        <img src="../images/accueil/accueil6.jpg" />
       </div>
       
   </section>
@@ -112,10 +112,12 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+<!-- <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 
-<script type="text/javascript" src="js/appelAjax.js"></script>
+<script type="text/javascript" src="../js/appelAjax_copy.js"></script>
 
-<script type="text/javascript" src="js/menuCoulissant.js"></script>
+<script type="text/javascript" src="../js/menuCoulissant.js"></script>
 
 </html>

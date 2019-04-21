@@ -61,24 +61,14 @@
 
         $('section').on('click', function () {
 
-            // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-
             if (menuOuvert == true) {
-
                 $('i#icone').fadeOut(0)
                     .toggleClass('fas fa-times')
                     .fadeIn(500)
                     .toggleClass('fas fa-bars');
-
-                /* $('.menuGauche').css('display', 'none'); */
-                /* $('header,section').css('transform', 'translate(-220px)'); */
-                /* $('.menuGauche').hide(500); */
-                /* $('.menuGauche').toggle('slide'); */
                 $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
-                /* $('section .titre').slideUp(); */
                 menuOuvert = false;
             };
-
         });
 
         // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage
