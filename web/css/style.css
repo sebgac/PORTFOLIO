@@ -37,9 +37,9 @@ a {
 
 header {
   display: inline-flex;
-  /* transform: translate(-240px);
-  transition-property: transform;
-  transition-delay: 500ms; */
+  
+  /* transition-property: transform;
+  transition-delay: 500ms; */ 
 }
 
 
@@ -61,7 +61,7 @@ header {
 .menuGauche h2 {
   /* border: 1px solid white; */
   padding: 20px 0;
-  margin: auto;
+  /* margin: auto; */
 }
 
 /* Dans la nav : flex column pour mettre en boite les div internes */
@@ -197,9 +197,9 @@ section {
   /* border: 1px solid white; */
   display: flex;
   flex-direction: column;
-  /* transform: translate(-240px);
-  transition-property: transform;
-  transition-delay: 500ms; */
+  
+  /* transition-property: transform;
+  transition-delay: 500ms;  */
 }
 
 section .titre {

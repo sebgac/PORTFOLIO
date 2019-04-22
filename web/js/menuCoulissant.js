@@ -42,6 +42,7 @@
                 /* $('header,section').css('transform', 'translate(0)'); */
                 /* $('.menuGauche').show(500); */
                 /* $('.menuGauche').toggle('slide'); */
+                /* $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)'); */
                 $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
                 /* $('section .titre').slideDown(); */
                 menuOuvert = true;
@@ -50,6 +51,7 @@
                 /* $('header,section').css('transform', 'translate(-220px)'); */
                 /* $('.menuGauche').hide(500); */
                 /* $('.menuGauche').toggle('slide'); */
+                /* $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)'); */
                 $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
                 /* $('section .titre').slideUp(); */
                 menuOuvert = false;
@@ -59,7 +61,7 @@
 
         // Fermeture du menu lorsqu'on clique sur la section (peut-etre à retirer, pas super UX)
 
-        $('section').on('click', function () {
+        $('section, a#accueil, a#street, a#portrait, a#architecture').on('click', function () {
 
             if (menuOuvert == true) {
                 $('i#icone').fadeOut(0)

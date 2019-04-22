@@ -4,12 +4,34 @@
 
 /* debut du script */
 
+        $(document).ready(function() {
+            $.ajax({
+                url: "pages/accueil.html", success: function (result) {
+                    $('section').html(result);
+                    /* $('section .titre, section #caroussel').css('transform', 'translate(0)'); */
+                }
+            });
+        });
+
+        $('a#accueil').on('click', function () {
+
+           /*  alert ('OKtitre'); */
+
+           $.ajax({
+                url: "pages/accueil.html", success: function (result) {
+                    $('section').html(result);
+                    
+                }
+            });
+
+        });
+       
         $('a#street').on('click', function () {
 
             $.ajax({
                 url: "pages/street.html", success: function (result) {
                     $('section').html(result);
-                    $('section .titre, section #caroussel').css('transform', 'translate(0)');
+                    /* $('section .titre, section #caroussel').css('transform', 'translate(0)'); */
                 }
             });
 
@@ -17,7 +39,7 @@
 
         $('a#architecture').on('click', function () {
 
-            alert ('OKArchi');
+            /* alert ('OKArchi'); */
 
 /*             $.ajax({
                 url: "pages/architecture.html", success: function (result) {
@@ -33,7 +55,7 @@
             $.ajax({
                 url: "pages/portrait.html", success: function (result) {
                     $('section').html(result);
-                    $('section .titre, section #caroussel').css('transform', 'translate(0)');
+                    /* $('section .titre, section #caroussel').css('transform', 'translate(0)'); */
                 }
             });
 
@@ -41,7 +63,7 @@
 
         $('a#mariage').on('click', function () {
 
-            alert ('OKMariage');
+           /*  alert ('OKMariage'); */
 
 /*             $.ajax({
                 url: "pages/mariage.html", success: function (result) {

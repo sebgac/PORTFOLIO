@@ -18,9 +18,11 @@
 <body>
     <header>
         <div class="menuGauche">
-            <a href="#">
-                <h2 id="titre1">SebGac</h2>
-            </a>
+
+            <h2 id="titre1">
+                <a id="accueil" href="#">Sebgac</a>
+            </h2>
+
             <nav>
                 <a>GALERIES PHOTO</a>
                 <ul id="categories">
@@ -89,18 +91,21 @@
 
     <section>
 
-        <div class="titre">
+<!--         <div class="titre">
             <h2>Accueil</h2>
         </div>
         <div id="caroussel">
-            <div class="fotorama" data-maxwidth="100%" data-maxheight="90%" data-ratio="800/600" data-nav="thumbs" data-fit="contain" data-thumbwidth="30" data-thumbheight="30" data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-keyboard="true" data-allowfullscreen="true">
+            <div class="fotorama" data-maxwidth="100%" data-maxheight="90%" data-ratio="800/600" 
+            data-nav="thumbs" data-fit="contain" data-thumbwidth="30" data-thumbheight="30" 
+            data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" 
+            data-keyboard="true" data-allowfullscreen="true">
                 <img src="images/accueil/accueil1.jpg" />
                 <img src="images/accueil/accueil2.jpg" />
                 <img src="images/accueil/accueil3.jpg" />
                 <img src="images/accueil/accueil4.jpg" />
                 <img src="images/accueil/accueil5.jpg" />
                 <img src="images/accueil/accueil6.jpg" />
-            </div>
+            </div> -->
 
     </section>
 
@@ -108,7 +113,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> -->
 
 <script type="text/javascript" src="js/appelAjax.js"></script>
 
