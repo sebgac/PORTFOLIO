@@ -39,14 +39,11 @@
 
         $('a#architecture').on('click', function () {
 
-            /* alert ('OKArchi'); */
-
-/*             $.ajax({
+             $.ajax({
                 url: "pages/architecture.html", success: function (result) {
                     $('section').html(result);
-                    $('section .titre, section #caroussel').css('transform', 'translate(0)');
                 }
-            }); */
+            }); 
 
         });
 
@@ -63,23 +60,18 @@
 
         $('a#mariage').on('click', function () {
 
-           /*  alert ('OKMariage'); */
-
-/*             $.ajax({
+            $.ajax({
                 url: "pages/mariage.html", success: function (result) {
                     $('section').html(result);
-                    $('section .titre, section #caroussel').css('transform', 'translate(0)');
                 }
-            }); */
+            });
 
         });
 
         $('a#contact').on('click', function () {
 
-           /*  alert ('OKCOntact'); */
-
             $.ajax({
-                url: "pages/contact.html", success: function (result) {
+                url: "pages/contact.php", success: function (result) {
                     $('section').html(result);
                     $('section .titre, section #caroussel').css('transform', 'translate(0)');
                 }

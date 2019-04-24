@@ -59,9 +59,9 @@
 
         });
 
-        // Fermeture du menu lorsqu'on clique sur la section (peut-etre à retirer, pas super UX)
+        // Fermeture du menu lorsqu'on clique sur certains liens (peut-etre à retirer, pas super UX)
 
-        $('section, a#accueil, a#street, a#portrait, a#architecture').on('click', function () {
+        $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
 
             if (menuOuvert == true) {
                 $('i#icone').fadeOut(0)
