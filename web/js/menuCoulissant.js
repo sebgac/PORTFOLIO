@@ -2,21 +2,12 @@
 
     $(function () {
 
-        // Essai fix fotorama fullscreen pb
-
-        /*  $('.fotorama').on('fotorama:fullscreenenter', function () {
-             $(this).data('fotorama').setOptions({ fit: 'contain' });
-         });
- 
-         $('.fotorama').on('fotorama:fullscreenexit', function () {
-             $(this).data('fotorama').setOptions({ fit: 'contain' });
-         }); */
-
-
         // Réalisation d'un menu "coulissant" qui s'ouvre et se ferme via un bouton menu
 
         // on fixe une valeur repère qui indique que le menu est fermé
+
         var menuOuvert = false
+
         // de base, le menu est caché
         /* $('.menuGauche').hide(); */
         /* $('section .titre').hide(); */
@@ -32,10 +23,6 @@
                 .toggleClass('fas fa-bars');
 
             // Affichage / disparition du menu en lui-même
-            // Note : j'ai trouvé une solution avec les fonctions show et hide, mais ce n'est pas ce que je veux
-            // But : faire bougé les div de manière à ce que le texte vienne du côté gauche de l'écran (essai avec transform qui ne fonctionne pas)
-            // A essayer, mettre le body en relative et bouger les balises section et header
-
 
             if (menuOuvert == false) {
                 /* $('.menuGauche').css('display', 'flex'); */
@@ -59,7 +46,7 @@
 
         });
 
-        // Fermeture du menu lorsqu'on clique sur certains liens (peut-etre à retirer, pas super UX)
+        // Fermeture du menu lorsqu'on clique sur certains liens
 
         $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
 

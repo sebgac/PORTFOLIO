@@ -20,6 +20,6 @@ $headers = "From:" . $from;
 
 mail($to,$subject,$message, $headers);
 
-echo "L'email a été envoyé";
+/* echo "L'email a été envoyé";
 
-header ('location : contact.html');
+header ('location : contact.html'); */

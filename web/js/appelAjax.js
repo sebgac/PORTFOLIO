@@ -2,9 +2,11 @@
 
     $(function () {
 
-/* debut du script */
+        /* debut du script */
 
-        $(document).ready(function() {
+        // page chargée au lancement de la page index
+
+        $(document).ready(function () {
             $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
@@ -13,25 +15,24 @@
             });
         });
 
+        // ensuite, on charge les pages suite clic sur les liens correspondants (à peaufiner pour éviter répétition de code)
+
         $('a#accueil').on('click', function () {
 
-           /*  alert ('OKtitre'); */
-
-           $.ajax({
+            $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
-                    
+
                 }
             });
 
         });
-       
+
         $('a#street').on('click', function () {
 
             $.ajax({
                 url: "pages/street.html", success: function (result) {
                     $('section').html(result);
-                    /* $('section .titre, section #caroussel').css('transform', 'translate(0)'); */
                 }
             });
 
@@ -39,11 +40,11 @@
 
         $('a#architecture').on('click', function () {
 
-             $.ajax({
+            $.ajax({
                 url: "pages/architecture.html", success: function (result) {
                     $('section').html(result);
                 }
-            }); 
+            });
 
         });
 
@@ -52,7 +53,6 @@
             $.ajax({
                 url: "pages/portrait.html", success: function (result) {
                     $('section').html(result);
-                    /* $('section .titre, section #caroussel').css('transform', 'translate(0)'); */
                 }
             });
 
@@ -68,10 +68,12 @@
 
         });
 
-        $('a#contact').on('click', function () {
+        // pour les liens de #about, je fais un translate(0) car le menu ne coulisse pas au clic
+
+        $('a#moi').on('click', function () {
 
             $.ajax({
-                url: "pages/contact.php", success: function (result) {
+                url: "pages/moi.html", success: function (result) {
                     $('section').html(result);
                     $('section .titre, section #caroussel').css('transform', 'translate(0)');
                 }
@@ -79,14 +81,32 @@
 
         });
 
+        $('a#contact').on('click', function () {
 
-/* fin du script */
+            $.ajax({
+                url: "pages/contact.html", success: function (result) {
+                    $('section').html(result);
+                    $('section .titre, section #caroussel').css('transform', 'translate(0)');
+                }
+            });
 
-    });
+        });
 
-})(jQuery);
+        $('a#livre').on('click', function () {
 
+            $.ajax({
+                url: "pages/livre.php", success: function (result) {
+                    $('section').html(result);
+                    $('section .titre, section #caroussel').css('transform', 'translate(0)');
+                }
+            });
 
+        });
 
+                /* fin du script */
+
+            });
+
+        })(jQuery);
 
 
