@@ -47,14 +47,24 @@
 
 </style>
 
+<?php
+
+/* if(isset($_POST['submit'])){
+
+echo "L'email a été envoyé";
+
+} */
+
+?>
+
 <div class="titre">
-    <h2>Formulaire de contact 5</h2>
+    <h2>Formulaire de contact 8</h2>
 </div>
 <div id="caroussel">
     <div id="form">
-        <!-- <form action="pages/page_contact.php" method="post"> -->
         <form method="post">
             <fieldset>
+                
                 <div style="margin-top:20px;">
                     <label for="name">Nom :</label>
                     <input type="text" id="name" name="name" required pattern="[A-Za-z]+" placeholder="Votre nom ..." minlength="2" maxlength="20" autofocus >
@@ -79,27 +89,3 @@
 <div>
 
 </div>
-
-<?php 
-
-if(isset($_POST['submit'])){
-
-ini_set( 'display_errors', 1 );
- 
-error_reporting( E_ALL );
-
-$from = $_POST['mail'];
-
-$to = "sebgac@gmail.com";
-
-$subject = "Message de " . $_POST['name'] . " provenant du site sebgac.com";
-
-$message = $_POST['message'];
-
-$headers = "From:" . $from;
-
-mail($to,$subject,$message, $headers);
-
-echo "L'email a été envoyé";
-
-}

@@ -10,7 +10,7 @@
             $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
-                    /* $('section .titre, section #caroussel').css('transform', 'translate(0)'); */
+                    
                 }
             });
         });
@@ -68,7 +68,7 @@
 
         });
 
-        // pour les liens de #about, je fais un translate(0) car le menu ne coulisse pas au clic
+        // pour les liens de #about, je fais un translate(0) pour que le menu ne coulisse pas au clic
 
         $('a#moi').on('click', function () {
 
