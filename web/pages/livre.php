@@ -1,6 +1,9 @@
 <style>
-    section {
-        justify-content: space-between;
+
+    /* TO DO : fair défiler le scroll sans affecter le menu */
+
+    body {
+        overflow-y: auto;
     }
 
     form {
@@ -53,9 +56,9 @@
         width: 20%;
     }
 
-    /* #feedback {
-        display:none;
-    } */
+    #feedback {
+        color: white;
+    }
 
 </style>
 
@@ -66,26 +69,24 @@
 </div>
 <div id="caroussel">
     <div id="form">
-        <!-- <form method="post"> -->
-        <!-- <form action="pages/page_livre.php" method="post"> -->
 
         <form method="post">
-            <fieldset>                
+            <fieldset>
                 <div style="margin-top:20px;">
                     <label id="name_label" for="name">Nom :</label>
-                    <input type="text" id="name" name="name" value="" placeholder="Votre nom ..."  autofocus >
+                    <input type="text" id="name" name="name" value="" placeholder="Votre nom ..." autofocus>
                 </div>
                 <div>
                     <label id="mail_label" for="mail">e-mail :</label>
-                    <input type="email" id="mail" name="mail" value="" placeholder="Votre email ...">                    
+                    <input type="email" id="mail" name="mail" value="" placeholder="Votre email ...">
                 </div>
                 <div>
-                    <label id="website_label" for="website">e-mail :</label>
-                    <input type="text" id="website" name="website" value="" placeholder="Votre site web">                    
+                    <label id="website_label" for="website">website :</label>
+                    <input type="text" id="website" name="website" value="" placeholder="Votre site web">
                 </div>
                 <div>
                     <label id="msg_label" for="msg">Message :</label>
-                    <textarea id="msg" name="msg" value="" placeholder="Votre message ..." ></textarea>                    
+                    <textarea id="msg" name="msg" value="" placeholder="Votre message ..."></textarea>
                 </div>
                 <div style="margin: 20px;">
                     <input type="submit" id="submit" name="submit" value="Envoyer">
@@ -95,6 +96,23 @@
     </div>
     <div id="feedback">
 
+        <?php
+
+        // on établit la connection
+
+        include('connect.php');
+
+        // selection des données à afficher sur le livre d'or au chargement de la page
+
+        $sql = "SELECT * FROM livreOrPortfolioPhoto ORDER BY id DESC";
+
+        $result = mysqli_query($conn, $sql);
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<hr><br>" . $row["name"]. " " . $row["mail"]. " " . $row["website"]. " " . $row["msg"] . "<br><br>";
+        }
+        
+        ?>
 
     </div>
 

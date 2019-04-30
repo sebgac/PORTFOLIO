@@ -2,6 +2,8 @@
 
     $(function () {
 
+        // TO DO : (UX) fermer le menu lorsqu'il est ouvert et qu'on clique sur section (if menu ouvert > section translate)
+
         // Réalisation d'un menu "coulissant" qui s'ouvre et se ferme via un bouton menu
 
         // on fixe une valeur repère qui indique que le menu est fermé

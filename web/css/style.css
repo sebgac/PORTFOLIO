@@ -2,6 +2,10 @@
 
 /* On reset les paramètres */
 
+/* TO DO : les mediaqueries pour rendre responsive */
+
+/* TO DO : empecher la barre de menu de descendre dans le livre d'or */
+
 * {
   margin: 0;
   padding: 0;
@@ -162,9 +166,12 @@ i.fas.fa-arrow-down, i.fas.fa-arrow-up {
   display: flex;
   flex-direction: column;
   transform: translate(-240px);
-  transition-property: transform;
-  transition-duration: 500ms;
+  transition : all 500ms;
   /*    align-content: space-between; */
+}
+
+.liseret:hover {
+  background-color: #1e1e1e;
 }
 
 #menuburger {

@@ -17,8 +17,8 @@
             } else {
                 $("label#name_label").css('color', 'white');
             }
-            var email = $("input#mail").val();
-            if (email == "") {
+            var mail = $("input#mail").val();
+            if (mail == "") {
                 $("label#mail_label").css('color', 'red');
                 $("input#mail").focus();
                 return false;
@@ -45,9 +45,9 @@
                 url: "pages/page_contact.php",
                 data: 
                 {
-                    name: $("input#name").val(),
-                    mail: $("input#mail").val(),
-                    msg: $("textarea#msg").val()
+                    name: name,
+                    mail: mail,
+                    msg: msg
                 },
                 success: function () {
                     $('#form').html("<div id='message'></div>");
