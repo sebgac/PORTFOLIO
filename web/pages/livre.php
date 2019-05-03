@@ -1,65 +1,12 @@
-<style>
+<link href="css/style_form.css" rel="stylesheet" />
 
+<style>
     /* TO DO : fair défiler le scroll sans affecter le menu */
 
     body {
-        overflow-y: auto;
+        overflow: auto;
     }
-
-    form {
-        /* Uniquement centrer le formulaire sur la page */
-        margin: auto;
-        width: 80%;
-        /* Encadré pour voir les limites du formulaire */
-        padding: 10px;
-
-    }
-
-    label {
-        display: inline-block;
-        width: 25%;
-        text-align: right;
-        padding: 1em;
-        transition-duration: 500ms;
-    }
-
-    fieldset {
-        border-color: #3a3a3a;
-    }
-
-    fieldset>div {
-        margin: 10px 0;
-    }
-
-    input,
-    textarea {
-        font-size: 1em;
-        width: 50%;
-    }
-
-    textarea {
-        vertical-align: top;
-        height: 10em;
-    }
-
-    input#submit {
-        width: 70px;
-        font-family: monospace;
-        font-size: 2rem;
-    }
-
-    .error {
-        font-size: 0.75rem;
-    }
-
-    #checkmark {
-        width: 20%;
-    }
-
-    #feedback {
-        color: white;
-    }
-
+    
 </style>
 
 <script type="text/javascript" src="js/livreAjax.js"></script>
@@ -94,7 +41,16 @@
             </fieldset>
         </form>
     </div>
+
+    <div id="iframe">
+
+        <iframe src="pages/livre_iframe.php" width="500" height="300" name="myFrame" id="myFrame"></iframe>
+
+    </div>
+
     <div id="feedback">
+
+
 
         <?php
 
@@ -109,9 +65,9 @@
         $result = mysqli_query($conn, $sql);
 
         while ($row = $result->fetch_assoc()) {
-            echo "<hr><br>" . $row["name"]. " " . $row["mail"]. " " . $row["website"]. " " . $row["msg"] . "<br><br>";
+            echo "<hr><br>" . $row["name"] . " " . $row["mail"] . " " . $row["website"] . " " . $row["msg"] . "<br><br>";
         }
-        
+
         ?>
 
     </div>

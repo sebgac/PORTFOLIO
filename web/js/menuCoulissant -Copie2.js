@@ -2,133 +2,66 @@
 
     $(function () {
 
-        var menuOuvert = false
-
-        // Utilisation de matchMedia pour s'adapter aux Mediaqueries
-
-        if (window.matchMedia("(max-width: 850px)").matches) {
-            // de base, le menu est caché
-            $('.menuGauche').hide();
-            /* $('section .titre').hide(); */
-
-            //on cache la bordure du liseret pour éviter de surcharger
-
-            $('.liseret').css('border', '0');
-
-            //ecouteur le clic sur le liseret
-
-
-            $('.liseret').on('click', function () {
-
-                // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-
-                $('i#icone').fadeOut(0)
-                    .toggleClass('fas fa-times')
-                    .fadeIn(500)
-                    .toggleClass('fas fa-bars');
-
-                // Affichage / disparition du menu en lui-même
-                // TO DO : ne pas pousser la galerie vers le bas, comme sur pap.fr
-
-                if (menuOuvert == false) {
-                    $('.menuGauche').slideDown(500);
-                    $('.liseret').css('border', '1px solid');
-                    menuOuvert = true;
-                } else if (menuOuvert == true) {
-                //utilisation de promise pour enlever la bordure une fois le menu slidé
-                    $('.menuGauche').slideUp(500).promise().done(function(){
-                        $('.liseret').css('border', '0');
-                    });
-                    menuOuvert = false;
-                };
-
-            });
-
-            // Fermeture du menu lorsqu'on clique sur un lien du menu
-
-            $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
-
-                if (menuOuvert == true) {
-                    $('i#icone').fadeOut(0)
-                        .toggleClass('fas fa-times')
-                        .fadeIn(500)
-                        .toggleClass('fas fa-bars');
-                    $('.menuGauche').slideUp(500);
-                    $('.liseret').css('border', '1px solid');
-                    menuOuvert = false;
-                };
-            });
-
-            // Enlève les miniatures lorsqu'on est en full screen sur mobile
-
-            $(document).on('fotorama:fullscreenenter fotorama:fullscreenexit', function (e, fotorama) {
-                fotorama.setOptions({nav: e.type === 'fotorama:fullscreenexit' && 'thumbs'});
-            });
-
-            // Retire la bordure pour éviter une bordure trop grosse une fois le menu fermé
-
-
-
-            // TO DO : laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent
-        }
-
         // TO DO : (UX) fermer le menu lorsqu'il est ouvert et qu'on clique sur section (if menu ouvert > section translate)
+        // TO DO : afficher les photos uniquement lorsque la première photo est chargée
 
         // Réalisation d'un menu "coulissant" qui s'ouvre et se ferme via un bouton menu
 
         // on fixe une valeur repère qui indique que le menu est fermé
 
-        if (window.matchMedia("(min-width: 851px)").matches) {
+        var menuOuvert = false
 
-            $('.liseret').on('click', function () {
+        // de base, le menu est caché
+        /* $('.menuGauche').hide(); */
+        /* $('section .titre').hide(); */
 
-                // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
 
+        $('.liseret').on('click', function () {
+
+            // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
+
+            $('i#icone').fadeOut(0)
+                .toggleClass('fas fa-times')
+                .fadeIn(500)
+                .toggleClass('fas fa-bars');
+
+            // Affichage / disparition du menu en lui-même
+
+            if (menuOuvert == false) {
+                /* $('.menuGauche').css('display', 'flex'); */
+                /* $('header,section').css('transform', 'translate(0)'); */
+                /* $('.menuGauche').show(500); */
+                /* $('.menuGauche').toggle('slide'); */
+                /* $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)'); */
+                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
+                /* $('section .titre').slideDown(); */
+                menuOuvert = true;
+            } else if (menuOuvert == true) {
+                /* $('.menuGauche').css('display', 'none'); */
+                /* $('header,section').css('transform', 'translate(-220px)'); */
+                /* $('.menuGauche').hide(500); */
+                /* $('.menuGauche').toggle('slide'); */
+                /* $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)'); */
+                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
+                /* $('section .titre').slideUp(); */
+                menuOuvert = false;
+            };
+
+        });
+
+        // Fermeture du menu lorsqu'on clique sur certains liens
+
+        $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
+
+            if (menuOuvert == true) {
                 $('i#icone').fadeOut(0)
                     .toggleClass('fas fa-times')
                     .fadeIn(500)
                     .toggleClass('fas fa-bars');
-
-                // Affichage / disparition du menu en lui-même
-
-                if (menuOuvert == false) {
-                    /* $('.menuGauche').css('display', 'flex'); */
-                    /* $('header,section').css('transform', 'translate(0)'); */
-                    /* $('.menuGauche').show(500); */
-                    /* $('.menuGauche').toggle('slide'); */
-                    /* $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)'); */
-                    $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
-                    /* $('section .titre').slideDown(); */
-                    menuOuvert = true;
-                } else if (menuOuvert == true) {
-                    /* $('.menuGauche').css('display', 'none'); */
-                    /* $('header,section').css('transform', 'translate(-220px)'); */
-                    /* $('.menuGauche').hide(500); */
-                    /* $('.menuGauche').toggle('slide'); */
-                    /* $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)'); */
-                    $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
-                    /* $('section .titre').slideUp(); */
-                    menuOuvert = false;
-                };
-
-            });
-
-            // Fermeture du menu lorsqu'on clique sur certains liens
-
-            $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
-
-                if (menuOuvert == true) {
-                    $('i#icone').fadeOut(0)
-                        .toggleClass('fas fa-times')
-                        .fadeIn(500)
-                        .toggleClass('fas fa-bars');
-                    $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
-                    menuOuvert = false;
-                };
-            });
-        }
-
-
+                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
+                menuOuvert = false;
+            };
+        });
 
         // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage
         // + changer l'icone fleche haut/bas
@@ -153,6 +86,8 @@
         });
 
         // fermer voyage si on clique sur un autre lien (utile pour affichage smartphone)
+
+        // TO DO : règle pour smartphone only
 
         $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
             if (continentOuvert == true) {
