@@ -4,9 +4,15 @@
 
         var menuOuvert = false
 
+
         // Utilisation de matchMedia pour s'adapter aux Mediaqueries CSS
 
         if (window.matchMedia("(max-width: 850px)").matches) {
+
+            // adapter la position absolute de la section à la taille du liseret;
+            var hauteurLiseret = $('.liseret').height();
+            $('section').css('top', hauteurLiseret);
+
             // de base, le menu est caché
             $('.menuGauche').hide();
             /* $('section .titre').hide(); */

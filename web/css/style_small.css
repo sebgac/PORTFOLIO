@@ -9,6 +9,8 @@ header {
     flex-direction: column-reverse;
     /* border: 1px solid white; */
     border-bottom: 1px solid;
+    z-index: 2;
+    background-color: black;
   }
 
   .menuGauche {
@@ -58,6 +60,9 @@ header {
 
   section {
     margin-left:2%;
+    position: absolute;
+    /* top: 12vh; */
+    z-index: 1;
   }
 
   section .titre {
@@ -70,4 +75,10 @@ header {
     /* display:none; */
     /* border: 1px solid white; */
     transform: none; 
+  }
+
+  @media screen and (orientation: landscape) {
+    section .titre {
+      display:none;
+    }
   }

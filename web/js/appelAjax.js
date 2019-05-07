@@ -4,9 +4,6 @@
 
         /* debut du script */
 
-        if (window.matchMedia("(max-width: 850px)").matches) {
-            /* alert ('OK'); */
-        }
 
         // page chargée au lancement de la page index
 
