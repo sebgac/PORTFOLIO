@@ -2,9 +2,9 @@
 
 /* On reset les paramètres */
 
-/* TO DO : les mediaqueries pour rendre responsive */
+/* TO DO : mettre en forme le livre d'or */
 
-/* TO DO : empecher la barre de menu de descendre dans le livre d'or */
+/* TO DO : enlever les fleches dans le mode fullscreen en small devices */
 
 * {
   margin: 0;

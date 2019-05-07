@@ -4,11 +4,27 @@
 
         /* debut du script */
 
+        // fonction qui permet de faire passer une partie du titre dans le liseret en small devices mode paysage
+
         function ajouterTitre() {
-            if (window.matchMedia("(orientation: landscape)").matches) {
-                var titrePage1 = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
-                $('#portfolio p').append('<span> - ' + titrePage1 + '</span>');    
-            }
+            
+                // On coupe le selecteur .titre h2 à partir ce qui vient après le dernier espace recensé
+                var titrePage = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
+
+                if (window.matchMedia("(max-width: 850px) and (orientation: landscape)").matches) {
+
+                    //on commence par retirer la span puis on ajoute la nouvelle span avec la var titrePage
+                    $('#portfolio span').remove().promise().done(function() {
+                        $('#portfolio p').append('<span> - ' + titrePage + '</span>');
+                    });
+
+                    //redimensionner la hauteur du caroussel pour ne pas dépasser l'overflow
+                    $(document).on('fotorama:ready', function (e, fotorama) {
+                        fotorama.resize({
+                            maxheight: '85%'
+                          });
+                    });                  
+                }            
         }
 
         // page chargée au lancement de la page index
@@ -17,7 +33,8 @@
             $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
-                    ajouterTitre();                   
+                    ajouterTitre();
+
                 }
             });
         });
@@ -29,7 +46,7 @@
             $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
-                    ajouterTitre(); 
+                    ajouterTitre();
                 }
             });
 
@@ -41,8 +58,8 @@
             $.ajax({
                 url: "pages/street.html", success: function (result) {
                     $('section').html(result);
-                    ajouterTitre(); 
-                    
+                    ajouterTitre();
+
                 }
             });
 
@@ -53,7 +70,7 @@
             $.ajax({
                 url: "pages/architecture.html", success: function (result) {
                     $('section').html(result);
-                    ajouterTitre(); 
+                    ajouterTitre();
                 }
             });
 
@@ -64,7 +81,7 @@
             $.ajax({
                 url: "pages/portrait.html", success: function (result) {
                     $('section').html(result);
-                    ajouterTitre(); 
+                    ajouterTitre();
                 }
             });
 
@@ -75,7 +92,7 @@
             $.ajax({
                 url: "pages/mariage.html", success: function (result) {
                     $('section').html(result);
-                    ajouterTitre(); 
+                    ajouterTitre();
                 }
             });
 
@@ -116,10 +133,10 @@
 
         });
 
-                /* fin du script */
+        /* fin du script */
 
-            });
+    });
 
-        })(jQuery);
+})(jQuery);
 
 

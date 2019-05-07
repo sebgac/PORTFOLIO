@@ -4,6 +4,12 @@
 
         var menuOuvert = false
 
+        /* $(document).on('fotorama:ready', function (e, fotorama) {
+            fotorama.resize({
+                maxheight: '85%'
+              });
+        }); */
+
 
         // Utilisation de matchMedia pour s'adapter aux Mediaqueries CSS
 
@@ -13,29 +19,17 @@
 
             // Détecter le changement d'orientation pour mettre le titre dans le liseret
 
-            /* if (window.matchMedia("(orientation: landscape)").matches) {
-
-                $(document).ready(function () {
-                    $.ajax({
-                        url: "pages/accueil.html", success: function (result) {
-                            
-                            var titrePage1 = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
-                            $('#portfolio p').append('<span> - ' + titrePage1 + '</span>');                     
-                        }
-                    });
-                });
-                               
-            } */
+            // écouteur sur le changement d'orientation en small devices, pour modif de la mise en forme du titre de la galerie
 
             $(window).on('orientationchange', function () {    
 
                 /* var titrePage2 = $('.titre h2').text(); */
-                var titrePage2 = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
+                var titrePage = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
 
                 // on ajoute le texte dans le liseret seulement si l'orientation est la bonne
 
                 if (window.matchMedia("(orientation: portrait)").matches) {
-                    $('#portfolio p').append('<span> - ' + titrePage2 + '</span>');
+                    $('#portfolio p').append('<span> - ' + titrePage + '</span>');
                 } else {
                     $('#portfolio span').remove();
                 }

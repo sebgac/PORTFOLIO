@@ -16,6 +16,7 @@
 
 <body>
     <header>
+        
         <div class="menuGauche">
 
             <h2 id="titre1">
