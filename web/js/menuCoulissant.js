@@ -9,6 +9,38 @@
 
         if (window.matchMedia("(max-width: 850px)").matches) {
 
+            // TO DO : fixer Portfolio lorsque le menu descend 
+
+            // Détecter le changement d'orientation pour mettre le titre dans le liseret
+
+            /* if (window.matchMedia("(orientation: landscape)").matches) {
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "pages/accueil.html", success: function (result) {
+                            
+                            var titrePage1 = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
+                            $('#portfolio p').append('<span> - ' + titrePage1 + '</span>');                     
+                        }
+                    });
+                });
+                               
+            } */
+
+            $(window).on('orientationchange', function () {    
+
+                /* var titrePage2 = $('.titre h2').text(); */
+                var titrePage2 = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
+
+                // on ajoute le texte dans le liseret seulement si l'orientation est la bonne
+
+                if (window.matchMedia("(orientation: portrait)").matches) {
+                    $('#portfolio p').append('<span> - ' + titrePage2 + '</span>');
+                } else {
+                    $('#portfolio span').remove();
+                }
+            });
+
             // adapter la position absolute de la section à la taille du liseret;
             var hauteurLiseret = $('.liseret').height();
             $('section').css('top', hauteurLiseret);
@@ -22,7 +54,6 @@
             $('.liseret').css('border-bottom', '0');
 
             //ecouteur le clic sur le liseret
-
 
             $('.liseret').on('click', function () {
 
@@ -41,8 +72,8 @@
                     $('.liseret').css('border-bottom', '1px solid');
                     menuOuvert = true;
                 } else if (menuOuvert == true) {
-                //utilisation de promise pour enlever la bordure une fois le menu slidé
-                    $('.menuGauche').slideUp(500).promise().done(function(){
+                    //utilisation de promise pour enlever la bordure une fois le menu slidé
+                    $('.menuGauche').slideUp(500).promise().done(function () {
                         $('.liseret').css('border-bottom', '0');
                     });
                     menuOuvert = false;
@@ -59,9 +90,9 @@
                         .toggleClass('fas fa-times')
                         .fadeIn(500)
                         .toggleClass('fas fa-bars');
-                        $('.menuGauche').slideUp(500).promise().done(function(){
-                            $('.liseret').css('border-bottom', '0');
-                        });
+                    $('.menuGauche').slideUp(500).promise().done(function () {
+                        $('.liseret').css('border-bottom', '0');
+                    });
                     menuOuvert = false;
                 };
             });
@@ -69,10 +100,8 @@
             // Enlève les miniatures lorsqu'on est en full screen sur mobile
 
             $(document).on('fotorama:fullscreenenter fotorama:fullscreenexit', function (e, fotorama) {
-                fotorama.setOptions({nav: e.type === 'fotorama:fullscreenexit' && 'thumbs'});
+                fotorama.setOptions({ nav: e.type === 'fotorama:fullscreenexit' && 'thumbs' });
             });
-
-            // Retire la bordure pour éviter une bordure trop grosse une fois le menu fermé
 
             // TO DO : afficher le nom de la rubrique à coté de PORTFOLIO dans le liseret (à voir UX)
 

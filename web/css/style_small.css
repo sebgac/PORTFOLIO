@@ -78,6 +78,9 @@ header {
   }
 
   @media screen and (orientation: landscape) {
+
+    /* le titre est caché lorsqu'on passe en landscape */
+
     section .titre {
       display:none;
     }

@@ -4,6 +4,12 @@
 
         /* debut du script */
 
+        function ajouterTitre() {
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                var titrePage1 = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
+                $('#portfolio p').append('<span> - ' + titrePage1 + '</span>');    
+            }
+        }
 
         // page chargée au lancement de la page index
 
@@ -11,7 +17,7 @@
             $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
-                    
+                    ajouterTitre();                   
                 }
             });
         });
@@ -23,6 +29,7 @@
             $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
+                    ajouterTitre(); 
                 }
             });
 
@@ -34,6 +41,7 @@
             $.ajax({
                 url: "pages/street.html", success: function (result) {
                     $('section').html(result);
+                    ajouterTitre(); 
                     
                 }
             });
@@ -45,6 +53,7 @@
             $.ajax({
                 url: "pages/architecture.html", success: function (result) {
                     $('section').html(result);
+                    ajouterTitre(); 
                 }
             });
 
@@ -55,6 +64,7 @@
             $.ajax({
                 url: "pages/portrait.html", success: function (result) {
                     $('section').html(result);
+                    ajouterTitre(); 
                 }
             });
 
@@ -65,6 +75,7 @@
             $.ajax({
                 url: "pages/mariage.html", success: function (result) {
                     $('section').html(result);
+                    ajouterTitre(); 
                 }
             });
 
