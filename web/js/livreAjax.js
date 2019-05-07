@@ -53,15 +53,17 @@
 
             // TO DO : mettre en forme le livre d'or et faire apparaitre chaque nouveau message par fadeIn
 
-            $('#feedback').prepend("<hr><br>" + name + " " + mail + " " + website +  " " + msg + "<br><br>");
-            $('#retours').prepend("<hr><br>" + name + " " + mail + " " + website +  " " + msg + "<br><br>");
+            /* $('#feedback').prepend("<hr><br>" + name + " " + mail + " " + website +  " " + msg + "<br><br>");
+            $('#retours').prepend("<hr><br>" + name + " " + mail + " " + website +  " " + msg + "<br><br>"); */
+
+            $('#myFrame').attr("src",'pages/livre_iframe.php?cache='+Date.now());
                 
             // on reset les inputs pour éviter le spam
 
-            /* $('#name').val('');
+            $('#name').val('');
             $('#mail').val('');
             $('#website').val('');
-            $('#msg').val(''); */
+            $('#msg').val('');
 
             }));
 

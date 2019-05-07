@@ -1,15 +1,18 @@
 <link href="css/style_form.css" rel="stylesheet" />
 
 <style>
-    /* TO DO : fair défiler le scroll sans affecter le menu */
-
-    body {
-        overflow: auto;
+    
+    #myFrame {
+        border: none;
+        height: 40vh;
     }
+
     
 </style>
 
 <script type="text/javascript" src="js/livreAjax.js"></script>
+
+<!-- TO DO : diviser verticalement la page. Gauche message, droite les messages -->
 
 <div class="titre">
     <h2>Livre d'or</h2>
@@ -44,21 +47,19 @@
 
     <div id="iframe">
 
-        <iframe src="pages/livre_iframe.php" width="500" height="300" name="myFrame" id="myFrame"></iframe>
+        <iframe src="pages/livre_iframe.php" width="90%" height="40vh" frameborder="0" name="myFrame" id="myFrame" style="border:none"></iframe>
 
     </div>
 
     <div id="feedback">
 
-
-
         <?php
 
-        // on établit la connection
+/*         
 
         include('connect.php');
 
-        // selection des données à afficher sur le livre d'or au chargement de la page
+        
 
         $sql = "SELECT * FROM livreOrPortfolioPhoto ORDER BY id DESC";
 
@@ -66,7 +67,7 @@
 
         while ($row = $result->fetch_assoc()) {
             echo "<hr><br>" . $row["name"] . " " . $row["mail"] . " " . $row["website"] . " " . $row["msg"] . "<br><br>";
-        }
+        } */
 
         ?>
 

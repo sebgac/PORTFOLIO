@@ -4,6 +4,10 @@
 
         /* debut du script */
 
+        if (window.matchMedia("(max-width: 850px)").matches) {
+            /* alert ('OK'); */
+        }
+
         // page chargée au lancement de la page index
 
         $(document).ready(function () {
@@ -22,7 +26,6 @@
             $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
-
                 }
             });
 
@@ -30,9 +33,11 @@
 
         $('a#street').on('click', function () {
 
+
             $.ajax({
                 url: "pages/street.html", success: function (result) {
                     $('section').html(result);
+                    
                 }
             });
 

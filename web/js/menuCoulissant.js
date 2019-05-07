@@ -4,7 +4,7 @@
 
         var menuOuvert = false
 
-        // Utilisation de matchMedia pour s'adapter aux Mediaqueries
+        // Utilisation de matchMedia pour s'adapter aux Mediaqueries CSS
 
         if (window.matchMedia("(max-width: 850px)").matches) {
             // de base, le menu est caché
@@ -13,7 +13,7 @@
 
             //on cache la bordure du liseret pour éviter de surcharger
 
-            $('.liseret').css('border', '0');
+            $('.liseret').css('border-bottom', '0');
 
             //ecouteur le clic sur le liseret
 
@@ -32,12 +32,12 @@
 
                 if (menuOuvert == false) {
                     $('.menuGauche').slideDown(500);
-                    $('.liseret').css('border', '1px solid');
+                    $('.liseret').css('border-bottom', '1px solid');
                     menuOuvert = true;
                 } else if (menuOuvert == true) {
                 //utilisation de promise pour enlever la bordure une fois le menu slidé
                     $('.menuGauche').slideUp(500).promise().done(function(){
-                        $('.liseret').css('border', '0');
+                        $('.liseret').css('border-bottom', '0');
                     });
                     menuOuvert = false;
                 };
@@ -53,8 +53,9 @@
                         .toggleClass('fas fa-times')
                         .fadeIn(500)
                         .toggleClass('fas fa-bars');
-                    $('.menuGauche').slideUp(500);
-                    $('.liseret').css('border', '1px solid');
+                        $('.menuGauche').slideUp(500).promise().done(function(){
+                            $('.liseret').css('border-bottom', '0');
+                        });
                     menuOuvert = false;
                 };
             });
@@ -67,7 +68,9 @@
 
             // Retire la bordure pour éviter une bordure trop grosse une fois le menu fermé
 
+            // TO DO : afficher le nom de la rubrique à coté de PORTFOLIO dans le liseret (à voir UX)
 
+            // TO DO : ne pas laisser disparaitre la fleche lorsqu'on fait un hover (OK affichage initial)
 
             // TO DO : laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent
         }
