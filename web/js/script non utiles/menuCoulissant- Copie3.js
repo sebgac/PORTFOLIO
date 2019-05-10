@@ -2,14 +2,24 @@
 
     $(function () {
 
+        // TO DO : s'inspirer de https://www.grafikart.fr/tutoriels/jquery-on-events-518 pour ajouter un écouteur unique sur tous les liens. Puis s'inspirer de $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1) pour récupérer le nom de la page à charger sans répétition de code
+
+        // TO DO : laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent
+
+        // TO DO : (UX) fermer le menu lorsqu'il est ouvert et qu'on clique sur section (if menu ouvert > section translate)
+
+        // TO DO : recharger le design au changement d'orientation (possiblement à faire en ajax)
+        // idée : recharger dans l'écouteur orientation change le script menuCoulissant (peut etre mettre en ajax, ou à l'extérieur de ce fichier)
+
+        $(window).on('orientationchange', function () {
+
+            alert ('OrientationChange');
+           
+        });
+
+        // definition de variable qui va nous servir dans le script
+
         var menuOuvert = false
-
-        /* $(document).on('fotorama:ready', function (e, fotorama) {
-            fotorama.resize({
-                maxheight: '85%'
-              });
-        }); */
-
 
         // Utilisation de matchMedia pour s'adapter aux Mediaqueries CSS
 
@@ -21,7 +31,7 @@
 
             // écouteur sur le changement d'orientation en small devices, pour modif de la mise en forme du titre de la galerie
 
-            $(window).on('orientationchange', function () {    
+            $(window).on('orientationchange', function () {
 
                 /* var titrePage2 = $('.titre h2').text(); */
                 var titrePage = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
@@ -97,14 +107,8 @@
                 fotorama.setOptions({ nav: e.type === 'fotorama:fullscreenexit' && 'thumbs' });
             });
 
-            // TO DO : afficher le nom de la rubrique à coté de PORTFOLIO dans le liseret (à voir UX)
-
-            // TO DO : ne pas laisser disparaitre la fleche lorsqu'on fait un hover (OK affichage initial)
-
-            // TO DO : laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent
         }
 
-        // TO DO : (UX) fermer le menu lorsqu'il est ouvert et qu'on clique sur section (if menu ouvert > section translate)
 
         // Réalisation d'un menu "coulissant" qui s'ouvre et se ferme via un bouton menu
 
@@ -201,6 +205,8 @@
         var asieOuvert = false;
         $('.asie').hide();
         $('#asie i.fas.fa-arrow-up').hide();
+
+        //$(document).on permet d'écouter les éléments rajoutés par jQuery
 
         $(document).on('click', '#asie', function () {
             if (asieOuvert == false) {

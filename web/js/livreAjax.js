@@ -29,7 +29,7 @@
             };
             var website = $("input#website").val();
 
-            // TO DO : verification pour website
+            // TODO: verification pour website
 
             var msg = $("textarea#msg").val();
             if (msg == "") {
@@ -40,7 +40,7 @@
                 $("label#mail_label").css('color', 'white');
             };
 
-            // TO DO : les patterns pour affiner la vérification des données 
+            // TODO: les patterns pour affiner la vérification des données 
 
             // Méthode ajax 
 
@@ -51,7 +51,7 @@
 
             // afficher directement le message laissé sur le livre d'or
 
-            // TO DO : mettre en forme le livre d'or et faire apparaitre chaque nouveau message par fadeIn
+            // TODO: mettre en forme le livre d'or et faire apparaitre chaque nouveau message par fadeIn
 
             /* $('#feedback').prepend("<hr><br>" + name + " " + mail + " " + website +  " " + msg + "<br><br>");
             $('#retours').prepend("<hr><br>" + name + " " + mail + " " + website +  " " + msg + "<br><br>"); */
@@ -64,6 +64,12 @@
             $('#mail').val('');
             $('#website').val('');
             $('#msg').val('');
+
+            // On fait disparaitre le formulaire en small devices une fois le message laissé
+
+            if (window.matchMedia("(max-width: 850px)").matches) {
+                $('section form').slideUp();
+            }
 
             }));
 

@@ -11,15 +11,23 @@ header {
     border-bottom: 1px solid;
     z-index: 2;
     background-color: black;
+    /* position: relative; */
   }
 
   .menuGauche {
     /* width:100%; */
-    width: 220px;
+    /* width: 220px; */
     margin-left: 0;
     transform: none;
     /* border: 1px solid white; */
     margin: auto;
+    /* position: relative;
+    top: 48px;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid white;
+    transform: translate(0px); */
   }
 
   #titre1 {
@@ -47,6 +55,10 @@ header {
     transform: none;
     /* border: 1px solid white; */
     padding: 0 10px;
+    /* position: absolute;
+    top: 0px;
+    background-color: black;
+    transform: translate(0px); */
   }
 
   .liseret:hover {
@@ -74,8 +86,12 @@ header {
   section #caroussel {
     /* display:none; */
     /* border: 1px solid white; */
+    width: 96%;
     transform: none; 
+    flex-direction: column;
   }
+
+
 
   @media screen and (orientation: landscape) {
 
@@ -84,4 +100,5 @@ header {
     section .titre {
       display:none;
     }
+
   }

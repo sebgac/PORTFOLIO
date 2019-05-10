@@ -7,37 +7,37 @@
         // fonction qui permet de faire passer une partie du titre dans le liseret en small devices mode paysage
 
         function ajouterTitre() {
-            
-                // On coupe le selecteur .titre h2 à partir ce qui vient après le dernier espace recensé
-                var titrePage = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
 
-                if (window.matchMedia("(max-width: 850px) and (orientation: landscape)").matches) {
+            // On coupe le selecteur .titre h2 à partir ce qui vient après le dernier espace recensé
+            var titrePage = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
 
-                    //on commence par retirer la span puis on ajoute la nouvelle span avec la var titrePage
-                    $('#portfolio span').remove().promise().done(function() {
-                        $('#portfolio p').append('<span> - ' + titrePage + '</span>');
+            if (window.matchMedia("(max-width: 850px) and (orientation: landscape)").matches) {
+
+                //on commence par retirer la span puis on ajoute la nouvelle span avec la var titrePage
+                $('#portfolio span').remove().promise().done(function () {
+                    $('#portfolio p').append('<span> - ' + titrePage + '</span>');
+                });
+
+                //redimensionner la hauteur du caroussel pour ne pas dépasser l'overflow
+                $(document).on('fotorama:ready', function (e, fotorama) {
+                    fotorama.resize({
+                        maxheight: '85%'
                     });
-
-                    //redimensionner la hauteur du caroussel pour ne pas dépasser l'overflow
-                    $(document).on('fotorama:ready', function (e, fotorama) {
-                        fotorama.resize({
-                            maxheight: '85%'
-                          });
-                    });                  
-                }            
+                });
+            }
         }
 
         // page chargée au lancement de la page index
 
-        $(document).ready(function () {
-            $.ajax({
-                url: "pages/accueil.html", success: function (result) {
-                    $('section').html(result);
-                    ajouterTitre();
+        /* $(document).ready(function () { */
+        $.ajax({
+            url: "pages/accueil.html", success: function (result) {
+                $('section').html(result);
+                ajouterTitre();
 
-                }
-            });
+            }
         });
+        /* }); */
 
         // ensuite, on charge les pages suite clic sur les liens correspondants (à peaufiner pour éviter répétition de code)
 
@@ -106,6 +106,12 @@
                 url: "pages/moi.html", success: function (result) {
                     $('section').html(result);
                     $('section .titre, section #caroussel').css('transform', 'translate(0)');
+
+                    if (window.matchMedia("(max-width: 850px) and (orientation: landscape)").matches) {
+                        $('#portfolio span').remove().promise().done(function () {
+                            $('#portfolio p').append('<span> - Sur moi </span>');
+                        });    
+                    }
                 }
             });
 
@@ -117,6 +123,12 @@
                 url: "pages/contact.html", success: function (result) {
                     $('section').html(result);
                     $('section .titre, section #caroussel').css('transform', 'translate(0)');
+
+                    if (window.matchMedia("(max-width: 850px) and (orientation: landscape)").matches) {
+                        $('#portfolio span').remove().promise().done(function () {
+                            $('#portfolio p').append('<span> - Contact</span>');
+                        });   
+                    }
                 }
             });
 
@@ -128,6 +140,31 @@
                 url: "pages/livre.php", success: function (result) {
                     $('section').html(result);
                     $('section .titre, section #caroussel').css('transform', 'translate(0)');
+
+                    if (window.matchMedia("(max-width: 850px) and (orientation: landscape)").matches) {
+                        $('#portfolio span').remove().promise().done(function () {
+                            $('#portfolio p').append('<span> - Livre d\'or</span>');
+                        });   
+                    }
+
+                    // Gérer la hauteur de la fenetre pour affichage du livre d'or
+
+                    if (window.matchMedia("(min-width: 851px)").matches) {
+                        var hauteurFenetre = $(window).height();
+                        var hauteurTitre = $('section .titre').height();
+                        var hauteur = hauteurFenetre - hauteurTitre - 50;
+
+                        $('section form').css('height', '' + hauteur + 'px');
+                    }
+
+                    if (window.matchMedia("(max-width: 850px)").matches) {
+                        var hauteurFenetre = $(window).height();
+                        var hauteurTitre = $('section .titre').height();
+                        var hauteur = hauteurFenetre - hauteurTitre - 100;
+
+                        $('#myFrame').css('height', '' + hauteur + 'px');
+                    }
+
                 }
             });
 

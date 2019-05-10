@@ -1,37 +1,101 @@
-<link href="css/style_form.css" rel="stylesheet" />
-
 <style>
     section {
         justify-content: space-between;
     }
 
-</style>
+    section #caroussel {
+        /* border : 1px solid white; */
+        display: block;
+    }
 
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    form {
+        /* border : 1px solid white; */
+        margin: auto;
+        width: 80%;
+        padding: 10px;
+    }
+
+/*     label {
+        display: block;
+        width: 70%;
+        text-align: left;
+        padding: 1em;
+        color: #939393;
+        margin:auto;
+    } */
+
+    fieldset {
+        /* border : 1px solid white; */
+        /* border-color: #3a3a3a; */
+        border: none;
+        padding: 0 50px;
+    }
+
+    fieldset>div {
+        margin: 10px 0;
+    }
+
+    input,
+    textarea {
+        /* border : 1px solid white; */
+        font-size: 0.8rem;
+        font-family: 'Roboto Mono', monospace;
+        width: 70%;
+        border: 1px solid #343434;
+        background-color: #121212;
+        padding: 10px;
+        color: white;
+    }
+
+    textarea {
+        /* border : 1px solid white; */
+        vertical-align: top;
+        height: 15rem;
+    }
+
+    input#submit {
+        /* border : 1px solid white; */
+        width: 90px;
+        font-family: 'Roboto Mono', monospace;
+        color: white;
+        font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 850px) {
+
+        fieldset {
+        padding: 0;
+    }
+        textarea {
+            height: 5rem;
+        }
+
+    }
+</style>
 
 <script type="text/javascript" src="js/contactAjax.js"></script>
 
 <div class="titre">
-    <h2>Formulaire de contact 8</h2>
+    <h2>Formulaire de contact</h2>
 </div>
 <div id="caroussel">
     <div id="form">
-        <!-- <form method="post"> -->
+
         <form action="pages/page_contact.php" method="post">
             <fieldset>
 
                 <div style="margin-top:20px;">
-                    <label id="name_label" for="name">Nom :</label>
+                    <!-- <label id="name_label" for="name">nom</label> -->
                     <input type="text" id="name" name="name" value="" placeholder="Votre nom ..." autofocus>
 
                 </div>
                 <div>
-                    <label id="mail_label" for="mail">e-mail :</label>
+                    <!-- <label id="mail_label" for="mail">e-mail</label> -->
                     <input type="email" id="mail" name="mail" value="" placeholder="Votre email ...">
 
                 </div>
                 <div>
-                    <label id="msg_label" for="msg">Message :</label>
+                    <!-- <label id="msg_label" for="msg">message</label> -->
                     <textarea id="msg" name="msg" value="" placeholder="Votre message ..."></textarea>
 
                 </div>
@@ -41,7 +105,7 @@
             </fieldset>
         </form>
     </div>
-    <!-- <a href="#" id="test">lien test</a> -->
+
 </div>
 
 <div>

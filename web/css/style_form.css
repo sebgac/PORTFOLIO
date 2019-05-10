@@ -1,32 +1,45 @@
     form {
-        /* Uniquement centrer le formulaire sur la page */
-        margin: auto;
-        width: 80%;
-        /* Encadré pour voir les limites du formulaire */
+        /* border : 1px solid white; */
         padding: 10px;
-
     }
 
-    label {
-        display: inline-block;
+    #form {
+        width: 85%;
+    }
+
+    #iframe {
+        width: 100%;
+    }
+
+    /*     label {
+        display: block;
         width: 25%;
-        text-align: right;
+        text-align: left;
         padding: 1em;
+        color: #939393;
+        margin:auto;
         transition-duration: 500ms;
-    }
+    } */
 
     fieldset {
-        border-color: #3a3a3a;
+        /* border : 1px solid white; */
+        border: none;
+        padding: 0 50px;
     }
 
     fieldset>div {
         margin: 10px 0;
     }
 
-    input,
-    textarea {
-        font-size: 1em;
-        width: 50%;
+    input, textarea {
+        /* border : 1px solid white; */
+        font-size: 0.8rem;
+        font-family: 'Roboto Mono', monospace;
+        width: 100%;
+        border: 1px solid #343434;
+        background-color: #121212;
+        padding: 10px;
+        color: white;
     }
 
     textarea {
@@ -35,36 +48,63 @@
     }
 
     input#submit {
-        width: 70px;
-        font-family: monospace;
-        font-size: 2rem;
+        /* border : 1px solid white; */
+        width: 90px;
+        font-family: 'Roboto Mono', monospace;
+        color: white;
+        font-size: 0.8rem;
     }
 
-    .error {
+    #myFrame {
+        /* border: 1px solid white; */
+        border: none;
+        height: 100%;
+    }
+
+    
+
+    /*     .error {
         font-size: 0.75rem;
     }
 
     #checkmark {
         width: 20%;
-    }
+    } */
 
     @media screen and (max-width: 850px) {
-
+        section form {
+            /* Uniquement centrer le formulaire sur la page */
+            margin: auto;
+            width: 100%;
+            /* Encadré pour voir les limites du formulaire */
+            padding: 10px;
+        }
+        #form {
+            width: 100%;
+        }
         fieldset>div {
             display: flex;
             flex-direction: column;
         }
-
         label {
             width: 100%;
+            font-size: 0.8rem;
+            display: inline-block;
             text-align: center;
             padding: 1em;
             transition-duration: 500ms;
         }
-
-        input,
-        textarea {
-            font-size: 0, 5em;
+        fieldset {
+            padding: 0;
+        }
+        input, textarea {
             width: 100%;
+            height: 5rem;
+        }
+        section #iframe {
+            width: 100%;
+        }
+        section #myFrame {
+            height: 40vh;
         }
     }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,43 +9,59 @@
     <title>Document</title>
 
     <style>
-    
-        #retours{
-            font-family: 'PT Mono', monospace; 
-            color: white;
+        #retours {
+            font-family: 'PT Mono', monospace;
+            font-size: 0.8rem;
+            color: #939393;
         }
 
+        hr {
+            /* border: 1px solid #939393; */
+            border: 0;
+            height: 1px;
+            background: #939393;
+            background-image: linear-gradient(to right, #000000, #939393, #000000);
+        }
     </style>
 
 </head>
+
 <body>
-  
-<div id="retours">
 
-<?php
+    <div id="retours">
 
-// on établit la connection
+        <?php
 
-include('connect.php');
+        // on établit la connection
 
-// selection des données à afficher sur le livre d'or au chargement de la page
+        include('connect.php');
 
-$sql = "SELECT * FROM livreOrPortfolioPhoto ORDER BY id DESC";
+        // selection des données à afficher sur le livre d'or au chargement de la page
 
-$result = mysqli_query($conn, $sql);
+        $sql = "SELECT * FROM livreOrPortfolioPhoto ORDER BY id DESC";
 
-while ($row = $result->fetch_assoc()) {
-    echo "<hr><br>" . $row["name"]. " " . $row["mail"]. " " . $row["website"]. " " . $row["msg"] . "<br><br>";
-}
+        $result = mysqli_query($conn, $sql);
 
-?>
+        while ($row = $result->fetch_assoc()) {
+            echo "<br><table>
+    <tr>
+        <td>Nom :</td>
+        <td>" . $row["name"] . "</td>
+    </tr>
+    <tr>
+        <td>Website :</td>
+        <td>" . $row["website"] . "</td>
+    </tr>
+    <tr>
+        <td>Message :</td>
+        <td>" . $row["msg"] . "</td>
+    </tr>
+    </table><br><hr>";
+        }
 
-</div>
-
+        ?>
 
 
 </body>
-</html>
-    
 
- 
+</html>

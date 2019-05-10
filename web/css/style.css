@@ -2,9 +2,9 @@
 
 /* On reset les paramètres */
 
-/* TO DO : mettre en forme le livre d'or */
+/* TODO: mettre en forme le livre d'or */
 
-/* TO DO : enlever les fleches dans le mode fullscreen en small devices */
+/* TODO: enlever les fleches dans le mode fullscreen en small devices */
 
 * {
   margin: 0;
@@ -228,14 +228,14 @@ section h2 {
     transform: translate(500px);
   } */
 
-section #caroussel {
-  width: 96%;
-  /* height: 100vh; */
-  /* flex-grow: 8; */
+#caroussel {
+  width: 100%;
   /* border: 1px solid white; */
-  /* margin: auto; */
-   text-align: center;
+  text-align: center;
   transform: translate(-240px);
   transition-property: transform;
   transition-duration: 500ms;
+  display: flex;
+  flex-direction: row;
 }
+

@@ -97,6 +97,6 @@
 
 <script type="text/javascript" src="js/appelAjax.js"></script>
 
-<script type="text/javascript" src="js/menuCoulissant.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 </html>
