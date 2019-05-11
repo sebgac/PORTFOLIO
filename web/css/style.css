@@ -18,14 +18,8 @@ body {
   width: 100%;
   background-color: black;
   color: white;
-  /* font-family: 'Roboto Mono', monospace; */
   font-family: 'PT Mono', monospace;
   letter-spacing: 0.23rem;
-  
-  /* font-family: 'Quicksand', sans-serif;
-  letter-spacing: .1rem; */
-  /* font-family: 'Inconsolata', monospace;
-  font-size:1.3em; */
   display: inline-flex;
   overflow:hidden;  
 }
@@ -41,7 +35,6 @@ a {
 
 header {
   display: inline-flex;
-  
   /* transition-property: transform;
   transition-delay: 500ms; */ 
 }
@@ -51,7 +44,7 @@ header {
 .menuGauche {
   width: 220px;
   margin-left: 20px;
-  /*       min-height: 100vh; */
+  /*  min-height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -155,7 +148,6 @@ i.fas.fa-arrow-down, i.fas.fa-arrow-up {
 /* Style de la 2 div du header, le petit liseret */
 
 .liseret {
-  /*flex-grow: 1;*/
   width: 52px;
   min-height: 100vh;
   border-width: 0 1px 0 1px;
@@ -202,7 +194,6 @@ section {
   /* border: 1px solid white; */
   display: flex;
   flex-direction: column;
-  
   /* transition-property: transform;
   transition-delay: 500ms;  */
 }
@@ -210,7 +201,6 @@ section {
 section .titre {
   /* flex-grow: 1; */
   padding: 20px;
-  
   text-align: center;
   transform: translate(-240px);
   transition-property: transform;

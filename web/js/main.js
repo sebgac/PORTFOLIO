@@ -23,8 +23,11 @@
 
         // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
 
-        // TODO: m'envoyee un email lorsqu'un message est déposé sur le livre d'or
+        // TODO: m'envoyer un email lorsqu'un message est déposé sur le livre d'or
 
+        // FIXME: eviter apparition petite fleche du menu avant la fin du déroulement - à essayer avec promise 
+        
+        // FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
     
         /* Début du Script */
 
