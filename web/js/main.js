@@ -23,6 +23,8 @@
 
         // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
 
+        // TODO: m'envoyee un email lorsqu'un message est déposé sur le livre d'or
+
     
         /* Début du Script */
 

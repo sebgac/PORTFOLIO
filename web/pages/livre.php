@@ -12,7 +12,7 @@
             <fieldset>
                 <div style="margin-top:20px;">
                     <!-- <label id="name_label" for="name">Nom</label> -->
-                    <input type="text" id="name" name="name" value="" placeholder="Votre nom ..." autofocus>
+                    <input type="text" id="name" name="name" value="" placeholder="Votre nom ...">
                 </div>
                 <div>
                     <!-- <label id="mail_label" for="mail">email</label> -->
@@ -20,7 +20,7 @@
                 </div>
                 <div>
                     <!-- <label id="website_label" for="website">Website</label> -->
-                    <input type="text" id="website" name="website" value="" placeholder="Votre site web">
+                    <input type="text" id="website" name="website" value="" placeholder="Votre site web ...">
                 </div>
                 <div>
                     <!-- <label id="msg_label" for="msg">Message</label> -->

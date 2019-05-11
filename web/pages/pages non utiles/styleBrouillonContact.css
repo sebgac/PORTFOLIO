@@ -1,0 +1,73 @@
+
+    section {
+        justify-content: space-between;
+    }
+
+    section #caroussel {
+        /* border : 1px solid white; */
+        display: block;
+    }
+
+    form {
+        /* border : 1px solid white; */
+        margin: auto;
+        width: 80%;
+        padding: 10px;
+    }
+
+/*     label {
+        display: block;
+        width: 70%;
+        text-align: left;
+        padding: 1em;
+        color: #939393;
+        margin:auto;
+    } */
+
+    fieldset {
+        /* border : 1px solid white; */
+        /* border-color: #3a3a3a; */
+        border: none;
+        padding: 0 50px;
+    }
+
+    fieldset>div {
+        margin: 10px 0;
+    }
+
+    input,
+    textarea {
+        /* border : 1px solid white; */
+        font-size: 0.8rem;
+        font-family: 'Roboto Mono', monospace;
+        width: 70%;
+        border: 1px solid #343434;
+        background-color: #121212;
+        padding: 10px;
+        color: white;
+    }
+
+    textarea {
+        /* border : 1px solid white; */
+        vertical-align: top;
+        height: 15rem;
+    }
+
+    input#submit {
+        /* border : 1px solid white; */
+        width: 90px;
+        font-family: 'Roboto Mono', monospace;
+        color: white;
+        font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 850px) {
+
+        fieldset {
+        padding: 0;
+    }
+        textarea {
+            height: 5rem;
+        }
+
+    }
