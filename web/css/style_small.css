@@ -21,13 +21,6 @@ header {
     transform: none;
     /* border: 1px solid white; */
     margin: auto;
-    /* position: relative;
-    top: 48px;
-    background-color: black;
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid white;
-    transform: translate(0px); */
   }
 
   #titre1 {
@@ -40,7 +33,14 @@ header {
     margin-bottom: 0;
     margin-left: 0;
     padding-top:10px;
+    /* position: relative; */
+    /* top: 48px; */
+    /* background-color: black;*/
+    /* width: 100%; */
+    /* text-align: center; */
+    /* border-bottom: 1px solid white; */
   }
+
 
   i.fas.fa-arrow-down, i.fas.fa-arrow-up {
     /* color:red; */
@@ -55,10 +55,9 @@ header {
     transform: none;
     /* border: 1px solid white; */
     padding: 0 10px;
-    /* position: absolute;
+    border-bottom: 1px solid;
+    position: absolute;
     top: 0px;
-    background-color: black;
-    transform: translate(0px); */
   }
 
   .liseret:hover {

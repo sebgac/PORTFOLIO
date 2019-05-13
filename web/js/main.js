@@ -80,11 +80,15 @@
                 $('.liseret').on('click', function () {
 
                     // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-
-                    $('i#icone').fadeOut(0)
+                    
+                    function iconeChange() {
+                        $('i#icone').fadeOut(0)
                         .toggleClass('fas fa-times')
                         .fadeIn(500)
                         .toggleClass('fas fa-bars');
+                    }
+
+                    iconeChange();
 
                     // Affichage / disparition du menu en lui-même
 
@@ -107,10 +111,7 @@
                 $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
 
                     if (menuOuvert == true) {
-                        $('i#icone').fadeOut(0)
-                            .toggleClass('fas fa-times')
-                            .fadeIn(500)
-                            .toggleClass('fas fa-bars');
+                        iconeChange();
                         $('.menuGauche').slideUp(500).promise().done(function () {
                             $('.liseret').css('border-bottom', '0');
                         });
@@ -136,10 +137,7 @@
 
                     // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
 
-                    $('i#icone').fadeOut(0)
-                        .toggleClass('fas fa-times')
-                        .fadeIn(500)
-                        .toggleClass('fas fa-bars');
+                    iconeChange();
 
                     // Affichage / disparition du menu en lui-même
 
@@ -170,10 +168,7 @@
                 $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
 
                     if (menuOuvert == true) {
-                        $('i#icone').fadeOut(0)
-                            .toggleClass('fas fa-times')
-                            .fadeIn(500)
-                            .toggleClass('fas fa-bars');
+                        iconeChange();
                         $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
                         menuOuvert = false;
                     };

@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        
+
         <div class="menuGauche">
 
             <h2 id="titre1">
@@ -75,6 +75,7 @@
                     <a id="livre" href="#">LIVRE D'OR</a>
                 </div>
             </nav>
+
         </div>
 
         <div class="liseret">
