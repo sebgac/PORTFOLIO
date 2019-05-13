@@ -6,25 +6,32 @@
 
         // TODO: laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent // a verifier si bien fait
 
-        // TODO: fixer Portfolio lorsque le menu descend 
-
         // TODO: intégrer une icone de chargement avant d'afficher les photos
-
-        // FIXME: fixer le bug orientationchange pour les pages de la section about
 
         // TODO: recharger le design au changement d'orientation ou de resize (possiblement à faire en ajax)
         // idée : recharger dans l'écouteur orientation change le script menuCoulissant (peut etre mettre en ajax, ou à l'extérieur de ce fichier)
 
         // TODO: lazy loading pour les images, voir srcset si possible
 
-        // TODO: customiser la barre de l'iframe pour l'intégrer au contenu https://css-tricks.com/custom-scrollbars-in-webkit/
-
         // TODO: épurer le code en faisant des fonctions - eviter répétitions
 
         // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
 
-        // TODO: m'envoyee un email lorsqu'un message est déposé sur le livre d'or
+        // TODO: m'envoyer un email lorsqu'un message est déposé sur le livre d'or
 
+        // TODO: méthode sécurisé pour mot de passe page mariage
+
+
+
+        // FIXME: fixer le bug orientationchange pour les pages de la section about
+
+        // FIXME: eviter apparition petite fleche du menu avant la fin du déroulement - à essayer avec promise 
+        
+        // FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
+
+        // FIXME: pourquoi en small devices l'écran n'est pas fixe (il y a un tout petit scroll)
+
+        // FIXME: portfolio ne reste pas vraiment en place lors du scroll bas
     
         /* Début du Script */
 
@@ -78,20 +85,16 @@
 
                     // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
                     
-                    function iconeChange() {
-                        $('i#icone').fadeOut(0)
+                    $('i#icone').fadeOut(0)
                         .toggleClass('fas fa-times')
                         .fadeIn(500)
                         .toggleClass('fas fa-bars');
-                    }
-
-                    iconeChange();
 
                     // Affichage / disparition du menu en lui-même
 
                     if (menuOuvert == false) {
                         $('.menuGauche').slideDown(500);
-                        $('.liseret').css('border-bottom', '1px solid');
+                        $('.liseret').css('border-bottom', '1px solid #3a3a3a');
                         menuOuvert = true;
                     } else if (menuOuvert == true) {
                         //utilisation de promise pour enlever la bordure une fois le menu slidé
@@ -108,7 +111,10 @@
                 $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
 
                     if (menuOuvert == true) {
-                        iconeChange();
+                        $('i#icone').fadeOut(0)
+                            .toggleClass('fas fa-times')
+                            .fadeIn(500)
+                            .toggleClass('fas fa-bars');
                         $('.menuGauche').slideUp(500).promise().done(function () {
                             $('.liseret').css('border-bottom', '0');
                         });
@@ -134,7 +140,10 @@
 
                     // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
 
-                    iconeChange();
+                    $('i#icone').fadeOut(0)
+                        .toggleClass('fas fa-times')
+                        .fadeIn(500)
+                        .toggleClass('fas fa-bars');
 
                     // Affichage / disparition du menu en lui-même
 
@@ -165,7 +174,10 @@
                 $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
 
                     if (menuOuvert == true) {
-                        iconeChange();
+                        $('i#icone').fadeOut(0)
+                            .toggleClass('fas fa-times')
+                            .fadeIn(500)
+                            .toggleClass('fas fa-bars');
                         $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
                         menuOuvert = false;
                     };

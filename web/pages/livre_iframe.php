@@ -19,9 +19,18 @@
             /* border: 1px solid #939393; */
             border: 0;
             height: 1px;
-            background: #939393;
-            background-image: linear-gradient(to right, #000000, #939393, #000000);
+            background: #3a3a3a;
+            background-image: linear-gradient(to right, #000000, #3a3a3a, #000000);
         }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }  
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(120, 120, 120, 0.8);
+        }
+        
     </style>
 
 </head>
