@@ -5,18 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link href="../css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" media="screen and (max-width: 850px)" href="../css/style_small.css" />
-
-
+    <!-- <link href="../css/style.css" rel="stylesheet" /> -->
+    <title>Document</title>
 
     <style>
-        body {
-            overflow-x: hidden;
-        }
-
         #retours {
+            font-family: 'PT Mono', monospace;
             font-size: 0.8rem;
             color: #939393;
         }
@@ -25,27 +19,16 @@
             /* border: 1px solid #939393; */
             border: 0;
             height: 1px;
-            background: #3a3a3a;
-            background-image: linear-gradient(to right, #000000, #3a3a3a, #000000);
+            background: #939393;
+            background-image: linear-gradient(to right, #000000, #939393, #000000);
         }
-
-        /* Personnalisation de la scroll bar */
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }  
-
-        ::-webkit-scrollbar-thumb {
-            background: rgba(120, 120, 120, 0.8);
-        }
-
     </style>
 
 </head>
 
 <body>
 
-    <div class="scroll" id="retours">
+    <div id="retours">
 
         <?php
 
@@ -77,6 +60,7 @@
         }
 
         ?>
+
 
 </body>
 
