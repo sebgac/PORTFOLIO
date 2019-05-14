@@ -249,16 +249,18 @@
 
         });
 
-        /*         $(window).resize(function () {
+
+        // TODO: essai pour recharger le script en resize ou orientation change
+
+        /*$(window).resize(function () {
                     alert ('OK');
-                });
-         */
-        // script rechargé à chaque changement d'orientation
+                });*/
 
         /* $(window).on('orientationchange', function () {
             appelAjax();
-        });
- */
+        }); */
+
+        
         /* fin du script */
 
     });

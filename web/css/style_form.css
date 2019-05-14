@@ -11,7 +11,9 @@
         width: 100%;
     }
 
-    /*     label {
+    /* je garde ce code sous la main si je change mes labels */
+
+    /*  label {
         display: block;
         width: 25%;
         text-align: left;
@@ -73,22 +75,11 @@
         height: 100%;
     }
 
-    
-
-    /*     .error {
-        font-size: 0.75rem;
-    }
-
-    #checkmark {
-        width: 20%;
-    } */
 
     @media screen and (max-width: 850px) {
         section form {
-            /* Uniquement centrer le formulaire sur la page */
             margin: auto;
             width: 100%;
-            /* Encadré pour voir les limites du formulaire */
             padding: 10px;
         }
         #form {

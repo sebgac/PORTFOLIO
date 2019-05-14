@@ -26,6 +26,4 @@ $headers = "From:" . $from;
 
 mail($to,$subject,$message, $headers);
 
-// test echo pour affichage
-
-/* echo ("L'email a été envoyé par " . $name . " depuis l'email ". $mail); */
+// TODO: m'envoyer un email lorsqu'un message est déposé sur le livre d'or

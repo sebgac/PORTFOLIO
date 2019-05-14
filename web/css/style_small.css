@@ -98,8 +98,6 @@ header {
 
   @media screen and (orientation: portrait) {
 
-    /* le titre est caché lorsqu'on passe en landscape */
-
     #loader {
       left: 30%;
     }

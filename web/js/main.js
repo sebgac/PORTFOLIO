@@ -4,9 +4,7 @@
 
         // TODO: s'inspirer de https://www.grafikart.fr/tutoriels/jquery-on-events-518 pour ajouter un écouteur unique sur tous les liens. Puis s'inspirer de $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1) pour récupérer le nom de la page à charger sans répétition de code
 
-        // TODO: laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent // a verifier si bien fait
-
-        // TODO: intégrer une icone de chargement avant d'afficher les photos
+        // TODO: laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent // fait pour voyage, à faire pour les autres
 
         // TODO: recharger le design au changement d'orientation ou de resize (possiblement à faire en ajax)
         // idée : recharger dans l'écouteur orientation change le script menuCoulissant (peut etre mettre en ajax, ou à l'extérieur de ce fichier)
@@ -17,8 +15,6 @@
 
         // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
 
-        // TODO: m'envoyer un email lorsqu'un message est déposé sur le livre d'or
-
         // TODO: méthode sécurisé pour mot de passe page mariage
 
         // TODO: rédiger un script pour charger automatiquement les valeurs par défauts du plugin fotorama
@@ -27,21 +23,15 @@
 
         // FIXME: fixer le bug orientationchange pour les pages de la section about
 
-        // FIXME: eviter apparition petite fleche du menu avant la fin du déroulement - à essayer avec promise 
-        
         // FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
 
         // FIXME: pourquoi en small devices l'écran n'est pas fixe (il y a un tout petit scroll)
 
         // FIXME: portfolio ne reste pas vraiment en place lors du scroll bas
 
-        // FIXME: fleche droite et icone full screen du diaporama n'apparait pas à droite de l'écran big devices
-
-        // FIXME: bug de design en small devices (border bottom ne s'affiche pas correctement)
-
         // FIXME: bug de design small devices, lors changement orientation le caroussel ne sadapte pas compltement au height (de portrait vers paysage)
 
-    
+
         /* Début du Script */
 
         // Definition d'une fonction qui va mettre en majuscule la première lettre d'une chaine de caractère
@@ -79,7 +69,14 @@
                     // on ajoute le texte dans le liseret seulement si l'orientation est la bonne
 
                     if (window.matchMedia("(orientation: portrait)").matches) {
-                        $('#portfolio p').append('<span> - ' + titrePage + '</span>');
+                        var titreSection = $('section .titre').text().length;
+                        if (titreSection == 16) {
+                            $('#portfolio p').append('<span> - Livre d\'or </span>');
+                        } else if (titreSection == 13) {
+                            $('#portfolio p').append('<span> - Sur moi </span>');
+                        } else {
+                            $('#portfolio p').append('<span> - ' + titrePage + '</span>');
+                        }
                     } else {
                         $('#portfolio span').remove();
                     }
@@ -102,7 +99,7 @@
                 $('.liseret').on('click', function () {
 
                     // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-                    
+
                     iconeMenu();
 
                     // Affichage / disparition du menu en lui-même
@@ -157,22 +154,10 @@
                     // Affichage / disparition du menu en lui-même
 
                     if (menuOuvert == false) {
-                        /* $('.menuGauche').css('display', 'flex'); */
-                        /* $('header,section').css('transform', 'translate(0)'); */
-                        /* $('.menuGauche').show(500); */
-                        /* $('.menuGauche').toggle('slide'); */
-                        /* $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)'); */
                         $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
-                        /* $('section .titre').slideDown(); */
                         menuOuvert = true;
                     } else if (menuOuvert == true) {
-                        /* $('.menuGauche').css('display', 'none'); */
-                        /* $('header,section').css('transform', 'translate(-220px)'); */
-                        /* $('.menuGauche').hide(500); */
-                        /* $('.menuGauche').toggle('slide'); */
-                        /* $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)'); */
                         $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
-                        /* $('section .titre').slideUp(); */
                         menuOuvert = false;
                     };
 
@@ -189,8 +174,6 @@
                     };
                 });
             }
-
-
 
             // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage
             // + changer l'icone fleche haut/bas
@@ -374,8 +357,7 @@
 
         menu();
 
-        // On recharge le script principal au changement d'orientation (cas ipad)
-
+        // TODO: recharger le script principal au changement d'orientation (cas ipad)
 
         // Gérer la hauteur de la fenetre pour affichage du livre d'or
 

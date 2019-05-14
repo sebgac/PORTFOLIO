@@ -47,14 +47,8 @@
             $.ajax(
 
             $.post("pages/page_livre.php", {name: name, mail: mail, website: website, msg: msg}, function(data) {
-            /* $.post("pages/livre_iframe.php", {name: name, mail: mail, website: website, msg: msg}, function(data) { */
 
             // afficher directement le message laissé sur le livre d'or
-
-            // TODO: mettre en forme le livre d'or et faire apparaitre chaque nouveau message par fadeIn
-
-            /* $('#feedback').prepend("<hr><br>" + name + " " + mail + " " + website +  " " + msg + "<br><br>");
-            $('#retours').prepend("<hr><br>" + name + " " + mail + " " + website +  " " + msg + "<br><br>"); */
 
             $('#myFrame').attr("src",'pages/livre_iframe.php?cache='+Date.now());
                 
