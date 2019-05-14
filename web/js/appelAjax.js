@@ -29,28 +29,30 @@
 
         function appelAjax() {
 
-            $.ajax({
-                url: "pages/accueil.html", success: function (result) {
-                    $('section').html(result);
-                    ajouterTitre();
-                }
-            });
-
             /* $.ajax({
                 url: "pages/accueil.html", success: function (result) {
                     $('section').html(result);
-                    $('section .titre').hide();
+                    ajouterTitre();
+                }
+            }); */
+
+            $.ajax({
+                url: "pages/accueil.html", success: function (result) {
+                    $('section').html(result);
+                    /* $('section .titre').css('display', 'none'); */
                     ajouterTitre();
 
-                    $('.fotorama').on('fotorama:ready', function (e, fotorama) {
+                    $('.fotorama').on('fotorama:ready', function () {
                         $('#loader').fadeOut();
-                        $('section .titre').show();
+                        /* if (window.matchMedia("(max-width: 850px) and (orientation: landscape)").matches) {
+                            $('section .titre').css('display', 'none');
+                        } else {
+                            $('section .titre').css('display', 'block');
+                        }; */
                     });
-
-
                 }
             });
- */
+
 
             // ensuite, on charge les pages suite clic sur les liens correspondants (à peaufiner pour éviter répétition de code)
 

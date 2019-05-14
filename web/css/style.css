@@ -233,13 +233,13 @@ section h2 {
   flex-direction: row;
 }
 
-/* #loader {
+#loader {
   margin: auto;
 }
 
 #loader img {
   width: 150px;
-} */
+}
 
 /* #loader {
 position : fixed;
