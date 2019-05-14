@@ -13,15 +13,15 @@
 
             var name = $("input#name").val();
             if (name == "") {
-                $("label#name_label").css('color', 'red');
+               /*  $("label#name_label").css('color', 'red'); */
                 $("input#name").focus();
                 return false;
             } else {
-                $("label#name_label").css('color', 'white');
+                /* $("label#name_label").css('color', 'white'); */
             };
             var mail = $("input#mail").val();
             if (mail == "") {
-                $("label#mail_label").css('color', 'red');
+                /* $("label#mail_label").css('color', 'red'); */
                 $("input#mail").focus();
                 return false;
             } else {

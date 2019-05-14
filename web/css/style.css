@@ -21,11 +21,8 @@ body {
   /* font-family: 'Roboto Mono', monospace; */
   font-family: 'PT Mono', monospace;
   letter-spacing: 0.23rem;
-  
-  /* font-family: 'Quicksand', sans-serif;
-  letter-spacing: .1rem; */
-  /* font-family: 'Inconsolata', monospace;
-  font-size:1.3em; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   display: inline-flex;
   overflow:hidden;  
 }
@@ -239,7 +236,6 @@ section h2 {
   flex-direction: row;
 }
 
-<<<<<<< HEAD
 #loader {
   margin: auto;
 }
@@ -259,5 +255,3 @@ height : 100%;
 width : 100%;
 
   } */
-=======
->>>>>>> parent of 0c67d60... problème avec design barre chargement

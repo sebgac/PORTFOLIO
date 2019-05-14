@@ -6,25 +6,17 @@
 
         // TODO: laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent // a verifier si bien fait
 
-        // TODO: fixer Portfolio lorsque le menu descend 
-
         // TODO: intégrer une icone de chargement avant d'afficher les photos
-
-        // FIXME: fixer le bug orientationchange pour les pages de la section about
 
         // TODO: recharger le design au changement d'orientation ou de resize (possiblement à faire en ajax)
         // idée : recharger dans l'écouteur orientation change le script menuCoulissant (peut etre mettre en ajax, ou à l'extérieur de ce fichier)
 
         // TODO: lazy loading pour les images, voir srcset si possible
 
-        // TODO: customiser la barre de l'iframe pour l'intégrer au contenu https://css-tricks.com/custom-scrollbars-in-webkit/
-
-        // TODO: épurer le code en faisant des fonctions - eviter répétitions
+        // TODO: épurer le code en faisant des fonctions - eviter répétitions (en cours)
 
         // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         // TODO: m'envoyer un email lorsqu'un message est déposé sur le livre d'or
 
         // TODO: méthode sécurisé pour mot de passe page mariage
@@ -39,23 +31,10 @@
 
         // FIXME: pourquoi en small devices l'écran n'est pas fixe (il y a un tout petit scroll)
 
-<<<<<<< HEAD
-        // FIXME: portfolio ne reste pas vraiment en place lors du scroll bas (en small device)
-
-
-=======
-        // TODO: m'envoyee un email lorsqu'un message est déposé sur le livre d'or
-
-=======
-        // TODO: m'envoyee un email lorsqu'un message est déposé sur le livre d'or
-
->>>>>>> parent of d359b60... MAJ recherche ajax
-    
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
         // FIXME: portfolio ne reste pas vraiment en place lors du scroll bas
+
+        // FIXME: fleche droite et icone full screen du diaporama n'apparait pas à droite de l'écran big devices
     
->>>>>>> parent of 0c67d60... problème avec design barre chargement
         /* Début du Script */
 
         // Definition d'une fonction qui va mettre en majuscule la première lettre d'une chaine de caractère
@@ -63,6 +42,15 @@
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
+
+        // Definition de la fonction qui gère le changement d'icone dans le liseret - Changement de l'icone avec les classes fontawesome
+
+        function iconeMenu() {
+            $('i#icone').fadeOut(0)
+                .toggleClass('fas fa-times')
+                .fadeIn(500)
+                .toggleClass('fas fa-bars');
+        };
 
         // Definition du script principal dans une fonction
 
@@ -106,40 +94,15 @@
 
                 $('.liseret').on('click', function () {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    // Changement de l'icone avec les classes fontawesome
-
+                    // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
+                    
                     iconeMenu();
-=======
-                    // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-                    
-                    function iconeChange() {
-                        $('i#icone').fadeOut(0)
-                        .toggleClass('fas fa-times')
-                        .fadeIn(500)
-                        .toggleClass('fas fa-bars');
-                    }
-
-                    iconeChange();
-<<<<<<< HEAD
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
-                    // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-                    
-                    $('i#icone').fadeOut(0)
-                        .toggleClass('fas fa-times')
-                        .fadeIn(500)
-                        .toggleClass('fas fa-bars');
->>>>>>> parent of 0c67d60... problème avec design barre chargement
 
                     // Affichage / disparition du menu en lui-même
 
                     if (menuOuvert == false) {
                         $('.menuGauche').slideDown(500);
-                        $('.liseret').css('border-bottom', '1px solid');
+                        $('.liseret').css('border-bottom', '1px solid #3a3a3a');
                         menuOuvert = true;
                     } else if (menuOuvert == true) {
                         //utilisation de promise pour enlever la bordure une fois le menu slidé
@@ -156,22 +119,7 @@
                 $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
 
                     if (menuOuvert == true) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                         iconeMenu();
-=======
-                        iconeChange();
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
-                        iconeChange();
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
-                        $('i#icone').fadeOut(0)
-                            .toggleClass('fas fa-times')
-                            .fadeIn(500)
-                            .toggleClass('fas fa-bars');
->>>>>>> parent of 0c67d60... problème avec design barre chargement
                         $('.menuGauche').slideUp(500).promise().done(function () {
                             $('.liseret').css('border-bottom', '0');
                         });
@@ -197,22 +145,7 @@
 
                     // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                     iconeMenu();
-=======
-                    iconeChange();
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
-                    iconeChange();
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
-                    $('i#icone').fadeOut(0)
-                        .toggleClass('fas fa-times')
-                        .fadeIn(500)
-                        .toggleClass('fas fa-bars');
->>>>>>> parent of 0c67d60... problème avec design barre chargement
 
                     // Affichage / disparition du menu en lui-même
 
@@ -243,22 +176,7 @@
                 $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
 
                     if (menuOuvert == true) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                         iconeMenu();
-=======
-                        iconeChange();
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
-                        iconeChange();
->>>>>>> parent of d359b60... MAJ recherche ajax
-=======
-                        $('i#icone').fadeOut(0)
-                            .toggleClass('fas fa-times')
-                            .fadeIn(500)
-                            .toggleClass('fas fa-bars');
->>>>>>> parent of 0c67d60... problème avec design barre chargement
                         $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
                         menuOuvert = false;
                     };
@@ -497,8 +415,3 @@
     });
 
 })(jQuery);
-
-
-
-
-
