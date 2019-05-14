@@ -30,7 +30,6 @@
         ::-webkit-scrollbar-thumb {
             background: rgba(120, 120, 120, 0.8);
         }
-
     </style>
 
 </head>

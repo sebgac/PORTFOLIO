@@ -21,6 +21,8 @@
 
         // TODO: méthode sécurisé pour mot de passe page mariage
 
+        // TODO: rédiger un script pour charger automatiquement les valeurs par défauts du plugin fotorama
+
 
 
         // FIXME: fixer le bug orientationchange pour les pages de la section about
@@ -34,6 +36,11 @@
         // FIXME: portfolio ne reste pas vraiment en place lors du scroll bas
 
         // FIXME: fleche droite et icone full screen du diaporama n'apparait pas à droite de l'écran big devices
+
+        // FIXME: bug de design en small devices (border bottom ne s'affiche pas correctement)
+
+        // FIXME: bug de design small devices, lors changement orientation le caroussel ne sadapte pas compltement au height (de portrait vers paysage)
+
     
         /* Début du Script */
 

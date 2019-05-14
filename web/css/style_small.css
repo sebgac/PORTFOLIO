@@ -8,9 +8,10 @@ header {
     display: flex; 
     flex-direction: column-reverse;
     /* border: 1px solid white; */
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #3a3a3a;
     z-index: 2;
     background-color: black;
+    padding-bottom:48px;
     /* position: relative; */
   }
 
@@ -21,6 +22,9 @@ header {
     transform: none;
     /* border: 1px solid white; */
     margin: auto;
+    position: relative;
+    top: 48px;
+    background-color: black;
   }
 
   #titre1 {
@@ -58,6 +62,7 @@ header {
     border-bottom: 1px solid;
     position: absolute;
     top: 0px;
+    background-color: black;
   }
 
   .liseret:hover {
@@ -70,6 +75,7 @@ header {
   }
 
   section {
+    width: 100%;
     margin-left:2%;
     position: absolute;
     /* top: 12vh; */
@@ -90,7 +96,15 @@ header {
     flex-direction: column;
   }
 
+  @media screen and (orientation: portrait) {
 
+    /* le titre est caché lorsqu'on passe en landscape */
+
+    #loader {
+      left: 30%;
+    }
+
+  }
 
   @media screen and (orientation: landscape) {
 
@@ -102,6 +116,10 @@ header {
 
     #menuburger {
       padding-right: 3px;
+    }
+
+    #loader {
+      left: 37%;
     }
   
 

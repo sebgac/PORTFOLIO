@@ -24,7 +24,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-flex;
-  overflow:hidden;  
+  overflow: hidden;
 }
 
 /* Style général des liens */
@@ -38,11 +38,10 @@ a {
 
 header {
   display: inline-flex;
-  
   /* transition-property: transform;
-  transition-delay: 500ms; */ 
+  transition-delay: 500ms; */
 }
-  
+
 /* Style de la 1ere div du header */
 
 .menuGauche {
@@ -78,7 +77,7 @@ header {
   flex-direction: column;
   margin-bottom: 10vh;
   margin-left: 10px;
-  color:#939393;
+  color: #939393;
   transform: translate(-240px);
   transition-property: transform;
   transition-duration: 500ms;
@@ -88,7 +87,7 @@ ul#categories {
   letter-spacing: 0.11rem;
 }
 
-ul#categories li{
+ul#categories li {
   padding: 3px 0;
 }
 
@@ -112,7 +111,7 @@ ul#categories li{
   color: white;
 }
 
-a#street:focus, a#architecture:focus, a#portrait:focus, a#mariage:focus, .asie a:focus, .europe a:focus, .amsud a:focus,#about a:focus {
+a#street:focus, a#architecture:focus, a#portrait:focus, a#mariage:focus, .asie a:focus, .europe a:focus, .amsud a:focus, #about a:focus {
   color: white;
 }
 
@@ -156,12 +155,12 @@ i.fas.fa-arrow-down, i.fas.fa-arrow-up {
   width: 52px;
   min-height: 100vh;
   border-width: 0 1px 0 1px;
-  border-color:#3a3a3a;
+  border-color: #3a3a3a;
   border-style: solid;
   display: flex;
   flex-direction: column;
   transform: translate(-240px);
-  transition : all 500ms;
+  transition: all 500ms;
   /*    align-content: space-between; */
 }
 
@@ -177,7 +176,7 @@ i.fas.fa-arrow-down, i.fas.fa-arrow-up {
 }
 
 #menuburger:hover {
-  color:#939393;
+  color: #939393;
 }
 
 #portfolio {
@@ -195,11 +194,10 @@ i.fas.fa-arrow-down, i.fas.fa-arrow-up {
 /* Div Principale contenant le titre et le caroussel */
 
 section {
-  width: 100%;
+  width: 96%;
   /* border: 1px solid white; */
   display: flex;
   flex-direction: column;
-  
   /* transition-property: transform;
   transition-delay: 500ms;  */
 }
@@ -207,7 +205,6 @@ section {
 section .titre {
   /* flex-grow: 1; */
   padding: 20px;
-  
   text-align: center;
   transform: translate(-240px);
   transition-property: transform;
@@ -217,7 +214,7 @@ section .titre {
 section h2 {
   font-weight: lighter;
   padding-top: 5px;
-  color:#939393;
+  color: #939393;
   /* text-transform: uppercase; */
 }
 
@@ -237,7 +234,10 @@ section h2 {
 }
 
 #loader {
-  margin: auto;
+  display: none;
+  position: absolute;
+  top: 45%;
+  left: 45%;
 }
 
 #loader img {
