@@ -25,6 +25,7 @@
         // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // TODO: m'envoyer un email lorsqu'un message est déposé sur le livre d'or
 
         // TODO: méthode sécurisé pour mot de passe page mariage
@@ -49,6 +50,10 @@
 =======
         // TODO: m'envoyee un email lorsqu'un message est déposé sur le livre d'or
 
+=======
+        // TODO: m'envoyee un email lorsqu'un message est déposé sur le livre d'or
+
+>>>>>>> parent of d359b60... MAJ recherche ajax
     
 >>>>>>> parent of d359b60... MAJ recherche ajax
         /* Début du Script */
@@ -126,6 +131,9 @@
                     }
 
                     iconeChange();
+<<<<<<< HEAD
+>>>>>>> parent of d359b60... MAJ recherche ajax
+=======
 >>>>>>> parent of d359b60... MAJ recherche ajax
 
                     // Affichage / disparition du menu en lui-même
@@ -150,7 +158,11 @@
 
                     if (menuOuvert == true) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                         iconeMenu();
+=======
+                        iconeChange();
+>>>>>>> parent of d359b60... MAJ recherche ajax
 =======
                         iconeChange();
 >>>>>>> parent of d359b60... MAJ recherche ajax
@@ -180,7 +192,11 @@
                     // Changement de l'icone avec les classes fontawesome
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     iconeMenu();
+=======
+                    iconeChange();
+>>>>>>> parent of d359b60... MAJ recherche ajax
 =======
                     iconeChange();
 >>>>>>> parent of d359b60... MAJ recherche ajax
@@ -215,7 +231,11 @@
 
                     if (menuOuvert == true) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                         iconeMenu();
+=======
+                        iconeChange();
+>>>>>>> parent of d359b60... MAJ recherche ajax
 =======
                         iconeChange();
 >>>>>>> parent of d359b60... MAJ recherche ajax
