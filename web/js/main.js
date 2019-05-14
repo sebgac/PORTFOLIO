@@ -2,7 +2,6 @@
 
     $(function () {
 
-
         // TODO: s'inspirer de https://www.grafikart.fr/tutoriels/jquery-on-events-518 pour ajouter un écouteur unique sur tous les liens. Puis s'inspirer de $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1) pour récupérer le nom de la page à charger sans répétition de code
 
         // TODO: laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent // a verifier si bien fait
@@ -30,20 +29,17 @@
 
         // TODO: méthode sécurisé pour mot de passe page mariage
 
-        // TODO: les patterns pour affiner la vérification des données 
-
-        // TODO: message d'erreur si pattern non respecté
-
 
 
         // FIXME: fixer le bug orientationchange pour les pages de la section about
 
-        // FIXME: eviter apparition petite fleche du menu avant la fin du déroulement - à essayer avec promise - fixer pour voyage, à répéter pour les autres catégories en essayant d'établir une fonction qui marche avec this
-
+        // FIXME: eviter apparition petite fleche du menu avant la fin du déroulement - à essayer avec promise 
+        
         // FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
 
         // FIXME: pourquoi en small devices l'écran n'est pas fixe (il y a un tout petit scroll)
 
+<<<<<<< HEAD
         // FIXME: portfolio ne reste pas vraiment en place lors du scroll bas (en small device)
 
 
@@ -56,6 +52,10 @@
 >>>>>>> parent of d359b60... MAJ recherche ajax
     
 >>>>>>> parent of d359b60... MAJ recherche ajax
+=======
+        // FIXME: portfolio ne reste pas vraiment en place lors du scroll bas
+    
+>>>>>>> parent of 0c67d60... problème avec design barre chargement
         /* Début du Script */
 
         // Definition d'une fonction qui va mettre en majuscule la première lettre d'une chaine de caractère
@@ -63,15 +63,6 @@
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
-
-        // Definition de la fonction qui gère le changement d'icone dans le liseret - Changement de l'icone avec les classes fontawesome
-
-        function iconeMenu() {
-            $('i#icone').fadeOut(0)
-                .toggleClass('fas fa-times')
-                .fadeIn(500)
-                .toggleClass('fas fa-bars');
-        };
 
         // Definition du script principal dans une fonction
 
@@ -100,13 +91,12 @@
                 });
 
                 // adapter la position absolute de la section à la taille du liseret;
-
                 var hauteurLiseret = $('.liseret').height();
                 $('section').css('top', hauteurLiseret);
 
                 // de base, le menu est caché
-
                 $('.menuGauche').hide();
+                /* $('section .titre').hide(); */
 
                 //on cache la bordure du liseret pour éviter de surcharger
 
@@ -116,6 +106,7 @@
 
                 $('.liseret').on('click', function () {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                     // Changement de l'icone avec les classes fontawesome
 
@@ -135,6 +126,14 @@
 >>>>>>> parent of d359b60... MAJ recherche ajax
 =======
 >>>>>>> parent of d359b60... MAJ recherche ajax
+=======
+                    // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
+                    
+                    $('i#icone').fadeOut(0)
+                        .toggleClass('fas fa-times')
+                        .fadeIn(500)
+                        .toggleClass('fas fa-bars');
+>>>>>>> parent of 0c67d60... problème avec design barre chargement
 
                     // Affichage / disparition du menu en lui-même
 
@@ -159,6 +158,7 @@
                     if (menuOuvert == true) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         iconeMenu();
 =======
                         iconeChange();
@@ -166,6 +166,12 @@
 =======
                         iconeChange();
 >>>>>>> parent of d359b60... MAJ recherche ajax
+=======
+                        $('i#icone').fadeOut(0)
+                            .toggleClass('fas fa-times')
+                            .fadeIn(500)
+                            .toggleClass('fas fa-bars');
+>>>>>>> parent of 0c67d60... problème avec design barre chargement
                         $('.menuGauche').slideUp(500).promise().done(function () {
                             $('.liseret').css('border-bottom', '0');
                         });
@@ -189,8 +195,9 @@
 
                 $('.liseret').on('click', function () {
 
-                    // Changement de l'icone avec les classes fontawesome
+                    // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     iconeMenu();
@@ -200,6 +207,12 @@
 =======
                     iconeChange();
 >>>>>>> parent of d359b60... MAJ recherche ajax
+=======
+                    $('i#icone').fadeOut(0)
+                        .toggleClass('fas fa-times')
+                        .fadeIn(500)
+                        .toggleClass('fas fa-bars');
+>>>>>>> parent of 0c67d60... problème avec design barre chargement
 
                     // Affichage / disparition du menu en lui-même
 
@@ -232,6 +245,7 @@
                     if (menuOuvert == true) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         iconeMenu();
 =======
                         iconeChange();
@@ -239,6 +253,12 @@
 =======
                         iconeChange();
 >>>>>>> parent of d359b60... MAJ recherche ajax
+=======
+                        $('i#icone').fadeOut(0)
+                            .toggleClass('fas fa-times')
+                            .fadeIn(500)
+                            .toggleClass('fas fa-bars');
+>>>>>>> parent of 0c67d60... problème avec design barre chargement
                         $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
                         menuOuvert = false;
                     };
@@ -256,22 +276,14 @@
 
             $('#voyages').on('click', function () {
                 if (continentOuvert == false) {
-
-                    $('.continents').slideDown(500).promise().done(function () {
-                        $('#voyages i.fas.fa-arrow-up').show(500).promise().done(function () {
-                            $('#voyages i.fas.fa-arrow-down').hide();
-                        });
-                    });
-
+                    $('.continents').slideDown(500);
+                    $('#voyages i.fas.fa-arrow-up').show(500);
+                    $('#voyages i.fas.fa-arrow-down').hide();
                     continentOuvert = true;
                 } else if (continentOuvert == true) {
-
-                    $('.continents').slideUp(500).promise().done(function () {
-                        $('#voyages i.fas.fa-arrow-down').show(500).promise().done(function () {
-                            $('#voyages i.fas.fa-arrow-up').hide();
-                        });
-                    });
-
+                    $('.continents').slideUp(500);
+                    $('#voyages i.fas.fa-arrow-down').show(500);
+                    $('#voyages i.fas.fa-arrow-up').hide();
                     continentOuvert = false;
                 };
 
@@ -281,13 +293,9 @@
 
             $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
                 if (continentOuvert == true) {
-
-                    $('.continents').slideUp(500).promise().done(function () {
-                        $('#voyages i.fas.fa-arrow-down').show(500).promise().done(function () {
-                            $('#voyages i.fas.fa-arrow-up').hide();
-                        });
-                    });
-
+                    $('.continents').slideUp(500);
+                    $('#voyages i.fas.fa-arrow-down').show(500);
+                    $('#voyages i.fas.fa-arrow-up').hide();
                     continentOuvert = false;
                 };
 

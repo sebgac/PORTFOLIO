@@ -95,11 +95,14 @@
         </div>
     </header>
 
+<<<<<<< HEAD:web/index.html
     <div id="loader">
         <img src="images/loading4.gif" alt="loading" />
     </div>
 
 
+=======
+>>>>>>> parent of 0c67d60... problème avec design barre chargement:web/index.php
     <section></section>
 
 </body>
