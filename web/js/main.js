@@ -34,6 +34,28 @@
 
         /* Début du Script */
 
+                function handleMqChange(mq) {
+            console.log(mq.matches);
+          }
+          var mq = window.matchMedia("(max-width: 850px)")
+           
+          //on test une fois histoire de savoir quelle est la taille
+          //de l'écran à l'initialisation
+          handleMqChange(mq);
+           
+          //a chaque fois que la taille de l'écran passe au dessus ou
+          //en dessous des 850px (ça peut être à cause d'un resize,
+          //d'un changement d'orientation, ...) on exécute
+          //handleMqChange avec la nouvelle mediaQueryList en
+          //paramètre, donc pas besoin de faire 10 000 test
+          mq.addEventListener("change", handleMqChange);
+
+      /*     if (mq) {
+            alert('OK1');
+          } else {
+            alert('OK2');
+          } */
+
         // Definition d'une fonction qui va mettre en majuscule la première lettre d'une chaine de caractère
 
         function capitalizeFirstLetter(string) {
@@ -56,7 +78,7 @@
             // Utilisation de matchMedia pour s'adapter aux Mediaqueries CSS
 
             if (window.matchMedia("(max-width: 850px)").matches) {
-
+            
                 // Détecter le changement d'orientation pour mettre le titre dans le liseret
 
                 // écouteur sur le changement d'orientation en small devices, pour modif de la mise en forme du titre de la galerie
@@ -347,6 +369,46 @@
                 $('.continents li:nth-child(3) i').animate({ opacity: 0 }, 500);
             });
 
+            // Gérer la hauteur de la fenetre pour affichage du livre d'or
+
+            if (window.matchMedia("(min-width: 851px)").matches) {
+
+                var hauteurFenetre = $(window).height();
+                var hauteurTitre = $('section .titre').height();
+                var hauteur = hauteurFenetre - hauteurTitre - 50;
+
+                $('section form').css('height', '' + hauteur + 'px');
+
+                $(window).resize(function () {
+
+                    var hauteurFenetre = $(window).height();
+                    var hauteurTitre = $('section .titre').height();
+                    var hauteur = hauteurFenetre - hauteurTitre - 50;
+
+                    $('section #form_contact').css('height', '' + hauteur + 'px');
+
+                });
+
+            }
+
+            if (window.matchMedia("(max-width: 850px)").matches) {
+                var hauteurFenetre = $(window).height();
+                var hauteurTitre = $('section .titre').height();
+                var hauteur = hauteurFenetre - hauteurTitre - 100;
+
+                $('#myFrame').css('height', '' + hauteur + 'px');
+
+                $(window).resize(function () {
+
+                    var hauteurFenetre = $(window).height();
+                    var hauteurTitre = $('section .titre').height();
+                    var hauteur = hauteurFenetre - hauteurTitre - 100;
+
+                    $('#myFrame').css('height', '' + hauteur + 'px');
+
+                });
+            }
+
         }
 
         // definition de variable qui va nous servir dans le script
@@ -359,47 +421,19 @@
 
         // TODO: recharger le script principal au changement d'orientation (cas ipad)
 
-        // Gérer la hauteur de la fenetre pour affichage du livre d'or
+        /* window.addEventListener("orientationchange", function() {
+            alert('OK3');
+          });
 
-        if (window.matchMedia("(min-width: 851px)").matches) {
+          window.addEventListener("resize", function() {
+            alert('OK2');
+          }); */
 
-            var hauteurFenetre = $(window).height();
-            var hauteurTitre = $('section .titre').height();
-            var hauteur = hauteurFenetre - hauteurTitre - 50;
 
-            $('section form').css('height', '' + hauteur + 'px');
-
-            $(window).resize(function () {
-
-                var hauteurFenetre = $(window).height();
-                var hauteurTitre = $('section .titre').height();
-                var hauteur = hauteurFenetre - hauteurTitre - 50;
-
-                $('section #form_contact').css('height', '' + hauteur + 'px');
-
-            });
-
-        }
-
-        if (window.matchMedia("(max-width: 850px)").matches) {
-            var hauteurFenetre = $(window).height();
-            var hauteurTitre = $('section .titre').height();
-            var hauteur = hauteurFenetre - hauteurTitre - 100;
-
-            $('#myFrame').css('height', '' + hauteur + 'px');
-
-            $(window).resize(function () {
-
-                var hauteurFenetre = $(window).height();
-                var hauteurTitre = $('section .titre').height();
-                var hauteur = hauteurFenetre - hauteurTitre - 100;
-
-                $('#myFrame').css('height', '' + hauteur + 'px');
-
-            });
-        }
 
         /* fin du script */
+
+       
 
     });
 
