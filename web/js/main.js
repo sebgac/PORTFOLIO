@@ -32,392 +32,423 @@
         // FIXME: bug de design small devices, lors changement orientation le caroussel ne sadapte pas compltement au height (de portrait vers paysage)
 
 
-        /* Début du Script */
 
-                function handleMqChange(mq) {
-            console.log(mq.matches);
-          }
-          var mq = window.matchMedia("(max-width: 850px)")
-           
-          //on test une fois histoire de savoir quelle est la taille
-          //de l'écran à l'initialisation
-          handleMqChange(mq);
-           
-          //a chaque fois que la taille de l'écran passe au dessus ou
-          //en dessous des 850px (ça peut être à cause d'un resize,
-          //d'un changement d'orientation, ...) on exécute
-          //handleMqChange avec la nouvelle mediaQueryList en
-          //paramètre, donc pas besoin de faire 10 000 test
-          mq.addEventListener("change", handleMqChange);
+        /* ----------- Définitions des fonctions du script ------------- */
 
-      /*     if (mq) {
-            alert('OK1');
-          } else {
-            alert('OK2');
-          } */
-
-        // Definition d'une fonction qui va mettre en majuscule la première lettre d'une chaine de caractère
+        // Fonction qui met en majuscule la première lettre d'une chaine de caractère
 
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
-        // Definition de la fonction qui gère le changement d'icone dans le liseret - Changement de l'icone avec les classes fontawesome
+        // Fonction qui gère le changement d'icone dans le liseret - Changement de l'icone avec les classes fontawesome
 
         function iconeMenu() {
             $('i#icone').fadeOut(0)
                 .toggleClass('fas fa-times')
                 .fadeIn(500)
                 .toggleClass('fas fa-bars');
-        };
+        }
 
-        // Definition du script principal dans une fonction
+        // Fonction pour modif de la mise en forme du titre de la galerie
 
-        function menu() {
+        function titleChange() {
 
-            // Utilisation de matchMedia pour s'adapter aux Mediaqueries CSS
+            var titrePageBrut = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
+            var titrePage = capitalizeFirstLetter(titrePageBrut);
 
-            if (window.matchMedia("(max-width: 850px)").matches) {
-            
-                // Détecter le changement d'orientation pour mettre le titre dans le liseret
+            // on ajoute le texte dans le liseret seulement si l'orientation est la bonne
 
-                // écouteur sur le changement d'orientation en small devices, pour modif de la mise en forme du titre de la galerie
+            if (window.matchMedia("(orientation: portrait)").matches) {
+                var titreSection = $('section .titre').text().length;
+                if (titreSection == 16) {
+                    $('#portfolio p').append('<span> - Livre d\'or </span>');
+                } else if (titreSection == 13) {
+                    $('#portfolio p').append('<span> - Sur moi </span>');
+                } else {
+                    $('#portfolio p').append('<span> - ' + titrePage + '</span>');
+                }
+            } else {
+                $('#portfolio span').remove();
+            }
+        }
 
-                $(window).on('orientationchange', function () {
+        // Fonction pour adapter la position absolute de la section à la taille du liseret;
 
-                    var titrePageBrut = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
-                    var titrePage = capitalizeFirstLetter(titrePageBrut);
+        function liseretHeight() {
+            var hauteurLiseret = $('.liseret').height();
+            $('section').css('top', hauteurLiseret);
+        }
 
-                    // on ajoute le texte dans le liseret seulement si l'orientation est la bonne
+        // Fonction qui enlève les miniatures du caroussel en fullscreen
 
-                    if (window.matchMedia("(orientation: portrait)").matches) {
-                        var titreSection = $('section .titre').text().length;
-                        if (titreSection == 16) {
-                            $('#portfolio p').append('<span> - Livre d\'or </span>');
-                        } else if (titreSection == 13) {
-                            $('#portfolio p').append('<span> - Sur moi </span>');
-                        } else {
-                            $('#portfolio p').append('<span> - ' + titrePage + '</span>');
-                        }
-                    } else {
-                        $('#portfolio span').remove();
-                    }
-                });
+        function fullscreenWithoutThumbnails() {
+            $(document).on('fotorama:fullscreenenter fotorama:fullscreenexit', function (e, fotorama) {
+                fotorama.setOptions({ nav: e.type === 'fotorama:fullscreenexit' && 'thumbs' });
+            });
+        }
 
-                // adapter la position absolute de la section à la taille du liseret;
-                var hauteurLiseret = $('.liseret').height();
-                $('section').css('top', hauteurLiseret);
+        // Fonctions d'ouverture et de fermeture du menu pour les small et large devices
 
-                // de base, le menu est caché
-                $('.menuGauche').hide();
-                /* $('section .titre').hide(); */
+        function menuOpenSmall() {
+            $('.menuGauche').slideDown(500);
+            $('.liseret').css('border-bottom', '1px solid #3a3a3a');
+            menuOuvert = true;
+        }
 
-                //on cache la bordure du liseret pour éviter de surcharger
-
+        function menuCloseSmall() {
+            //utilisation de promise pour enlever la bordure une fois le menu slidé
+            $('.menuGauche').slideUp(500).promise().done(function () {
                 $('.liseret').css('border-bottom', '0');
-
-                //ecouteur le clic sur le liseret
-
-                $('.liseret').on('click', function () {
-
-                    // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-
-                    iconeMenu();
-
-                    // Affichage / disparition du menu en lui-même
-
-                    if (menuOuvert == false) {
-                        $('.menuGauche').slideDown(500);
-                        $('.liseret').css('border-bottom', '1px solid #3a3a3a');
-                        menuOuvert = true;
-                    } else if (menuOuvert == true) {
-                        //utilisation de promise pour enlever la bordure une fois le menu slidé
-                        $('.menuGauche').slideUp(500).promise().done(function () {
-                            $('.liseret').css('border-bottom', '0');
-                        });
-                        menuOuvert = false;
-                    };
-
-                });
-
-                // Fermeture du menu lorsqu'on clique sur un lien du menu
-
-                $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
-
-                    if (menuOuvert == true) {
-                        iconeMenu();
-                        $('.menuGauche').slideUp(500).promise().done(function () {
-                            $('.liseret').css('border-bottom', '0');
-                        });
-                        menuOuvert = false;
-                    };
-                });
-
-                // Enlève les miniatures lorsqu'on est en full screen sur mobile
-
-                $(document).on('fotorama:fullscreenenter fotorama:fullscreenexit', function (e, fotorama) {
-                    fotorama.setOptions({ nav: e.type === 'fotorama:fullscreenexit' && 'thumbs' });
-                });
-
-            }
-
-            // Réalisation d'un menu "coulissant" qui s'ouvre et se ferme via un bouton menu
-
-            // on fixe une valeur repère qui indique que le menu est fermé
-
-            if (window.matchMedia("(min-width: 851px)").matches) {
-
-                $('.liseret').on('click', function () {
-
-                    // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-
-                    iconeMenu();
-
-                    // Affichage / disparition du menu en lui-même
-
-                    if (menuOuvert == false) {
-                        $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
-                        menuOuvert = true;
-                    } else if (menuOuvert == true) {
-                        $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
-                        menuOuvert = false;
-                    };
-
-                });
-
-                // Fermeture du menu lorsqu'on clique sur certains liens
-
-                $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
-
-                    if (menuOuvert == true) {
-                        iconeMenu();
-                        $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
-                        menuOuvert = false;
-                    };
-                });
-            }
-
-            // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage
-            // + changer l'icone fleche haut/bas
-
-            var continentOuvert = false;
-            $('.continents').hide();
-            $('#voyages i.fas.fa-arrow-up').hide();
-
-            $('#voyages').on('click', function () {
-                if (continentOuvert == false) {
-                    $('.continents').slideDown(500);
-                    $('#voyages i.fas.fa-arrow-up').show(500);
-                    $('#voyages i.fas.fa-arrow-down').hide();
-                    continentOuvert = true;
-                } else if (continentOuvert == true) {
-                    $('.continents').slideUp(500);
-                    $('#voyages i.fas.fa-arrow-down').show(500);
-                    $('#voyages i.fas.fa-arrow-up').hide();
-                    continentOuvert = false;
-                };
-
             });
+            menuOuvert = false;
+        }
 
-            // fermer voyage si on clique sur un autre lien (utile pour affichage smartphone)
+        function menuOpenLarge() {
+            $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
+            menuOuvert = true;
+        }
 
-            $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
-                if (continentOuvert == true) {
-                    $('.continents').slideUp(500);
-                    $('#voyages i.fas.fa-arrow-down').show(500);
-                    $('#voyages i.fas.fa-arrow-up').hide();
-                    continentOuvert = false;
-                };
+        function menuCloseLarge() {
+            $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
+            menuOuvert = false;
+        }
 
-            });
+        // Fonctions qui gèrent la hauteur de la fenetre pour affichage dans le livre d'or pour small et large devices
 
-            // Faire de même avec les sous catégories pays
+        function sectionHeightLargeGold() {
+            var hauteurFenetre = $(window).height();
+            var hauteurTitre = $('section .titre').height();
+            var hauteur = hauteurFenetre - hauteurTitre - 50;
 
-            var asieOuvert = false;
-            $('.asie').hide();
-            $('#asie i.fas.fa-arrow-up').hide();
+            $('section form').css('height', '' + hauteur + 'px');
 
-            //$(document).on permet d'écouter les éléments rajoutés par jQuery
-
-            $(document).on('click', '#asie', function () {
-                if (asieOuvert == false) {
-                    $('.asie').slideDown(500);
-                    $('#asie i.fas.fa-arrow-up').show(500);
-                    $('#asie i.fas.fa-arrow-down').hide();
-                    asieOuvert = true;
-                } else if (asieOuvert == true) {
-                    $('.asie').slideUp("normal");
-                    $('#asie i.fas.fa-arrow-down').show(500);
-                    $('#asie i.fas.fa-arrow-up').hide();
-                    asieOuvert = false;
-                };
-
-            });
-
-            var europeOuvert = false;
-            $('.europe').hide();
-            $('#europe i.fas.fa-arrow-up').hide();
-
-            $(document).on('click', '#europe', function () {
-                if (europeOuvert == false) {
-                    $('.europe').slideDown(500);
-                    $('#europe i.fas.fa-arrow-up').show(500);
-                    $('#europe i.fas.fa-arrow-down').hide();
-                    europeOuvert = true;
-                } else if (europeOuvert == true) {
-                    $('.europe').slideUp("normal");
-                    $('#europe i.fas.fa-arrow-down').show(500);
-                    $('#europe i.fas.fa-arrow-up').hide();
-                    europeOuvert = false;
-                };
-
-            });
-
-            var amsudOuvert = false;
-            $('.amsud').hide();
-            $('#amsud i.fas.fa-arrow-up').hide();
-
-            $(document).on('click', '#amsud', function () {
-                if (amsudOuvert == false) {
-                    $('.amsud').slideDown(500);
-                    $('#amsud i.fas.fa-arrow-up').show(500);
-                    $('#amsud i.fas.fa-arrow-down').hide();
-                    amsudOuvert = true;
-                } else if (amsudOuvert == true) {
-                    $('.amsud').slideUp(500);
-                    $('#amsud i.fas.fa-arrow-down').show(500);
-                    $('#amsud i.fas.fa-arrow-up').hide();
-                    amsudOuvert = false;
-                };
-
-            });
-
-            // Lorsqu'on clique sur une autre catégorie que celle ouverte, on ferme la catégorie en cours
-            // et on change le sens de la flèche fas
-
-            // Pour le continent Asie
-
-            $(document).on('click', '#amsud,#europe', function () {
-                if (asieOuvert == true) {
-                    $('.asie').slideUp("normal");
-                    $('#asie i.fas.fa-arrow-down').show();
-                    $('#asie i.fas.fa-arrow-up').hide();
-                    asieOuvert = false;
-                };
-
-            });
-
-            // Pour le continent Europe
-
-            $(document).on('click', '#asie,#amsud', function () {
-                if (europeOuvert == true) {
-                    $('.europe').slideUp("normal");
-                    $('#europe i.fas.fa-arrow-down').show();
-                    $('#europe i.fas.fa-arrow-up').hide();
-                    europeOuvert = false;
-                };
-
-            });
-
-            // Pour le continent AmSud
-
-            $(document).on('click', '#asie,#europe', function () {
-                if (amsudOuvert == true) {
-                    $('.amsud').slideUp("normal");
-                    $('#amsud i.fas.fa-arrow-down').show();
-                    $('#amsud i.fas.fa-arrow-up').hide();
-                    amsudOuvert = false;
-                };
-
-            });
-
-            // Rendre le bouton + visible lorsqu'on survole la catégorie Voyages
-
-            $('#voyages').hover(function () {
-                $('#voyages i').animate({ opacity: 1 }, 500);
-            });
-
-            // Le rendre à nouveau invisible lorsqu'on ne survole plus Voyages
-
-            $('#voyages').mouseout(function () {
-                $('#voyages i').animate({ opacity: 0 }, 500);
-            });
-
-            // Faire de même avec les catégories continents
-
-            $(document).on('mouseenter', '#asie', function () {
-                $('.continents li:first-child i').animate({ opacity: 1 }, 500);
-            });
-
-            $(document).on('mouseleave', '#asie', function () {
-                $('.continents li:first-child i').animate({ opacity: 0 }, 500);
-            });
-
-            $(document).on('mouseenter', '#europe', function () {
-                $('.continents li:nth-child(2) i').animate({ opacity: 1 }, 500);
-            });
-
-            $(document).on('mouseleave', '#europe', function () {
-                $('.continents li:nth-child(2) i').animate({ opacity: 0 }, 500);
-            });
-
-            $(document).on('mouseenter', '#amsud', function () {
-                $('.continents li:nth-child(3) i').animate({ opacity: 1 }, 500);
-            });
-
-            $(document).on('mouseleave', '#amsud', function () {
-                $('.continents li:nth-child(3) i').animate({ opacity: 0 }, 500);
-            });
-
-            // Gérer la hauteur de la fenetre pour affichage du livre d'or
-
-            if (window.matchMedia("(min-width: 851px)").matches) {
+            $(window).resize(function () {
 
                 var hauteurFenetre = $(window).height();
                 var hauteurTitre = $('section .titre').height();
                 var hauteur = hauteurFenetre - hauteurTitre - 50;
 
-                $('section form').css('height', '' + hauteur + 'px');
+                $('section #form_contact').css('height', '' + hauteur + 'px');
 
-                $(window).resize(function () {
+            });
+        }
 
-                    var hauteurFenetre = $(window).height();
-                    var hauteurTitre = $('section .titre').height();
-                    var hauteur = hauteurFenetre - hauteurTitre - 50;
+        function sectionHeightSmallGold() {
+            var hauteurFenetre = $(window).height();
+            var hauteurTitre = $('section .titre').height();
+            var hauteur = hauteurFenetre - hauteurTitre - 100;
 
-                    $('section #form_contact').css('height', '' + hauteur + 'px');
+            $('#myFrame').css('height', '' + hauteur + 'px');
 
-                });
+            $(window).resize(function () {
 
-            }
-
-            if (window.matchMedia("(max-width: 850px)").matches) {
                 var hauteurFenetre = $(window).height();
                 var hauteurTitre = $('section .titre').height();
                 var hauteur = hauteurFenetre - hauteurTitre - 100;
 
                 $('#myFrame').css('height', '' + hauteur + 'px');
 
-                $(window).resize(function () {
-
-                    var hauteurFenetre = $(window).height();
-                    var hauteurTitre = $('section .titre').height();
-                    var hauteur = hauteurFenetre - hauteurTitre - 100;
-
-                    $('#myFrame').css('height', '' + hauteur + 'px');
-
-                });
-            }
-
+            });
         }
 
-        // definition de variable qui va nous servir dans le script
+        // Fonctions définissant le comportement des flèches aidant à la navigation des menus
+
+        function arrowUp() {
+            $(this + ' i.fas.fa-arrow-up').show(500);
+            $(this + ' i.fas.fa-arrow-down').hide();
+        }
+
+        function arrowDown() {
+            alert('OK');
+        }
+
+
+
+        /* --------- Début du Script --------------- */
+
+        // Utilisation de matchMedia pour s'adapter aux Mediaqueries CSS
+
+        // on fixe une valeur repère qui indique que le menu est fermé
 
         var menuOuvert = false
 
-        // Lancement script principal
 
-        menu();
+        /* ------- INFERIEUR à 850 px --------- */
+
+        if (window.matchMedia("(max-width: 850px)").matches) {
+
+            // Détecter le changement d'orientation pour mettre le titre dans le liseret
+
+            $(window).on('orientationchange', function () {
+                titleChange();
+            });
+
+            // adapter la position absolute de la section à la taille du liseret;
+
+            liseretHeight();
+
+            // de base, le menu est caché
+
+            $('.menuGauche').hide();
+
+            //on cache la bordure du liseret pour éviter de surcharger
+
+            $('.liseret').css('border-bottom', '0');
+
+            //ecouteur le clic sur le liseret
+
+            $('.liseret').on('click', function () {
+
+                // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
+
+                iconeMenu();
+
+                // Affichage / disparition du menu en lui-même
+
+                if (menuOuvert == false) {
+                    menuOpenSmall();
+                } else if (menuOuvert == true) {
+                    menuCloseSmall();
+                };
+
+            });
+
+            // Fermeture du menu lorsqu'on clique sur un lien du menu
+
+            $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
+
+                if (menuOuvert == true) {
+                    iconeMenu();
+                    menuCloseSmall();
+                };
+            });
+
+            // Enlève les miniatures lorsqu'on est en full screen sur mobile
+
+            fullscreenWithoutThumbnails();
+
+        }
+
+        /*  ------- SUPERIEUR à 851 px ---------- */
+
+        if (window.matchMedia("(min-width: 851px)").matches) {
+
+            $('.liseret').on('click', function () {
+
+                // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
+
+                iconeMenu();
+
+                // Affichage / disparition du menu en lui-même
+
+                if (menuOuvert == false) {
+                    menuOpenLarge();
+                } else if (menuOuvert == true) {
+                    menuCloseLarge();
+                };
+
+            });
+
+            // Fermeture du menu lorsqu'on clique sur certains liens
+
+            $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
+
+                if (menuOuvert == true) {
+                    iconeMenu();
+                    menuCloseLarge();
+                };
+            });
+        }
+
+        // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage + changer l'icone fleche haut/bas
+
+        // TODO: Code à refactoriser
+
+        // définition comportement de base
+        var continentOuvert = false;
+        $('.continents').hide();
+        $('#voyages i.fas.fa-arrow-up').hide();
+
+        $('#voyages').on('click', function () {
+            if (continentOuvert == false) {
+                $('.continents').slideDown(500);
+                /* arrowUp(); */
+                $('#voyages i.fas.fa-arrow-up').show(500);
+                $('#voyages i.fas.fa-arrow-down').hide();
+                continentOuvert = true;
+            } else if (continentOuvert == true) {
+                $('.continents').slideUp(500);
+                /* arrowDown(); */
+                $('#voyages i.fas.fa-arrow-down').show(500);
+                $('#voyages i.fas.fa-arrow-up').hide();
+                continentOuvert = false;
+            };
+
+        });
+
+        // fermer voyage si on clique sur un autre lien (utile pour affichage smartphone)
+
+        $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
+            if (continentOuvert == true) {
+                $('.continents').slideUp(500);
+                $('#voyages i.fas.fa-arrow-down').show(500);
+                $('#voyages i.fas.fa-arrow-up').hide();
+                continentOuvert = false;
+            };
+
+        });
+
+        // Faire de même avec les sous catégories pays
+
+        var asieOuvert = false;
+        $('.asie').hide();
+        $('#asie i.fas.fa-arrow-up').hide();
+
+        //$(document).on permet d'écouter les éléments rajoutés par jQuery
+
+        $(document).on('click', '#asie', function () {
+            if (asieOuvert == false) {
+                $('.asie').slideDown(500);
+                $('#asie i.fas.fa-arrow-up').show(500);
+                $('#asie i.fas.fa-arrow-down').hide();
+                asieOuvert = true;
+            } else if (asieOuvert == true) {
+                $('.asie').slideUp("normal");
+                $('#asie i.fas.fa-arrow-down').show(500);
+                $('#asie i.fas.fa-arrow-up').hide();
+                asieOuvert = false;
+            };
+
+        });
+
+        var europeOuvert = false;
+        $('.europe').hide();
+        $('#europe i.fas.fa-arrow-up').hide();
+
+        $(document).on('click', '#europe', function () {
+            if (europeOuvert == false) {
+                $('.europe').slideDown(500);
+                $('#europe i.fas.fa-arrow-up').show(500);
+                $('#europe i.fas.fa-arrow-down').hide();
+                europeOuvert = true;
+            } else if (europeOuvert == true) {
+                $('.europe').slideUp("normal");
+                $('#europe i.fas.fa-arrow-down').show(500);
+                $('#europe i.fas.fa-arrow-up').hide();
+                europeOuvert = false;
+            };
+
+        });
+
+        var amsudOuvert = false;
+        $('.amsud').hide();
+        $('#amsud i.fas.fa-arrow-up').hide();
+
+        $(document).on('click', '#amsud', function () {
+            if (amsudOuvert == false) {
+                $('.amsud').slideDown(500);
+                $('#amsud i.fas.fa-arrow-up').show(500);
+                $('#amsud i.fas.fa-arrow-down').hide();
+                amsudOuvert = true;
+            } else if (amsudOuvert == true) {
+                $('.amsud').slideUp(500);
+                $('#amsud i.fas.fa-arrow-down').show(500);
+                $('#amsud i.fas.fa-arrow-up').hide();
+                amsudOuvert = false;
+            };
+
+        });
+
+        // Lorsqu'on clique sur une autre catégorie que celle ouverte, on ferme la catégorie en cours
+        // et on change le sens de la flèche fas
+
+        // Pour le continent Asie
+
+        $(document).on('click', '#amsud,#europe', function () {
+            if (asieOuvert == true) {
+                $('.asie').slideUp("normal");
+                $('#asie i.fas.fa-arrow-down').show();
+                $('#asie i.fas.fa-arrow-up').hide();
+                asieOuvert = false;
+            };
+
+        });
+
+        // Pour le continent Europe
+
+        $(document).on('click', '#asie,#amsud', function () {
+            if (europeOuvert == true) {
+                $('.europe').slideUp("normal");
+                $('#europe i.fas.fa-arrow-down').show();
+                $('#europe i.fas.fa-arrow-up').hide();
+                europeOuvert = false;
+            };
+
+        });
+
+        // Pour le continent AmSud
+
+        $(document).on('click', '#asie,#europe', function () {
+            if (amsudOuvert == true) {
+                $('.amsud').slideUp("normal");
+                $('#amsud i.fas.fa-arrow-down').show();
+                $('#amsud i.fas.fa-arrow-up').hide();
+                amsudOuvert = false;
+            };
+
+        });
+
+        // Rendre le bouton + visible lorsqu'on survole la catégorie Voyages
+
+        $('#voyages').hover(function () {
+            $('#voyages i').animate({ opacity: 1 }, 500);
+        });
+
+        // Le rendre à nouveau invisible lorsqu'on ne survole plus Voyages
+
+        $('#voyages').mouseout(function () {
+            $('#voyages i').animate({ opacity: 0 }, 500);
+        });
+
+        // Faire de même avec les catégories continents
+
+        $(document).on('mouseenter', '#asie', function () {
+            $('.continents li:first-child i').animate({ opacity: 1 }, 500);
+        });
+
+        $(document).on('mouseleave', '#asie', function () {
+            $('.continents li:first-child i').animate({ opacity: 0 }, 500);
+        });
+
+        $(document).on('mouseenter', '#europe', function () {
+            $('.continents li:nth-child(2) i').animate({ opacity: 1 }, 500);
+        });
+
+        $(document).on('mouseleave', '#europe', function () {
+            $('.continents li:nth-child(2) i').animate({ opacity: 0 }, 500);
+        });
+
+        $(document).on('mouseenter', '#amsud', function () {
+            $('.continents li:nth-child(3) i').animate({ opacity: 1 }, 500);
+        });
+
+        $(document).on('mouseleave', '#amsud', function () {
+            $('.continents li:nth-child(3) i').animate({ opacity: 0 }, 500);
+        });
+
+        // Gérer la hauteur de la fenetre pour affichage du livre d'or
+
+        if (window.matchMedia("(min-width: 851px)").matches) {
+            sectionHeightLargeGold();
+        }
+
+        if (window.matchMedia("(max-width: 850px)").matches) {
+            sectionHeightSmallGold();
+        }
+
+
+        // Lancement script principal
 
         // TODO: recharger le script principal au changement d'orientation (cas ipad)
 
@@ -433,7 +464,7 @@
 
         /* fin du script */
 
-       
+
 
     });
 
