@@ -19,6 +19,8 @@
 
         // TODO: rédiger un script pour charger automatiquement les valeurs par défauts du plugin fotorama
 
+        // TODO: réaliser une page de login en php pour sécuriser mot de passe mariage
+
 
 
         // FIXME: fixer le bug orientationchange pour les pages de la section about
@@ -56,9 +58,7 @@
 
             var titrePageBrut = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
             var titrePage = capitalizeFirstLetter(titrePageBrut);
-
             // on ajoute le texte dans le liseret seulement si l'orientation est la bonne
-
             if (window.matchMedia("(orientation: portrait)").matches) {
                 var titreSection = $('section .titre').text().length;
                 if (titreSection == 16) {
@@ -478,11 +478,7 @@
             alert('OK2');
           }); */
 
-
-
-        /* fin du script */
-
-
+        /* --------- Fin du script ------------ */
 
     });
 
