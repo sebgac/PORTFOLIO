@@ -1,6 +1,6 @@
 (function ($) {
 
-    $(function () {
+    /* $(function () { */
 
         // TODO: s'inspirer de https://www.grafikart.fr/tutoriels/jquery-on-events-518 pour ajouter un écouteur unique sur tous les liens. Puis s'inspirer de $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1) pour récupérer le nom de la page à charger sans répétition de code
 
@@ -480,6 +480,6 @@
 
         /* --------- Fin du script ------------ */
 
-    });
+/*     }); */
 
-})(jQuery);
+})(jQuery); 
