@@ -154,15 +154,56 @@
 
         // Fonctions définissant le comportement des flèches aidant à la navigation des menus
 
-        function arrowUp() {
-            $(this + ' i.fas.fa-arrow-up').show(500);
-            $(this + ' i.fas.fa-arrow-down').hide();
+        function arrowUp(id) {
+            $(id + ' i.fas.fa-arrow-up').show(500);
+            $(id + ' i.fas.fa-arrow-down').hide();
         }
 
-        function arrowDown() {
-            alert('OK');
+        function arrowDown(id) {
+            $(id + ' i.fas.fa-arrow-down').show(500);
+            $(id + ' i.fas.fa-arrow-up').hide();
         }
 
+        // Fonctions commandant l'ouverture des sous-catégories
+
+        function continentOpen() {
+            $('.continents').slideDown(500);
+            continentOuvert = true;
+        }
+
+        function continentClose() {
+            $('.continents').slideUp(500);
+            continentOuvert = false;
+        }
+
+        function asieOpen() {
+            $('.asie').slideDown(500);
+            asieOuvert = true;
+        }
+
+        function asieClose() {
+            $('.asie').slideUp(500);
+            asieOuvert = false;
+        }
+
+        function europeOpen() {
+            $('.europe').slideDown(500);
+            europeOuvert = true;
+        }
+
+        function europeClose() {
+            $('.europe').slideUp(500);
+            europeOuvert = false;
+        }
+        function amsudOpen() {
+            $('.amsud').slideDown(500);
+            amsudOuvert = true;
+        }
+
+        function amsudClose() {
+            $('.amsud').slideUp(500);
+            amsudOuvert = false;
+        }
 
 
         /* --------- Début du Script --------------- */
@@ -272,17 +313,11 @@
 
         $('#voyages').on('click', function () {
             if (continentOuvert == false) {
-                $('.continents').slideDown(500);
-                /* arrowUp(); */
-                $('#voyages i.fas.fa-arrow-up').show(500);
-                $('#voyages i.fas.fa-arrow-down').hide();
-                continentOuvert = true;
+                continentOpen();
+                arrowUp('#' + $(this).attr('id'));
             } else if (continentOuvert == true) {
-                $('.continents').slideUp(500);
-                /* arrowDown(); */
-                $('#voyages i.fas.fa-arrow-down').show(500);
-                $('#voyages i.fas.fa-arrow-up').hide();
-                continentOuvert = false;
+                continentClose();
+                arrowDown('#' + $(this).attr('id'));
             };
 
         });
@@ -292,9 +327,8 @@
         $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
             if (continentOuvert == true) {
                 $('.continents').slideUp(500);
-                $('#voyages i.fas.fa-arrow-down').show(500);
-                $('#voyages i.fas.fa-arrow-up').hide();
-                continentOuvert = false;
+                continentClose();
+                arrowDown('#' + $(this).attr('id'));
             };
 
         });
@@ -309,15 +343,11 @@
 
         $(document).on('click', '#asie', function () {
             if (asieOuvert == false) {
-                $('.asie').slideDown(500);
-                $('#asie i.fas.fa-arrow-up').show(500);
-                $('#asie i.fas.fa-arrow-down').hide();
-                asieOuvert = true;
+                asieOpen();
+                arrowUp('#' + $(this).attr('id'));
             } else if (asieOuvert == true) {
-                $('.asie').slideUp("normal");
-                $('#asie i.fas.fa-arrow-down').show(500);
-                $('#asie i.fas.fa-arrow-up').hide();
-                asieOuvert = false;
+                asieClose();
+                arrowDown('#' + $(this).attr('id'));
             };
 
         });
@@ -328,15 +358,12 @@
 
         $(document).on('click', '#europe', function () {
             if (europeOuvert == false) {
-                $('.europe').slideDown(500);
-                $('#europe i.fas.fa-arrow-up').show(500);
-                $('#europe i.fas.fa-arrow-down').hide();
-                europeOuvert = true;
+                europeOpen();
+                arrowUp('#' + $(this).attr('id'));
+
             } else if (europeOuvert == true) {
-                $('.europe').slideUp("normal");
-                $('#europe i.fas.fa-arrow-down').show(500);
-                $('#europe i.fas.fa-arrow-up').hide();
-                europeOuvert = false;
+                europeClose();
+                arrowDown('#' + $(this).attr('id'));
             };
 
         });
@@ -347,15 +374,12 @@
 
         $(document).on('click', '#amsud', function () {
             if (amsudOuvert == false) {
-                $('.amsud').slideDown(500);
-                $('#amsud i.fas.fa-arrow-up').show(500);
-                $('#amsud i.fas.fa-arrow-down').hide();
-                amsudOuvert = true;
+                amsudOpen();
+                arrowUp('#' + $(this).attr('id'));
+
             } else if (amsudOuvert == true) {
-                $('.amsud').slideUp(500);
-                $('#amsud i.fas.fa-arrow-down').show(500);
-                $('#amsud i.fas.fa-arrow-up').hide();
-                amsudOuvert = false;
+                amsudClose();
+                arrowDown('#' + $(this).attr('id'));
             };
 
         });
@@ -367,10 +391,8 @@
 
         $(document).on('click', '#amsud,#europe', function () {
             if (asieOuvert == true) {
-                $('.asie').slideUp("normal");
-                $('#asie i.fas.fa-arrow-down').show();
-                $('#asie i.fas.fa-arrow-up').hide();
-                asieOuvert = false;
+                asieClose();
+                arrowDown('#' + $(this).attr('id'));
             };
 
         });
@@ -379,10 +401,8 @@
 
         $(document).on('click', '#asie,#amsud', function () {
             if (europeOuvert == true) {
-                $('.europe').slideUp("normal");
-                $('#europe i.fas.fa-arrow-down').show();
-                $('#europe i.fas.fa-arrow-up').hide();
-                europeOuvert = false;
+                europeClose();
+                arrowDown('#' + $(this).attr('id'));
             };
 
         });
@@ -391,15 +411,13 @@
 
         $(document).on('click', '#asie,#europe', function () {
             if (amsudOuvert == true) {
-                $('.amsud').slideUp("normal");
-                $('#amsud i.fas.fa-arrow-down').show();
-                $('#amsud i.fas.fa-arrow-up').hide();
-                amsudOuvert = false;
+                amsudClose();
+                arrowDown('#' + $(this).attr('id'));
             };
 
         });
 
-        // Rendre le bouton + visible lorsqu'on survole la catégorie Voyages
+        // Rendre l'icone visible lorsqu'on survole la catégorie Voyages
 
         $('#voyages').hover(function () {
             $('#voyages i').animate({ opacity: 1 }, 500);
