@@ -45,7 +45,7 @@
             // Chargement de la page appelé avec index.html
 
             $.ajax({
-                url: "pages/accueil.html", success: function (result) {
+                url: "pages/accueil.php", success: function (result) {
                     // on affiche le loader et commence le chargement des photos en le cachant
                     $('#loader').fadeIn();
                     $('section').html(result);
@@ -66,7 +66,7 @@
             $('a#accueil').on('click', function () {
 
                 $.ajax({
-                    url: "pages/accueil.html", success: function (result) {
+                    url: "pages/accueil.php", success: function (result) {
                         $('#loader').fadeIn();
                         $('section').html(result);
                         $('section').css('opacity', '0');
@@ -83,7 +83,7 @@
             $('a#street').on('click', function () {
 
                 $.ajax({
-                    url: "pages/street.html", success: function (result) {
+                    url: "pages/street.php", success: function (result) {
                         $('#loader').fadeIn();
                         $('section').html(result);
                         $('section').css('opacity', '0');
@@ -101,7 +101,7 @@
             $('a#architecture').on('click', function () {
 
                 $.ajax({
-                    url: "pages/architecture.html", success: function (result) {
+                    url: "pages/architecture.php", success: function (result) {
                         $('#loader').fadeIn();
                         $('section').html(result);
                         $('section').css('opacity', '0');
@@ -118,7 +118,7 @@
             $('a#portrait').on('click', function () {
 
                 $.ajax({
-                    url: "pages/portrait.html", success: function (result) {
+                    url: "pages/portrait.php", success: function (result) {
                         $('#loader').fadeIn();
                         $('section').html(result);
                         $('section').css('opacity', '0');
@@ -137,7 +137,7 @@
                 var motDePasse = prompt("Veuillez indiquer le mot de passe");
                 if (motDePasse == "weddingpics") {
                     $.ajax({
-                        url: "pages/mariage.html", success: function (result) {
+                        url: "pages/mariage.php", success: function (result) {
                             $('#loader').fadeIn();
                             $('section').html(result);
                             $('section').css('opacity', '0');
