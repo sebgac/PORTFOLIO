@@ -33,6 +33,10 @@
 
     // FIXME: bug de design small devices, lors changement orientation le caroussel ne sadapte pas compltement au height (de portrait vers paysage)
 
+    // FIXME: menu qui ne déroule plus après changement d'orientation
+
+    // FIXME: fleche sur #voyage qui ne s'affiche plus au hover lorsqu'on a cliqué sur un lien et revient dans le menu
+
 
 
     /* ----------- Définitions des fonctions du script ------------- */
@@ -479,13 +483,74 @@
 
     // TODO: recharger le script principal au changement d'orientation (cas ipad)
 
-    /* window.addEventListener("orientationchange", function() {
-        alert('OK3');
-      });
+    /* $(window).on('orientationchange', function () {
 
-      window.addEventListener("resize", function() {
+        alert('oK3');
+
+        if (window.matchMedia("(max-width: 850px)").matches) {
+
+            $(window).on('orientationchange', function () {
+                titleChange();
+            });
+
+            liseretHeight();
+
+            $('.menuGauche').hide();
+
+            $('.liseret').css('border-bottom', '0');
+
+            $('.liseret').on('click', function () {
+
+                iconeMenu();
+
+                if (menuOuvert == false) {
+                    menuOpenSmall();
+                } else if (menuOuvert == true) {
+                    menuCloseSmall();
+                };
+
+            });
+
+            $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
+
+                if (menuOuvert == true) {
+                    iconeMenu();
+                    menuCloseSmall();
+                };
+            });
+
+            fullscreenWithoutThumbnails();
+            sectionHeightLargeGold();
+
+        }
+
+        if (window.matchMedia("(min-width: 851px)").matches) {
+
+            $('.liseret').on('click', function () {
+
+                iconeMenu();
+
+                if (menuOuvert == false) {
+                    menuOpenLarge();
+                } else if (menuOuvert == true) {
+                    menuCloseLarge();
+                };
+
+            });
+
+            $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
+
+                if (menuOuvert == true) {
+                    iconeMenu();
+                    menuCloseLarge();
+                };
+            });
+        }
+    });
+
+    $(window).on('resize', function () {
         alert('OK2');
-      }); */
+    }); */
 
     /* --------- Fin du script ------------ */
 
