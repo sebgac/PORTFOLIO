@@ -27,18 +27,7 @@
             }
         }
 
-        // FIXME: les fonctions suivantes ne se lancent pas dans l'appel ajax, pourquoi ?
-
-        /* function loadingInit(result) {
-            $('#loader').fadeIn();
-            $('section').html(result);
-            $('section').css('opacity', '0');
-        }
-
-        function loadingEnd() {
-            $('#loader').fadeOut();
-            $('section').fadeTo(500, 1);
-        } */
+        // fonctions loadingPage et loadingAbout
 
         function loadingPage(result) {
             // on affiche le loader et commence le chargement des photos en le cachant
@@ -74,12 +63,13 @@
             }
         });
 
-        // ensuite, on charge les pages suite clic sur les liens correspondants (à peaufiner pour éviter répétition de code)
+        // ensuite, on charge les pages suite clic sur les liens correspondants ( TODO: à peaufiner pour éviter répétition de code)
 
-        $('a#accueil').on('click', function () {
+        $('a#accueil,a#street,a#architecture,a#portrait, a#mariage').on('click', function (e) {
 
+            var x = e.target.id;
             $.ajax({
-                url: "pages/accueil.php", success: function (result) {
+                url: "pages/"+ x +".php", success: function (result) {
                     loadingPage(result);
                     ajouterTitre();
                 }
@@ -87,22 +77,10 @@
 
         });
 
-        $('a#street').on('click', function () {
+        $('a#inde').on('click', function () {
 
             $.ajax({
-                url: "pages/street.php", success: function (result) {
-                    loadingPage(result);
-                    ajouterTitre();
-
-                }
-            });
-
-        });
-
-        $('a#architecture').on('click', function () {
-
-            $.ajax({
-                url: "pages/architecture.php", success: function (result) {
+                url: "pages/pays/inde.php", success: function (result) {
                     loadingPage(result);
                     ajouterTitre();
                 }
@@ -110,16 +88,9 @@
 
         });
 
-        $('a#portrait').on('click', function () {
+        /* 
 
-            $.ajax({
-                url: "pages/portrait.php", success: function (result) {
-                    loadingPage(result);
-                    ajouterTitre();
-                }
-            });
-
-        });
+        // TODO: trouver solution pour mot de passe sécurisé - peut etre par PHP
 
         $('a#mariage').on('click', function () {
 
@@ -132,15 +103,18 @@
                     }
                 });
             } else {
-                $.ajax({
-                    url: "pages/accueil.html", success: function (result) {
-                        loadingPage(result);
-                        ajouterTitre();
 
-                    }
-                });
+            $.ajax({
+                url: "pages/mariage.php", success: function (result) {
+                    loadingPage(result);
+                    ajouterTitre();
+
+                }
+            });
+
             }
-        });
+
+        }); */
 
         // pour les liens de #about, je fais un translate(0) pour que le menu ne coulisse pas au clic
 
@@ -148,7 +122,7 @@
 
             $.ajax({
                 url: "pages/moi.html", success: function (result) {
-                    loadingAbout(result); 
+                    loadingAbout(result);
                 }
             });
 
@@ -158,7 +132,7 @@
 
             $.ajax({
                 url: "pages/contact.html", success: function (result) {
-                    loadingAbout(result); 
+                    loadingAbout(result);
                 }
             });
 
@@ -169,7 +143,7 @@
             $.ajax({
                 url: "pages/livre.html", success: function (result) {
 
-                    loadingAbout(result); 
+                    loadingAbout(result);
 
                     // Gérer la hauteur de la fenetre pour affichage du livre d'or
 
@@ -193,18 +167,22 @@
             });
 
         });
-        
+
+        /* Appels Ajax pour les pages pays */
+
+        $('.europe li a, .asie li a, .amsud li a').on('click', function (e) {
+            var y = e.target.id;
+            $.ajax({
+                url: "pages/pays/"+ y +".php", success: function (result) {
+                    loadingPage(result);
+                    ajouterTitre();
+                }
+            });
+
+        });
+
+
         /* } */
-
-        // script chargée au lancement de la page index
-
-        /* appelAjax(); */
-
-        // script rechargé à chaque resize de l'écran
-
-        /* $(document).on('resize', function () {
-            appelAjax();
-        }); */
 
 
         // TODO: essai pour recharger le script en resize ou orientation change

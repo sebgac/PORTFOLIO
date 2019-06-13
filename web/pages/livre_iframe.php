@@ -45,29 +45,58 @@
 
         // selection des données à afficher sur le livre d'or au chargement de la page
 
+        // Avec mysqli
+
+        /* 
+
         $sql = "SELECT * FROM livreOrPortfolioPhoto ORDER BY id DESC";
+        $res = mysqli_query($conn, $sql); 
 
-        $result = mysqli_query($conn, $sql);
-
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $res->fetch_assoc()) {
             echo "<br><table>
-    <tr>
-        <td>Nom :</td>
-        <td>" . $row["name"] . "</td>
-    </tr>
-    <tr>
-        <td>Website :</td>
-        <td>" . $row["website"] . "</td>
-    </tr>
-    <tr>
-        <td>Message :</td>
-        <td>" . $row["msg"] . "</td>
-    </tr>
-    </table><br><hr>";
-        }
+            <tr>
+                <td>Nom :</td>
+                <td>" . $row["name"] . "</td>
+            </tr>
+            <tr>
+                <td>Website :</td>
+                <td>" . $row["website"] . "</td>
+            </tr>
+            <tr>
+                <td>Message :</td>
+                <td>" . $row["msg"] . "</td>
+            </tr>
+            </table><br><hr>";
+        } 
+
+        */
+
+        // Avec PDO
+
+        $res=$conn->query('SELECT * FROM livreOrPortfolioPhoto ORDER BY id DESC');
+
+        $resultats = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($resultats as $key => $value) {
+                echo "<br><table>
+            <tr>
+                <td>Nom :</td>
+                <td>" . $value["name"] . "</td>
+            </tr>
+            <tr>
+                <td>Website :</td>
+                <td>" . $value["website"] . "</td>
+            </tr>
+            <tr>
+                <td>Message :</td>
+                <td>" . $value["msg"] . "</td>
+            </tr>
+            </table><br><hr>";
+            }
+            
+        $conn = null;
 
         ?>
-
 
 </body>
 

@@ -45,13 +45,13 @@ header {
 /* Style de la 1ere div du header */
 
 .menuGauche {
-  width: 220px;
+  width: 240px;
   margin-left: 20px;
   /*       min-height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transform: translate(-240px);
+  transform: translate(-260px);
   transition-property: transform;
   transition-duration: 500ms;
 }
@@ -66,7 +66,7 @@ header {
 
 #titre1 {
   font-weight: lighter;
-  transform: translate(-240px);
+  transform: translate(-260px);
   transition-property: transform;
   transition-duration: 500ms;
 }
@@ -78,7 +78,7 @@ header {
   margin-bottom: 10vh;
   margin-left: 10px;
   color: #939393;
-  transform: translate(-240px);
+  transform: translate(-260px);
   transition-property: transform;
   transition-duration: 500ms;
 }
@@ -159,7 +159,7 @@ i.fas.fa-arrow-down, i.fas.fa-arrow-up {
   border-style: solid;
   display: flex;
   flex-direction: column;
-  transform: translate(-240px);
+  transform: translate(-260px);
   transition: all 500ms;
   /*    align-content: space-between; */
 }
@@ -186,10 +186,21 @@ i.fas.fa-arrow-down, i.fas.fa-arrow-up {
   /* text-align: center; */
   /* border: 1px solid white; */
   transform: rotate(-90deg) translate(22%, -479%);
+  -moz-transform: rotate(-90deg) translate(22%, -465%);
   width: 447%;
   margin: auto;
   /* padding: 15px; */
 }
+
+/* 
+
+// autre façon de spécifier une règle CSS en ciblant firefox
+
+@-moz-document url-prefix() {
+  #portfolio {
+    transform: rotate(-90deg) translate(22%, -465%);
+  }
+} */
 
 /* Div Principale contenant le titre et le caroussel */
 
@@ -206,7 +217,7 @@ section .titre {
   /* flex-grow: 1; */
   padding: 20px;
   text-align: center;
-  transform: translate(-240px);
+  transform: translate(-260px);
   transition-property: transform;
   transition-duration: 500ms;
 }
@@ -226,7 +237,7 @@ section h2 {
   width: 100%;
   /* border: 1px solid white; */
   text-align: center;
-  transform: translate(-240px);
+  transform: translate(-260px);
   transition-property: transform;
   transition-duration: 500ms;
   display: flex;

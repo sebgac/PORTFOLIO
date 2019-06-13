@@ -10,6 +10,39 @@
             //vérification des champs
 
             var name = $("input#name").val();
+            var regexName = /^[a-zA-Z0-9_-\s]{3,30}$/;
+            var verifName = regexName.test(name);
+            if ((name == "") || (verifName == false)) {
+                $("input#name").css('color', 'red');
+                $("input#name").focus();
+                return false;
+            } else {
+                $("input#name").css('color', 'white');
+            };
+            var mail = $("input#mail").val();
+            var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+            var verifEmail = regexEmail.test(mail);
+            if ((mail == "") || (verifEmail == false)) {
+                $("input#mail").css('color', 'red');
+                $("input#mail").focus();
+                return false;
+            } else if (verifEmail) {
+                $("input#mail").css('color', 'white');
+            };
+            var website = $("input#website").val();
+
+            var msg = $("textarea#msg").val();
+            var msg = $("textarea#msg").val();
+            if (msg == "") {
+                $("textarea#msg").attr('placeholder', 'Vous n\'avez pas laissé de message ! Ecrire ici');
+                $("textarea#msg").focus();
+                return false;
+            } else {
+                $("textarea#msg").attr('placeholder', 'Votre message ...');
+            };
+
+
+            /* var name = $("input#name").val();
             if (name == "") {
                 $("label#name_label").css('color', 'red');
                 $("input#name").focus();
@@ -32,9 +65,7 @@
                 return false;
             } else {
                 $("label#mail_label").css('color', 'white');
-            }
-
-            // TO DO : les patterns pour affiner la vérification des données 
+            } */
 
             // Méthode ajax POST pour envoyer les données vers page_contact.php sans recharger la page
 

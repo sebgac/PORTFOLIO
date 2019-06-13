@@ -114,7 +114,7 @@
     }
 
     function menuCloseLarge() {
-        $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-240px)');
+        $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-260px)');
         menuOuvert = false;
     }
 
@@ -304,7 +304,7 @@
 
         // Fermeture du menu lorsqu'on clique sur un lien du menu
 
-        $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
+        $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre, a#inde, .asie li a, .amsud li a, .europe li a').on('click', function () {
 
             if (menuOuvert == true) {
                 iconeMenu();
@@ -340,7 +340,7 @@
 
         // Fermeture du menu lorsqu'on clique sur certains liens
 
-        $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
+        $('a#accueil, a#street, a#portrait, a#architecture, a#mariage, a#inde, .europe li a, .asie li a, .amsud li a').on('click', function () {
 
             if (menuOuvert == true) {
                 iconeMenu();

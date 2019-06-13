@@ -11,36 +11,43 @@
 
             //definition des variables et vérification des champs du formulaire
 
+            //FIXME: pourquoi le champ d'un formulaire se met en background blanc lorsqu'il est prérempli
+
             var name = $("input#name").val();
-            if (name == "") {
-               /*  $("label#name_label").css('color', 'red'); */
+            var regexName = /^[a-zA-Z0-9_-\s]{3,30}$/;
+            var verifName = regexName.test(name);
+            if ((name == "") || (verifName == false)) {
+                $("input#name").css('color', 'red');
                 $("input#name").focus();
                 return false;
             } else {
-                /* $("label#name_label").css('color', 'white'); */
+                $("input#name").css('color', '#343434');
             };
             var mail = $("input#mail").val();
-            if (mail == "") {
-                /* $("label#mail_label").css('color', 'red'); */
+            var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+            var verifEmail = regexEmail.test(mail);
+            if ((mail == "") || (verifEmail == false)) {
+                $("input#mail").css('color', 'red');
                 $("input#mail").focus();
                 return false;
-            } else {
-                $("label#mail_label").css('color', 'white');
+            } else if (verifEmail) {
+                $("input#mail").css('color', '#343434');
             };
             var website = $("input#website").val();
 
             // TODO: verification pour website
 
             var msg = $("textarea#msg").val();
+            var msg = $("textarea#msg").val();
             if (msg == "") {
-                $("label#msg_label").css('color', 'red');
-                $("input#msg").focus();
+                $("textarea#msg").attr('placeholder', 'Vous n\'avez pas laissé de message ! Ecrire ici');
+                $("textarea#msg").focus();
                 return false;
             } else {
-                $("label#mail_label").css('color', 'white');
+                $("textarea#msg").attr('placeholder', 'Votre message ...');
             };
 
-            // TODO: les patterns pour affiner la vérification des données 
+            //TODO: effectuer une transition douce pour le placeholder du textarea
 
             // Méthode ajax 
 
