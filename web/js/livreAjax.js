@@ -2,10 +2,49 @@
 
     $(function () {
 
-/*         alert ('test OK'); */
+        // definition des Regex
+
+        var regexName = /^[a-zA-Z0-9_-\s]{3,30}$/;
+        var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+        /* var regexWebsite = new RegExp("^((http|https):\/\/)?(www[.])?([a-zA-Z0-9]|-)+([.][a-zA-Z0-9(-|\/|=|?)?]+)+$"); */
+        var regexWebsite = new RegExp("^((http|https):\/\/)?(www[.])?([a-zA-Z0-9]|-)+([.][a-zA-Z0-9(-|\/|=|?)?]+)+$");
 
         // début du script
 
+        $("input#name").keyup(function () {
+
+            var name = $("input#name").val();
+            var verifName = regexName.test(name);
+            if (verifName == false) {
+                $(this).css('color', 'red');
+            } else {
+                $(this).css('color', 'white');
+            };
+        });
+
+        $("input#mail").keyup(function () {
+
+            var mail = $("input#mail").val();           
+            var verifEmail = regexEmail.test(mail);
+
+            if (verifEmail == false) {
+                $(this).css('color', 'red');
+            } else {
+                $(this).css('color', 'white');
+            };
+        });
+
+        $("input#website").keyup(function () {
+
+            var website = $("input#website").val();
+            var verifWebsite = regexWebsite.test(website);
+
+            if (verifWebsite == false) {
+                $(this).css('color', 'red');
+            } else {
+                $(this).css('color', 'white');
+            };
+        });
 
         $("#submit").click(function () {
 
@@ -13,8 +52,7 @@
 
             //FIXME: pourquoi le champ d'un formulaire se met en background blanc lorsqu'il est prérempli
 
-            var name = $("input#name").val();
-            var regexName = /^[a-zA-Z0-9_-\s]{3,30}$/;
+            var name = $("input#name").val();           
             var verifName = regexName.test(name);
             if ((name == "") || (verifName == false)) {
                 $("input#name").css('color', 'red');
@@ -23,19 +61,32 @@
             } else {
                 $("input#name").css('color', '#343434');
             };
-            var mail = $("input#mail").val();
-            var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+            var mail = $("input#mail").val();           
             var verifEmail = regexEmail.test(mail);
-            if ((mail == "") || (verifEmail == false)) {
+            if (mail == "") {
+                verifEmail = true;
+            }
+            if (verifEmail == false) {
                 $("input#mail").css('color', 'red');
                 $("input#mail").focus();
                 return false;
-            } else if (verifEmail) {
+            } else {
                 $("input#mail").css('color', '#343434');
             };
-            var website = $("input#website").val();
 
-            // TODO: verification pour website
+            var website = $("input#website").val();
+            var verifWebsite = regexWebsite.test(website);
+            if (website == "") {
+                verifWebsite = true;
+            }
+            if (verifWebsite == false) {
+                $("input#website").css('color', 'red');
+                $("input#website").focus();
+                return false;
+            } else {
+                $("input#website").css('color', '#343434');
+            };
 
             var msg = $("textarea#msg").val();
             var msg = $("textarea#msg").val();

@@ -11,6 +11,10 @@
         width: 100%;
     }
 
+    a {
+        color: inherit;
+    }
+
     /* je garde ce code sous la main si je change mes labels */
 
     /*  label {
@@ -55,7 +59,7 @@
         height: 10rem;
     }
 
-/*     ::placeholder {
+    /*     ::placeholder {
         color: red;
       } */
 

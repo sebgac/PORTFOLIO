@@ -14,24 +14,6 @@
             color: #939393;
         }
 
-        a {
-            color: inherit;
-        }
-
-       /*  table {
-            border:1px solid white;
-        }
-
-        table td {
-            border:1px solid white;
-    
-        }
- */
-        td.champ {
-            vertical-align: top;
-            width : 74px;
-        }
-
         hr {
             /* border: 1px solid #939393; */
             border: 0;
@@ -91,40 +73,31 @@
 
         // Avec PDO
 
-        $res = $conn->query('SELECT * FROM livreOrPortfolioPhoto ORDER BY id DESC');
+        $res=$conn->query('SELECT * FROM livreOrPortfolioPhoto ORDER BY id DESC');
 
         $resultats = $res->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($resultats as $key => $value) {
-
-            if ($value["website"] == "") {
-                echo "<br><table>
-                <tr>
-                    <td class='champ'>Nom :</td>
-                    <td>" . $value["name"] . "</td>
-                </tr>
-                <tr>
-                    <td class='champ'>Message :</td>
-                    <td>" . $value["msg"] . "</td>
-                </tr>
-                </table><br><hr>";
-            } else {
-                echo "<br><table>
+            
+            echo "<br><table>
             <tr>
-                <td class='champ'>Nom :</td>
-                <td><a href=" . $value["website"] . " target='_blank'>" . $value["name"] . "</a></td>
+                <td>Nom :</td>
+                <td>" . $value["name"] . "</td>
             </tr>
             <tr>
-                <td class='champ'>Message :</td>
+                <td>Website :</td>
+                <td><a href=". $value["website"] . " target='_blank'>Lien vers site web</a></td>
+            </tr>
+            <tr>
+                <td>Message :</td>
                 <td>" . $value["msg"] . "</td>
             </tr>
             </table><br><hr>";
             }
-        }
 
 
-        // TODO: mettre le lien vers siet web uniquement
-
+            // TODO: mettre le lien vers siet web uniquement
+            
         $conn = null;
 
         ?>
