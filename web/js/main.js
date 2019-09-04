@@ -21,6 +21,8 @@
 
     // TODO: réaliser une page de login en php pour sécuriser mot de passe mariage
 
+    /* TODO: enlever les fleches dans le mode fullscreen en small devices */
+
 
 
     // FIXME: fixer le bug orientationchange pour les pages de la section about
@@ -37,9 +39,38 @@
 
     // FIXME: fleche sur #voyage qui ne s'affiche plus au hover lorsqu'on a cliqué sur un lien et revient dans le menu
 
+    // FIXME: pas de ligne de délimitation sur menu bottom en safari (ok chrome)
+
+    // FIXME: fleche double parfois au déroulement, je ne sais pas pourquoi
+
+    // FIXME: le point n'est pas valide dans le champ nom dans l'email
+
 
 
     /* ----------- Définitions des fonctions du script ------------- */
+
+    // Chargement initial de la page en small devices
+
+    function initLoadSmall() {
+
+        if (window.matchMedia("(max-width: 850px)").matches) {
+            // de base, le menu est caché
+            $('.menuGauche').hide();
+            //on cache la bordure du liseret pour éviter de surcharger
+            $('.liseret').css('border-bottom', '0');
+        }
+    }
+
+    // Fonction qui enlève les miniatures du caroussel en fullscreen en small devices uniquement
+
+    function fullscreenWithoutThumbnails() {
+        if (window.matchMedia("(max-width: 850px)").matches) {
+            $(document).on('fotorama:fullscreenenter fotorama:fullscreenexit', function (e, fotorama) {
+                fotorama.setOptions({ nav: e.type === 'fotorama:fullscreenexit' && 'thumbs' });
+            });
+        }
+
+    }
 
     // Fonction qui met en majuscule la première lettre d'une chaine de caractère
 
@@ -60,100 +91,123 @@
 
     function titleChange() {
 
-        var titrePageBrut = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
-        var titrePage = capitalizeFirstLetter(titrePageBrut);
-        // on ajoute le texte dans le liseret seulement si l'orientation est la bonne
-        if (window.matchMedia("(orientation: portrait)").matches) {
-            var titreSection = $('section .titre').text().length;
-            if (titreSection == 16) {
-                $('#portfolio p').append('<span> - Livre d\'or </span>');
-            } else if (titreSection == 13) {
-                $('#portfolio p').append('<span> - Sur moi </span>');
+        if (window.matchMedia("(max-width: 850px)").matches) {
+
+            var titrePageBrut = $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1);
+            var titrePage = capitalizeFirstLetter(titrePageBrut);
+            // on ajoute le texte dans le liseret seulement si l'orientation est la bonne
+            if (window.matchMedia("(orientation: portrait)").matches) {
+                var titreSection = $('section .titre').text().length;
+                if (titreSection == 16) {
+                    $('#portfolio p').append('<span> - Livre d\'or </span>');
+                } else if (titreSection == 13) {
+                    $('#portfolio p').append('<span> - Sur moi </span>');
+                } else {
+                    $('#portfolio p').append('<span> - ' + titrePage + '</span>');
+                }
             } else {
-                $('#portfolio p').append('<span> - ' + titrePage + '</span>');
+                $('#portfolio span').remove();
             }
-        } else {
-            $('#portfolio span').remove();
         }
+
     }
 
-    // Fonction pour adapter la position absolute de la section à la taille du liseret;
+    // Fonction pour adapter la position absolute de la section à la taille du liseret - en mode Small Device;
 
     function liseretHeight() {
-        var hauteurLiseret = $('.liseret').height();
-        $('section').css('top', hauteurLiseret);
-    }
-
-    // Fonction qui enlève les miniatures du caroussel en fullscreen
-
-    function fullscreenWithoutThumbnails() {
-        $(document).on('fotorama:fullscreenenter fotorama:fullscreenexit', function (e, fotorama) {
-            fotorama.setOptions({ nav: e.type === 'fotorama:fullscreenexit' && 'thumbs' });
-        });
+        if (window.matchMedia("(max-width: 850px)").matches) {
+            var hauteurLiseret = $('.liseret').height();
+            $('section').css('top', hauteurLiseret);
+        }
     }
 
     // Fonctions d'ouverture et de fermeture du menu pour les small et large devices
 
-    function menuOpenSmall() {
-        $('.menuGauche').slideDown(500);
-        $('.liseret').css('border-bottom', '1px solid #3a3a3a');
+    function menuOpen() {
+
+        if (window.matchMedia("(min-width: 851px)").matches) {
+            $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
+
+        } else {
+            $('.menuGauche').slideDown(500);
+            $('.liseret').css('border-bottom', '1px solid #3a3a3a');
+
+        }
         menuOuvert = true;
     }
 
-    function menuCloseSmall() {
-        //utilisation de promise pour enlever la bordure une fois le menu slidé
-        $('.menuGauche').slideUp(500).promise().done(function () {
-            $('.liseret').css('border-bottom', '0');
-        });
+    function menuClose() {
+        if (window.matchMedia("(min-width: 851px)").matches) {
+            $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-260px)');
+
+        } else {
+            $('.menuGauche').slideUp(500).promise().done(function () {
+                $('.liseret').css('border-bottom', '0');
+            });
+
+        }
         menuOuvert = false;
     }
 
-    function menuOpenLarge() {
-        $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(0)');
-        menuOuvert = true;
-    }
+    // Fonction qui gère la fermeture du menu en cliquant sur certains liens
 
-    function menuCloseLarge() {
-        $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-260px)');
-        menuOuvert = false;
+    function closeFromLinks() {
+        if (window.matchMedia("(min-width: 851px)").matches) {
+            $('a#accueil, a#street, a#portrait, a#architecture, a#mariage, a#inde, .europe li a, .asie li a, .amsud li a').on('click', function () {
+                if (menuOuvert == true) {
+                    iconeMenu();
+                    menuClose();
+                };
+            });
+        } else {
+            $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre, a#inde, .asie li a, .amsud li a, .europe li a').on('click', function () {
+                if (menuOuvert == true) {
+                    iconeMenu();
+                    menuClose();
+                };
+            });
+        }
     }
 
     // Fonctions qui gèrent la hauteur de la fenetre pour affichage dans le livre d'or pour small et large devices
 
-    function sectionHeightLargeGold() {
-        var hauteurFenetre = $(window).height();
-        var hauteurTitre = $('section .titre').height();
-        var hauteur = hauteurFenetre - hauteurTitre - 50;
+    function sectionHeightGold() {
 
-        $('section form').css('height', '' + hauteur + 'px');
-
-        $(window).resize(function () {
-
+        if (window.matchMedia("(min-width: 851px)").matches) {
             var hauteurFenetre = $(window).height();
             var hauteurTitre = $('section .titre').height();
             var hauteur = hauteurFenetre - hauteurTitre - 50;
 
-            $('section #form_contact').css('height', '' + hauteur + 'px');
+            $('section form').css('height', '' + hauteur + 'px');
 
-        });
-    }
+            $(window).resize(function () {
 
-    function sectionHeightSmallGold() {
-        var hauteurFenetre = $(window).height();
-        var hauteurTitre = $('section .titre').height();
-        var hauteur = hauteurFenetre - hauteurTitre - 100;
+                var hauteurFenetre = $(window).height();
+                var hauteurTitre = $('section .titre').height();
+                var hauteur = hauteurFenetre - hauteurTitre - 50;
 
-        $('#myFrame').css('height', '' + hauteur + 'px');
+                $('section #form_contact').css('height', '' + hauteur + 'px');
 
-        $(window).resize(function () {
+            });
+        }
 
+        else {
             var hauteurFenetre = $(window).height();
             var hauteurTitre = $('section .titre').height();
             var hauteur = hauteurFenetre - hauteurTitre - 100;
 
             $('#myFrame').css('height', '' + hauteur + 'px');
 
-        });
+            $(window).resize(function () {
+
+                var hauteurFenetre = $(window).height();
+                var hauteurTitre = $('section .titre').height();
+                var hauteur = hauteurFenetre - hauteurTitre - 100;
+
+                $('#myFrame').css('height', '' + hauteur + 'px');
+            });
+        }
+
     }
 
     // Fonctions définissant le comportement des flèches aidant à la navigation des menus
@@ -168,16 +222,14 @@
         $(id + ' i.fas.fa-arrow-up').hide();
     }
 
-    // Fonctions commandant l'ouverture des sous-catégories
-
     function continentOpen() {
         $('.continents').slideDown(500);
-        continentOuvert = true;
+        continentsOuvert = true;
     }
 
     function continentClose() {
         $('.continents').slideUp(500);
-        continentOuvert = false;
+        continentsOuvert = false;
     }
 
     function asieOpen() {
@@ -255,26 +307,53 @@
 
     /* --------- Début du Script --------------- */
 
-    // Utilisation de matchMedia pour s'adapter aux Mediaqueries CSS
 
     // on fixe une valeur repère qui indique que le menu est fermé
 
     var menuOuvert = false
 
+    // Chargement de la page en small devices
 
-    /* ------- INFERIEUR à 850 px --------- */
+    initLoadSmall();
+
+    // Détecter le changement d'orientation pour mettre le titre dans le liseret
+
+    $(window).on('orientationchange', function () {
+        titleChange();
+    });
+
+    // adapter la position absolute de la section à la taille du liseret;
+
+    liseretHeight();
+
+
+    $('.liseret').on('click', function () {
+
+        // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
+
+        iconeMenu();
+
+        // Affichage / disparition du menu en lui-même
+
+        if (menuOuvert == false) {
+            menuOpen();
+        } else if (menuOuvert == true) {
+            menuClose();
+        };
+
+    });
+
+    // Enlève les miniatures lorsqu'on est en full screen sur mobile
+
+    fullscreenWithoutThumbnails();
+
+    // Fermer le menu en cliquant sur certains liens
+
+    closeFromLinks();
+
+    // Comportement spécifique à la version mobile au chargement initial
 
     if (window.matchMedia("(max-width: 850px)").matches) {
-
-        // Détecter le changement d'orientation pour mettre le titre dans le liseret
-
-        $(window).on('orientationchange', function () {
-            titleChange();
-        });
-
-        // adapter la position absolute de la section à la taille du liseret;
-
-        liseretHeight();
 
         // de base, le menu est caché
 
@@ -283,102 +362,30 @@
         //on cache la bordure du liseret pour éviter de surcharger
 
         $('.liseret').css('border-bottom', '0');
-
-        //ecouteur le clic sur le liseret
-
-        $('.liseret').on('click', function () {
-
-            // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-
-            iconeMenu();
-
-            // Affichage / disparition du menu en lui-même
-
-            if (menuOuvert == false) {
-                menuOpenSmall();
-            } else if (menuOuvert == true) {
-                menuCloseSmall();
-            };
-
-        });
-
-        // Fermeture du menu lorsqu'on clique sur un lien du menu
-
-        $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre, a#inde, .asie li a, .amsud li a, .europe li a').on('click', function () {
-
-            if (menuOuvert == true) {
-                iconeMenu();
-                menuCloseSmall();
-            };
-        });
-
-        // Enlève les miniatures lorsqu'on est en full screen sur mobile
-
-        fullscreenWithoutThumbnails();
-
     }
 
-    /*  ------- SUPERIEUR à 851 px ---------- */
-
-    if (window.matchMedia("(min-width: 851px)").matches) {
-
-        $('.liseret').on('click', function () {
-
-            // Changement de l'icone avec les classes fontawesome - le changement de couleur se fait avec le CSS
-
-            iconeMenu();
-
-            // Affichage / disparition du menu en lui-même
-
-            if (menuOuvert == false) {
-                menuOpenLarge();
-            } else if (menuOuvert == true) {
-                menuCloseLarge();
-            };
-
-        });
-
-        // Fermeture du menu lorsqu'on clique sur certains liens
-
-        $('a#accueil, a#street, a#portrait, a#architecture, a#mariage, a#inde, .europe li a, .asie li a, .amsud li a').on('click', function () {
-
-            if (menuOuvert == true) {
-                iconeMenu();
-                menuCloseLarge();
-            };
-        });
-    }
 
     // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage + changer l'icone fleche haut/bas
 
     // TODO: Code à refactoriser
 
+
     // définition comportement de base
-    var continentOuvert = false;
+    var continentsOuvert = false;
     $('.continents').hide();
     $('#voyages i.fas.fa-arrow-up').hide();
 
     $('#voyages').on('click', function () {
-        if (continentOuvert == false) {
+        if (continentsOuvert == false) {
             continentOpen();
             arrowUp('#' + $(this).attr('id'));
-        } else if (continentOuvert == true) {
+        } else if (continentsOuvert == true) {
             continentClose();
             arrowDown('#' + $(this).attr('id'));
-        };
+        }
 
     });
 
-    // fermer voyage si on clique sur un autre lien (utile pour affichage smartphone)
-
-    $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
-        if (continentOuvert == true) {
-            $('.continents').slideUp(500);
-            continentClose();
-            arrowDown('#' + $(this).attr('id'));
-        };
-
-    });
 
     // Faire de même avec les sous catégories pays
 
@@ -431,6 +438,16 @@
 
     });
 
+     // fermer voyage si on clique sur un autre lien (utile pour affichage smartphone)
+
+     $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
+        if (continentsOuvert == true) {
+            continentClose();
+            arrowDown('#' + $(this).attr('id'));
+        };
+
+    });
+
     // Lorsqu'on clique sur une autre catégorie que celle ouverte, on ferme la catégorie en cours
     // et on change le sens de la flèche fas
 
@@ -466,94 +483,14 @@
 
     // Gestion du hover de l'icone
 
-    iconeHover();
+    /* iconeHover(); */
 
     // Gérer la hauteur de la fenetre pour affichage du livre d'or
 
-    if (window.matchMedia("(min-width: 851px)").matches) {
-        sectionHeightLargeGold();
-    }
+    sectionHeightGold();
 
-    if (window.matchMedia("(max-width: 850px)").matches) {
-        sectionHeightSmallGold();
-    }
-
-
-    // Lancement script principal
-
-    // TODO: recharger le script principal au changement d'orientation (cas ipad)
-
-    /* $(window).on('orientationchange', function () {
-
-        alert('oK3');
-
-        if (window.matchMedia("(max-width: 850px)").matches) {
-
-            $(window).on('orientationchange', function () {
-                titleChange();
-            });
-
-            liseretHeight();
-
-            $('.menuGauche').hide();
-
-            $('.liseret').css('border-bottom', '0');
-
-            $('.liseret').on('click', function () {
-
-                iconeMenu();
-
-                if (menuOuvert == false) {
-                    menuOpenSmall();
-                } else if (menuOuvert == true) {
-                    menuCloseSmall();
-                };
-
-            });
-
-            $('a#accueil, .asie a, .europe a, .amsud a,a#street, a#portrait, a#architecture, a#mariage, a#moi, a#contact, a#livre').on('click', function () {
-
-                if (menuOuvert == true) {
-                    iconeMenu();
-                    menuCloseSmall();
-                };
-            });
-
-            fullscreenWithoutThumbnails();
-            sectionHeightLargeGold();
-
-        }
-
-        if (window.matchMedia("(min-width: 851px)").matches) {
-
-            $('.liseret').on('click', function () {
-
-                iconeMenu();
-
-                if (menuOuvert == false) {
-                    menuOpenLarge();
-                } else if (menuOuvert == true) {
-                    menuCloseLarge();
-                };
-
-            });
-
-            $('a#accueil, a#street, a#portrait, a#architecture, a#mariage').on('click', function () {
-
-                if (menuOuvert == true) {
-                    iconeMenu();
-                    menuCloseLarge();
-                };
-            });
-        }
-    });
-
-    $(window).on('resize', function () {
-        alert('OK2');
-    }); */
 
     /* --------- Fin du script ------------ */
 
-    /*     }); */
 
 })(jQuery); 

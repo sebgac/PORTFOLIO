@@ -77,6 +77,9 @@
 
         });
 
+        /* 
+        // a supprimer si page fonctionne
+        
         $('a#inde').on('click', function () {
 
             $.ajax({
@@ -86,7 +89,7 @@
                 }
             });
 
-        });
+        }); */
 
         /* 
 

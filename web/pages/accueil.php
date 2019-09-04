@@ -12,9 +12,13 @@
 
 <div id="caroussel">
 
-  <div class="fotorama" data-maxwidth="100%" data-maxheight="90%" data-ratio="800/600" data-nav="thumbs" data-fit="contain" data-thumbwidth="30" data-thumbheight="30" data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-keyboard="true" data-allowfullscreen="true">
+  <!-- <div class="fotorama" data-maxwidth="100%" data-maxheight="90%" data-ratio="800/600" data-nav="thumbs" data-fit="contain" data-thumbwidth="30" data-thumbheight="30" data-arrows="true" data-click="true" data-swipe="true" data-trackpad="true" data-keyboard="true" data-allowfullscreen="true"> -->
 
     <?php
+
+    // Paramètres par défaut du caroussel
+
+    include 'fotoramaDefault.html';
 
     /* --- script qui me permet d'adapter le code en fonction du nombre de photos dans mon dossier --- */
 

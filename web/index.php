@@ -25,16 +25,13 @@
 
             <nav>
                 <a>GALERIES PHOTO</a>
-                <ul id="categories">                  
-                    <li><a id="inde" href="#">Inde</a></li>
-                    <li><a id="street" href="#">Street</a></li>
-                    <li><a id="portrait" href="#">Portrait</a></li>
-                    <li><a id="architecture" href="#">Architecture</a></li>
-                    <li><a id="voyages" href="#">Voyages à vélo  <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
+                <ul id="categories">
+                                      
+                <li><a id="voyages" href="#">Voyages <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
                         <ul class="continents">
                             <li><a id="asie" href="#">Asie <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
                                 <ul class="asie">
-                                    <!-- <li><a id="inde" href="#">Inde</a></li> -->
+                                    <li><a id="inde" href="#">Inde</a></li>
                                     <li><a id="japon" href="#">Japon</a></li>
                                     <li><a id="coree" href="#">Corée du Sud</a></li>
                                     <li><a id="mongolie" href="#">Mongolie</a></li>
@@ -71,6 +68,11 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li><a id="street" href="#">Street</a></li>
+                    <li><a id="portrait" href="#">Portrait</a></li>
+                    <li><a id="architecture" href="#">Architecture</a></li>
+                    
                     
                     <!-- <li><a id="mariage" href="#">Mariage</a></li> -->
                 </ul>

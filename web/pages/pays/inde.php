@@ -4,19 +4,17 @@
 </div>
 <div id="caroussel">
 
-  <div class="fotorama" data-maxwidth="100%" data-maxheight="90%" data-ratio="800/600" data-nav="thumbs"
-    data-fit="contain" data-thumbwidth="30" data-thumbheight="30" data-arrows="true" data-click="true" data-swipe="true"
-    data-trackpad="true" data-keyboard="true" data-allowfullscreen="true">
+  <?php
 
-    <?php
+  include '../fotoramaDefault.html';
 
-    $files = glob("../../images/pays/inde/*.*"); 
-    $compteur = count($files); 
+  $files = glob("../../images/pays/inde/*.*");
+  $compteur = count($files);
 
-    for ($i = 1; $i <= $compteur; $i++) {
-      echo "<img src='images/pays/inde/inde" . $i . ".jpg' />";
-    }
-    ?>
+  for ($i = 1; $i <= $compteur; $i++) {
+    echo "<img src='images/pays/inde/inde" . $i . ".jpg' />";
+  }
+  ?>
 
-  </div>
+</div>
 </div>
