@@ -6,7 +6,8 @@
 
         //definition des regex
 
-        var regexName = /^[a-zA-Z0-9_-\s]{3,30}$/;
+        /* var regexName = /^[a-zA-Z0-9_-\s\w]{3,30}$/; */
+        var regexName = /^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{3,30}$/;
         var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
         //vérification des champs
