@@ -22,7 +22,7 @@
 
     // FIXME: fixer le bug orientationchange pour les pages de la section about
 
-    // FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
+    // FIXME: pourquoi il y a un petit décalé en bas de l'écran sur les thumbnails
 
     // FIXME: pourquoi en small devices l'écran n'est pas fixe (il y a un tout petit scroll)
 
@@ -46,4 +46,6 @@
 
 // Déjà fait :
 
-// charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
+    // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
+
+    // FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
