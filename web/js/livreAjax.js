@@ -16,12 +16,20 @@
         $("input#name").keyup(function () {
 
             var name = $("input#name").val();
+            var lengthName = name.length;
             var verifName = regexName.test(name);
             if (verifName == false) {
                 $(this).css('color', 'red');
             } else {
                 $(this).css('color', 'white');
             };
+
+            // faire en sorte que la condition if ne soit pas prise en compte lorsqu'on tape les 3 premiers caractères
+            
+            if (lengthName < 3) {
+                $(this).css('color', 'white');
+            };
+            
         });
 
         $("input#mail").keyup(function () {

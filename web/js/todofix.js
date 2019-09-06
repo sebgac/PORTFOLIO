@@ -10,9 +10,9 @@
 
     // TODO: épurer le code en faisant des fonctions - eviter répétitions (en cours)
 
-    // TODO: méthode sécurisé pour mot de passe page mariage
+    // TODO: créer une rubrique mariage protégé par mot de passe
 
-    // TODO: rédiger un script pour charger automatiquement les valeurs par défauts du plugin fotorama
+    // TODO: méthode sécurisé pour mot de passe page mariage
 
     // TODO: réaliser une page de login en php pour sécuriser mot de passe mariage
 
@@ -38,14 +38,15 @@
 
     // FIXME: fleche double parfois au déroulement, je ne sais pas pourquoi
 
-    // FIXME: le point n'est pas valide dans le champ nom dans l'email
-
-    // FIXME: inclure les caractères spéciaux dans la regex nom du contact (le é n'est pas pris en compte)
-
-
-
+ 
 // Déjà fait :
 
     // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
 
     // FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
+
+    // FIXME: inclure les caractères spéciaux dans la regex nom du contact (le é n'est pas pris en compte)
+
+    // FIXME: le point n'est pas valide dans le champ nom dans l'email
+
+    // TODO: rédiger un script pour charger automatiquement les valeurs par défauts du plugin fotorama

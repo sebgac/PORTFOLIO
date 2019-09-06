@@ -6,7 +6,6 @@
 
         //definition des regex
 
-        /* var regexName = /^[a-zA-Z0-9_-\s\w]{3,30}$/; */
         var regexName = /^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{3,30}$/;
         var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
@@ -15,12 +14,22 @@
         $("input#name").keyup(function () {
 
             var name = $("input#name").val();
+            var lengthName = name.length;
             var verifName = regexName.test(name);
+            
+            
             if (verifName == false) {
                 $(this).css('color', 'red');
             } else {
                 $(this).css('color', 'white');
             };
+
+            // faire en sorte que la condition if ne soit pas prise en compte lorsqu'on tape les 3 premiers caractères
+            
+            if (lengthName < 3) {
+                $(this).css('color', 'white');
+            };
+            
         });
 
         $("input#mail").keyup(function () {
