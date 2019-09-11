@@ -32,7 +32,7 @@
             
         });
 
-        $("input#mail").keyup(function () {
+        $("input#mail").blur(function () {
 
             var mail = $("input#mail").val();           
             var verifEmail = regexEmail.test(mail);
@@ -44,7 +44,7 @@
             };
         });
 
-        $("input#website").keyup(function () {
+        $("input#website").blur(function () {
 
             var website = $("input#website").val();
             var verifWebsite = regexWebsite.test(website);

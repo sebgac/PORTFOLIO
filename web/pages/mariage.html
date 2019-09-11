@@ -1,0 +1,58 @@
+<link href="css/style_form.css" rel="stylesheet" />
+
+<style>
+    section {
+        justify-content: space-between;
+    }
+
+    section #caroussel {
+        /* border : 1px solid white; */
+        display: block;
+    }
+
+    #form {
+        margin:auto;
+    }
+
+    form {
+        margin: auto;
+        /* border : 1px solid white; */
+        padding: 10px;
+    }
+
+</style>
+
+<!-- <script type="text/javascript" src="js/contactAjax.js"></script> -->
+
+<div class="titre">
+    <h2>Page de connexion</h2>
+</div>
+<div id="caroussel">
+    <div id="form">
+
+        <form action="pages/mariage.php" method="post">
+            <fieldset>
+
+                <div style="margin-top:20px;">
+                    <!-- <label id="name_label" for="name">nom</label> -->
+                    <input type="text" id="name" name="name" value="" placeholder="* Votre login ..." required>
+
+                </div>
+                <div>
+                    <!-- <label id="mail_label" for="mail">e-mail</label> -->
+                    <input type="password" id="password" name="password" value="" placeholder="* Votre mot de passe ..." required>
+
+                </div>
+                
+                <div style="margin: 20px;">
+                    <input type="submit" id="submit" name="submit" value="OK">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+
+<div>
+
+</div>

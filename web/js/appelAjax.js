@@ -65,7 +65,7 @@
 
         // ensuite, on charge les pages suite clic sur les liens correspondants ( TODO: à peaufiner pour éviter répétition de code)
 
-        $('a#accueil,a#street,a#architecture,a#portrait, a#mariage').on('click', function (e) {
+        $('a#accueil,a#street,a#architecture,a#portrait,a#mariage').on('click', function (e) {
 
             var x = e.target.id;
             $.ajax({
@@ -118,6 +118,19 @@
             }
 
         }); */
+
+        // script spécial pour mariage, affichage de la page login/mot de passe (essai : à supprimer si besoin)
+
+        $('a#mariage2').on('click', function () {
+
+            $.ajax({
+                url: "pages/protect/mariage2.php", success: function (result) {
+                    loadingAbout(result);
+                }
+            });
+
+        });
+
 
         // pour les liens de #about, je fais un translate(0) pour que le menu ne coulisse pas au clic
 

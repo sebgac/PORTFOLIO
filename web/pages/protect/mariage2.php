@@ -10,7 +10,6 @@
     
     <?php
 
-
     include 'fotoramaDefault.html';
 
     $files = glob("../images/mariage/*.jpg"); 

@@ -38,6 +38,12 @@
 
     // FIXME: fleche double parfois au déroulement, je ne sais pas pourquoi
 
+    // FIXME: régler ce problème de couleur rouge avec l'email et website (à voir event keyup et blur) : voir comment faire pour que le keyup ne soit pas pris en compte lors d'un premier jet
+
+    // FIXME: le htacces et htpasswd disparaissent du finder ...
+
+    // FIXME: afficher mariage2 à partir du lien, sans password, puis avec
+
  
 // Déjà fait :
 

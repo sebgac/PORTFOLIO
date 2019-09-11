@@ -74,7 +74,9 @@
                     <li><a id="architecture" href="#">Architecture</a></li>
                     
                     
-                    <!-- <li><a id="mariage" href="#">Mariage</a></li> -->
+                    <li><a id="mariage" href="#">Mariage</a></li>
+                    <li><a id="mariage2" href="#">Mariage2</a></li>
+
                 </ul>
                 <div id="about">
                     <a id="moi" href="#">SUR MOI</a>

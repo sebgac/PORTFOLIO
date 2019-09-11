@@ -1,0 +1,4 @@
+AuthName "Veuillez vous identifier"
+AuthType Basic
+AuthUserFile "/portfolio/web/pages/protect/.htpasswd"
+Require valid-user
