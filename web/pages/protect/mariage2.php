@@ -10,9 +10,9 @@
     
     <?php
 
-    include 'fotoramaDefault.html';
+    include '../fotoramaDefault.html';
 
-    $files = glob("../images/mariage/*.jpg"); 
+    $files = glob("../../images/mariage/*.jpg"); 
     $compteur = count($files); 
 
     for ($i = 1; $i <= $compteur; $i++) {

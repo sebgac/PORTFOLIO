@@ -32,9 +32,30 @@
 
         });
 
-        // FIXME:  A refaire, ne fonctionne pas
+        // Verif email FIXME: ne pas remettre en blanc lors de l'event blur
 
-        var occurenceFocus = 0;
+        var keyupFocus = /^[\w@\.-_]+$/;
+        var mail;
+        var email;
+
+        $("input#mail").on('blur keyup focus', function(e) {
+            
+            mail = $(this).val().trim();
+            /* on adapte la condition selon l'événement */
+            verifEmail = e.type == "blur" 
+              ? regexEmail.test(mail) 
+              : mail.match(keyupFocus);
+
+            /* console.log("event.type :"+e.type); */
+        
+            if ((verifEmail == false || verifEmail == null) && mail !="") {
+              $(this).css('color', 'red');
+            } else {
+              $(this).css('color', 'white');
+            }
+          });
+
+        /* var occurenceFocus = 0;
 
         $("input#mail").blur(function () {
             occurenceFocus++; 
@@ -70,7 +91,7 @@
                     $(this).css('color', 'white');
                 };
             });
-        };
+        }; */
 
         $("#submit").click(function () {
 
