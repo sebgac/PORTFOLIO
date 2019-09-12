@@ -12,6 +12,19 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147738667-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-147738667-1');
+    </script>
+
 </head>
 
 <body>
@@ -26,8 +39,8 @@
             <nav>
                 <a>GALERIES PHOTO</a>
                 <ul id="categories">
-                                      
-                <li><a id="voyages" href="#">Voyages <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
+
+                    <li><a id="voyages" href="#">Voyages <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
                         <ul class="continents">
                             <li><a id="asie" href="#">Asie <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
                                 <ul class="asie">
@@ -72,8 +85,8 @@
                     <li><a id="street" href="#">Street</a></li>
                     <li><a id="portrait" href="#">Portrait</a></li>
                     <li><a id="architecture" href="#">Architecture</a></li>
-                    
-                    
+
+
                     <li><a id="mariage" href="#">Mariage</a></li>
                     <!-- <li><a id="mariage2" href="#">Mariage2</a></li> -->
 
