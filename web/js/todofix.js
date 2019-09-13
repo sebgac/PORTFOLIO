@@ -1,24 +1,11 @@
     
+// Non réalisé :
+    
     // TODO: s'inspirer de https://www.grafikart.fr/tutoriels/jquery-on-events-518 pour ajouter un écouteur unique sur tous les liens. Puis s'inspirer de $('.titre h2').text().slice($('.titre h2').text().lastIndexOf(' ') + 1) pour récupérer le nom de la page à charger sans répétition de code
-
-    // TODO: laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent // fait pour voyage, à faire pour les autres
-
-    // TODO: recharger le design au changement d'orientation ou de resize (possiblement à faire en ajax)
-    // idée : recharger dans l'écouteur orientation change le script menuCoulissant (peut etre mettre en ajax, ou à l'extérieur de ce fichier)
 
     // TODO: lazy loading pour les images, voir srcset si possible
 
-    // TODO: épurer le code en faisant des fonctions - eviter répétitions (en cours)
-
-    // TODO: créer une rubrique mariage protégé par mot de passe
-
-    // TODO: méthode sécurisé pour mot de passe page mariage
-
-    // TODO: réaliser une page de login en php pour sécuriser mot de passe mariage
-
-    /* TODO: enlever les fleches dans le mode fullscreen en small devices */
-
-
+    // TODO: enlever les fleches dans le mode fullscreen en small devices 
 
     // FIXME: fixer le bug orientationchange pour les pages de la section about
 
@@ -37,22 +24,32 @@
     // FIXME: pas de ligne de délimitation sur menu bottom en safari (ok chrome)
 
     // FIXME: fleche double parfois au déroulement, je ne sais pas pourquoi
+    
 
-    // FIXME: régler ce problème de couleur rouge avec l'email et website (à voir event keyup et blur) : voir comment faire pour que le keyup ne soit pas pris en compte lors d'un premier jet
+// En cours de réalisation :
+    
+    // TODO: épurer le code en faisant des fonctions - eviter répétitions 
 
-    // FIXME: le htacces et htpasswd disparaissent du finder ...
+    // TODO: créer une rubrique mariage protégé par mot de passe
 
-    // FIXME: afficher mariage2 à partir du lien, sans password, puis avec
+    // TODO: laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent // fait pour voyage, à faire pour les autres
+
+    // TODO: recharger le design au changement d'orientation ou de resize (possiblement à faire en ajax)
+    // idée : recharger dans l'écouteur orientation change le script menuCoulissant (peut etre mettre en ajax, ou à l'extérieur de ce fichier)
 
  
 // Déjà fait :
 
-    // TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
+    // 19-XX-XX TODO: charger dynamiquement les photos (peu importe leur nombre dans le dossier physique)
 
-    // FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
+    // 19-XX-XX FIXME: réaligner portfolio seb dans mozilla - à essayer avec moz- dans CSS
 
-    // FIXME: inclure les caractères spéciaux dans la regex nom du contact (le é n'est pas pris en compte)
+    // 19-09-05 FIXME: inclure les caractères spéciaux dans la regex nom du contact (le é n'est pas pris en compte)
 
-    // FIXME: le point n'est pas valide dans le champ nom dans l'email
+    // 19-09-05 FIXME: le point n'est pas valide dans le champ nom dans l'email
 
-    // TODO: rédiger un script pour charger automatiquement les valeurs par défauts du plugin fotorama
+    // 19-09-13 TODO: rédiger un script pour charger automatiquement les valeurs par défauts du plugin fotorama
+
+    // 19-09-13 FIXME: le htacces et htpasswd disparaissent du finder ...
+
+    // 19-09-13 FIXME: régler ce problème de couleur rouge avec l'email et website (à voir event keyup et blur) : voir comment faire pour que le keyup ne soit pas pris en compte lors d'un premier jet

@@ -10,6 +10,9 @@
         var regexName = /^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{3,30}$/;
         var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
         var regexWebsite = new RegExp("^((http|https):\/\/)?(www[.])?([a-zA-Z0-9]|-)+([.][a-zA-Z0-9(-|\/|=|?)?]+)+$");
+        var regexKeyupFocus = /^[\w@\.-_]+$/;
+        var nbFocusEmail = 0;
+        var nbFocusWebsite = 0;
 
         // début du script
 
@@ -32,28 +35,60 @@
             
         });
 
-        $("input#mail").blur(function () {
+        // Verif email 
 
-            var mail = $("input#mail").val();           
-            var verifEmail = regexEmail.test(mail);
+        $("input#mail").on('blur keyup focus', function (e) {
 
-            if (verifEmail == false) {
+            var mail = $(this).val().trim();
+
+            if (e.type == "focus") {
+                nbFocusEmail++;
+            }
+
+            if (e.type == "blur") {
+                verifEmail = regexEmail.test(mail);
+            } else {
+
+                if (nbFocusEmail <=1) {
+                    verifEmail = mail.match(regexKeyupFocus);
+                } else {
+                    verifEmail = regexEmail.test(mail);
+                }
+            };
+
+            if ((verifEmail == false || verifEmail == null) && mail != "") {
                 $(this).css('color', 'red');
             } else {
                 $(this).css('color', 'white');
-            };
+            }
         });
 
-        $("input#website").blur(function () {
+        // Verif champ Website
 
-            var website = $("input#website").val();
-            var verifWebsite = regexWebsite.test(website);
+        $("input#website").on('blur keyup focus', function (e) {
 
-            if (verifWebsite == false) {
+            var website = $(this).val().trim();
+
+            if (e.type == "focus") {
+                nbFocusWebsite++;
+            }
+
+            if (e.type == "blur") {
+                verifWebsite = regexWebsite.test(website);
+            } else {
+
+                if (nbFocusEmail <=1) {
+                    verifWebsite = mail.match(regexKeyupFocus);
+                } else {
+                    verifWebsite = regexWebsite.test(website);
+                }
+            };
+
+            if ((verifWebsite == false || verifWebsite == null) && website != "") {
                 $(this).css('color', 'red');
             } else {
                 $(this).css('color', 'white');
-            };
+            }
         });
 
         $("#submit").click(function () {
