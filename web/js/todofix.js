@@ -24,6 +24,8 @@
     // FIXME: pas de ligne de délimitation sur menu bottom en safari (ok chrome)
 
     // FIXME: fleche double parfois au déroulement, je ne sais pas pourquoi
+
+    // FIXME: écran non centré sur un mac 27 pouces
     
 
 // En cours de réalisation :
