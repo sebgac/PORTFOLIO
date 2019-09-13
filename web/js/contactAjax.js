@@ -8,6 +8,8 @@
 
         var regexName = /^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ._\s-]{3,30}$/;
         var regexEmail = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+        var regexEmailKeyupFocus = /^[\w@\.-_]+$/;
+        var nbFocus = 0;
 
         //vérification des champs
 
@@ -32,66 +34,54 @@
 
         });
 
-        // Verif email FIXME: ne pas remettre en blanc lors de l'event blur
+        // Verif email 
 
-        var keyupFocus = /^[\w@\.-_]+$/;
-        var mail;
-        var email;
+        // On définit les évènements
 
-        $("input#mail").on('blur keyup focus', function(e) {
+        $("input#mail").on('blur keyup focus', function (e) {
+
+            // On définit une variable avec la valeur du champ du formulaire
+
+            var mail = $(this).val().trim();
+
+            // On compte le nombre d'event focus
+
+            if (e.type == "focus") {
+                nbFocus++;
+            }
+
+            // on adapte la condition selon l'événement
+
+            if (e.type == "blur") {
+                verifEmail = regexEmail.test(mail);
+            } else {
+
+                if (nbFocus <=1) {
+                    verifEmail = mail.match(regexEmailKeyupFocus);
+                } else {
+                    verifEmail = regexEmail.test(mail);
+                }
+            };
+
+            /* 
+            // Autre façon d'écrire la condition if 
             
-            mail = $(this).val().trim();
-            /* on adapte la condition selon l'événement */
-            verifEmail = e.type == "blur" 
-              ? regexEmail.test(mail) 
-              : mail.match(keyupFocus);
+            verifEmail = e.type == "blur"
+                ? regexEmail.test(mail)
+                : mail.match(keyupFocus); */
 
             /* console.log("event.type :"+e.type); */
-        
-            if ((verifEmail == false || verifEmail == null) && mail !="") {
-              $(this).css('color', 'red');
+
+            // Enfin, on assigne le code couleur au champ du formulaire
+
+            if ((verifEmail == false || verifEmail == null) && mail != "") {
+                $(this).css('color', 'red');
             } else {
-              $(this).css('color', 'white');
+                $(this).css('color', 'white');
             }
-          });
-
-        /* var occurenceFocus = 0;
-
-        $("input#mail").blur(function () {
-            occurenceFocus++; 
         });
 
-        if (occurenceFocus < 1) {
-            $("input#mail").blur(function () {
-
-                console.log('OK');
-    
-                var mail = $("input#mail").val();
-                var verifEmail = regexEmail.test(mail);
-    
-                if (verifEmail == false) {
-                    $(this).css('color', 'red');
-                } else {
-                    $(this).css('color', 'white');
-                };
-            });
-
-        } else {
-
-            $("input#mail").keyup(function () {
-
-                console.log('OK2');
-    
-                var mail = $("input#mail").val();
-                var verifEmail = regexEmail.test(mail);
-    
-                if (verifEmail == false) {
-                    $(this).css('color', 'red');
-                } else {
-                    $(this).css('color', 'white');
-                };
-            });
-        }; */
+        
 
         $("#submit").click(function () {
 
