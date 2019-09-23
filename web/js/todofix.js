@@ -25,6 +25,8 @@
 
     // FIXME: écran non centré sur un mac 27 pouces
 
+    // FIXME: manque le liseret bas barre menu lorsqu'on resize de large à small
+
 
 // En cours de réalisation :
     

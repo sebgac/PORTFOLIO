@@ -1,7 +1,9 @@
 <script>
+  
   fotoramaDefaults = {
     nav: false
   }
+
 </script>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>

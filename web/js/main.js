@@ -28,6 +28,16 @@
 
     }
 
+    // FIXME: Fonction qui retire les flèches du plugin fotorama en small devices uniquement 
+
+    function smallDevWithoutArrows() {
+        if (window.matchMedia("(max-width: 850px)").matches) {
+            $('.fotorama').fotorama({
+                arrows : false
+              });
+        }
+    }
+
     // Fonction qui met en majuscule la première lettre d'une chaine de caractère
 
     function capitalizeFirstLetter(string) {
@@ -152,7 +162,7 @@
         }
     }
 
-    // Fonctions qui gèrent la hauteur de la fenetre pour affichage dans le livre d'or pour small et large devices
+    // Fonction qui gère la hauteur de la fenetre pour affichage dans le livre d'or pour small et large devices
 
     function sectionHeightGold() {
 
@@ -336,6 +346,10 @@
     // Enlève les miniatures lorsqu'on est en full screen sur mobile
 
     fullscreenWithoutThumbnails();
+
+    // Enlève les flèches de navigation sur mobile 
+
+    smallDevWithoutArrows();
 
     // Fermer le menu en cliquant sur certains liens
 
