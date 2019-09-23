@@ -17,13 +17,6 @@
         }
     }
 
-    function initLoadLarge() {
-
-        if (window.matchMedia("(min-width: 851px)").matches) {
-            $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-260px)');
-        }
-    }
-
     // Fonction qui enlève les miniatures du caroussel en fullscreen en small devices uniquement
 
     function fullscreenWithoutThumbnails() {
@@ -110,6 +103,33 @@
 
         }
         menuOuvert = false;
+    
+    }
+    
+    // Fonction qui gère le comportement du menu lors d'un resize (responsive)
+
+    function sizeChange() {
+
+        $(window).resize(function () {
+        
+            if (window.matchMedia("(max-width: 850px)").matches) {
+                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'none');
+                if (menuOuvert == false) {
+                    $('.menuGauche').hide();
+                    $('.liseret').css('border-bottom', '0');
+                }
+            }
+    
+            else {
+                if (menuOuvert == false) {
+                    $('.menuGauche').show();
+                    $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-260px)');
+    
+                }
+            }
+    
+        });
+        
     }
 
     // Fonction qui gère la fermeture du menu en cliquant sur certains liens
@@ -178,11 +198,13 @@
     function arrowUp(id) {
         $(id + ' i.fas.fa-arrow-up').show(500);
         $(id + ' i.fas.fa-arrow-down').hide();
+        console.log('arrowUp = ' + id);
     }
 
     function arrowDown(id) {
         $(id + ' i.fas.fa-arrow-down').show(500);
         $(id + ' i.fas.fa-arrow-up').hide();
+        console.log('arrowDown = ' + id);
     }
 
     function continentOpen() {
@@ -224,7 +246,7 @@
         amsudOuvert = false;
     }
 
-    // Fonction qui gère l'affichage de l'icone par un hover sur lien
+    // Fonction qui gère l'affichage de l'icone par un hover sur lien (pas utilisée pour le moment)
 
     function iconeHover() {
 
@@ -292,23 +314,7 @@
 
     // Corrections des comportements "anormaux" lors du resize de l'écran (pour rendre responsive en live)
 
-    $(window).resize(function () {
-        
-        if (window.matchMedia("(max-width: 850px)").matches) {
-            $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'none');
-            if (menuOuvert == false) {
-                $('.menuGauche').hide();
-                $('.liseret').css('border-bottom', '0');
-            }
-        }
-
-        /* else {
-            if (menuOuvert == false) {
-                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-260px)');
-            }
-        } */
-
-    });
+    
 
 
 

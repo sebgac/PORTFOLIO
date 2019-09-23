@@ -7,7 +7,7 @@
 
     // TODO: enlever les fleches dans le mode fullscreen en small devices 
 
-    // FIXME: fixer le bug orientationchange pour les pages de la section about
+    // FIXME: fixer le bug orientationchange pour les pages de la section about (parfois les titres se répètent)
 
     // FIXME: pourquoi il y a un petit décalé en bas de l'écran sur les thumbnails
 
@@ -34,11 +34,6 @@
 
     // TODO: laisser la fleche à coté de voyage meme lorsqu'on clique sur un continent // fait pour voyage, à faire pour les autres
 
-    // TODO: recharger le design au changement d'orientation ou de resize (possiblement à faire en ajax)
-    // idée : recharger dans l'écouteur orientation change le script menuCoulissant (peut etre mettre en ajax, ou à l'extérieur de ce fichier)
-
-    // FIXME: après dérouler/retrancher le menu au moins une fois : problème d'alignement lors du passage mediaqueries : il y a un problème dans la transition 
-
  
 // Déjà fait :
 
@@ -59,3 +54,7 @@
     // 19-09-22 FIXME: menu qui ne déroule plus après changement d'orientation
 
     // 19-09-22 FIXME: bug responsive : fusion de style et styleSmall avec mediaqueries
+
+    // 19-09-23 FIXME: après dérouler/retrancher le menu au moins une fois : problème d'alignement lors du passage mediaqueries : il y a un problème dans la transition 
+
+    // 19-09-23 TODO: recharger le design au changement d'orientation ou de resize (possiblement à faire en ajax)
