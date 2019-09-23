@@ -17,8 +17,6 @@
 
     // FIXME: bug de design small devices, lors changement orientation le caroussel ne sadapte pas compltement au height (de portrait vers paysage)
 
-    // FIXME: menu qui ne déroule plus après changement d'orientation
-
     // FIXME: fleche sur #voyage qui ne s'affiche plus au hover lorsqu'on a cliqué sur un lien et revient dans le menu
 
     // FIXME: pas de ligne de délimitation sur menu bottom en safari (ok chrome)
@@ -26,7 +24,7 @@
     // FIXME: fleche double parfois au déroulement, je ne sais pas pourquoi
 
     // FIXME: écran non centré sur un mac 27 pouces
-    
+
 
 // En cours de réalisation :
     
@@ -38,6 +36,8 @@
 
     // TODO: recharger le design au changement d'orientation ou de resize (possiblement à faire en ajax)
     // idée : recharger dans l'écouteur orientation change le script menuCoulissant (peut etre mettre en ajax, ou à l'extérieur de ce fichier)
+
+    // FIXME: après dérouler/retrancher le menu au moins une fois : problème d'alignement lors du passage mediaqueries : il y a un problème dans la transition 
 
  
 // Déjà fait :
@@ -55,3 +55,7 @@
     // 19-09-13 FIXME: le htacces et htpasswd disparaissent du finder ...
 
     // 19-09-13 FIXME: régler ce problème de couleur rouge avec l'email et website (à voir event keyup et blur) : voir comment faire pour que le keyup ne soit pas pris en compte lors d'un premier jet
+
+    // 19-09-22 FIXME: menu qui ne déroule plus après changement d'orientation
+
+    // 19-09-22 FIXME: bug responsive : fusion de style et styleSmall avec mediaqueries

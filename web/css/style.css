@@ -222,7 +222,6 @@ section h2 {
   /* text-transform: uppercase; */
 }
 
-
 #caroussel {
   width: 100%;
   /* border: 1px solid white; */
@@ -244,3 +243,109 @@ section h2 {
 #loader img {
   width: 150px;
 }
+
+    @media screen and (max-width: 850px) {
+      
+      body {
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+      }
+      header {
+        display: flex;
+        flex-direction: column-reverse;
+        /* border: 1px solid white; */
+        border-bottom: 1px solid #3a3a3a;
+        z-index: 2;
+        background-color: black;
+        padding-bottom: 48px;
+        /* position: relative; */
+      }
+      .menuGauche {
+        /* width:100%; */
+        /* width: 220px; */
+        margin-left: 0;
+        transform: none;
+        /* border: 1px solid white; */
+        margin: auto;
+        position: relative;
+        top: 48px;
+        background-color: black;
+      }
+      #titre1 {
+        display: none
+      }
+      .menuGauche nav {
+        transform: none;
+        /* border: 1px solid white; */
+        margin-bottom: 0;
+        margin-left: 0;
+        padding-top: 10px;
+        /* position: relative; */
+        /* top: 48px; */
+        /* background-color: black;*/
+        /* width: 100%; */
+        /* text-align: center; */
+        /* border-bottom: 1px solid white; */
+      }
+      i.fas.fa-arrow-down, i.fas.fa-arrow-up {
+        /* color:red; */
+        opacity: 1;
+      }
+      .liseret {
+        border-bottom: 1px solid;
+        width: 100%;
+        min-height: 5vh;
+        flex-direction: row-reverse;
+        transform: none;
+        /* border: 1px solid white; */
+        padding: 0 10px;
+        border-bottom: 1px solid;
+        position: absolute;
+        top: 0px;
+        background-color: black;
+      }
+      .liseret:hover {
+        background-color: black;
+      }
+      #portfolio {
+        transform: none;
+        width: none;
+      }
+      section {
+        width: 100%;
+        margin-left: 2%;
+        position: absolute;
+        /* top: 12vh; */
+        z-index: 1;
+      }
+      section .titre {
+        /* display:none; */
+        transform: none;
+        font-size: 0.5rem;
+      }
+      section #caroussel {
+        /* display:none; */
+        /* border: 1px solid white; */
+        width: 96%;
+        transform: none;
+        flex-direction: column;
+      }
+      @media screen and (orientation: portrait) {
+        #loader {
+          left: 30%;
+        }
+      }
+      @media screen and (orientation: landscape) {
+        /* le titre est caché lorsqu'on passe en landscape */
+        section .titre {
+          display: none;
+        }
+        #menuburger {
+          padding-right: 3px;
+        }
+        #loader {
+          left: 37%;
+        }
+      }
+    }

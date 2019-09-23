@@ -9,10 +9,18 @@
     function initLoadSmall() {
 
         if (window.matchMedia("(max-width: 850px)").matches) {
+
             // de base, le menu est caché
             $('.menuGauche').hide();
             //on cache la bordure du liseret pour éviter de surcharger
             $('.liseret').css('border-bottom', '0');
+        }
+    }
+
+    function initLoadLarge() {
+
+        if (window.matchMedia("(min-width: 851px)").matches) {
+            $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-260px)');
         }
     }
 
@@ -266,16 +274,43 @@
     // on fixe une valeur repère qui indique que le menu est fermé
 
     var menuOuvert = false
+    
 
     // Chargement de la page en small devices
 
     initLoadSmall();
+
+    // Chargement de la page en small devices
+
+    /* initLoadLarge(); */
 
     // Détecter le changement d'orientation pour mettre le titre dans le liseret
 
     $(window).on('orientationchange', function () {
         titleChange();
     });
+
+    // Corrections des comportements "anormaux" lors du resize de l'écran (pour rendre responsive en live)
+
+    $(window).resize(function () {
+        
+        if (window.matchMedia("(max-width: 850px)").matches) {
+            $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'none');
+            if (menuOuvert == false) {
+                $('.menuGauche').hide();
+                $('.liseret').css('border-bottom', '0');
+            }
+        }
+
+        /* else {
+            if (menuOuvert == false) {
+                $('nav, #titre1, .menuGauche, .liseret, section .titre, section #caroussel').css('transform', 'translate(-260px)');
+            }
+        } */
+
+    });
+
+
 
     // adapter la position absolute de la section à la taille du liseret;
 
@@ -292,8 +327,10 @@
 
         if (menuOuvert == false) {
             menuOpen();
+            
         } else if (menuOuvert == true) {
             menuClose();
+            
         };
 
     });
@@ -305,19 +342,6 @@
     // Fermer le menu en cliquant sur certains liens
 
     closeFromLinks();
-
-    // Comportement spécifique à la version mobile au chargement initial
-
-    if (window.matchMedia("(max-width: 850px)").matches) {
-
-        // de base, le menu est caché
-
-        $('.menuGauche').hide();
-
-        //on cache la bordure du liseret pour éviter de surcharger
-
-        $('.liseret').css('border-bottom', '0');
-    }
 
 
     // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage + changer l'icone fleche haut/bas
@@ -393,9 +417,9 @@
 
     });
 
-     // fermer voyage si on clique sur un autre lien (utile pour affichage smartphone)
+    // fermer voyage si on clique sur un autre lien (utile pour affichage smartphone)
 
-     $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
+    $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
         if (continentsOuvert == true) {
             continentClose();
             arrowDown('#' + $(this).attr('id'));

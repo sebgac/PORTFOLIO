@@ -5,14 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SebGacPhoto</title>
+    <title>Le portfolio photo de Sébastien Gac</title>
+    <meta name="description" content="Voyages, portraits, street, architecture, mariage, retrouvez les photos de Sébastien Gac sur ce même portfolio" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link href="css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" media="screen and (max-width: 850px)" href="css/style_small.css" />
+    <!-- <link rel="stylesheet" media="screen and (max-width: 850px)" href="css/style_small.css" /> -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147738667-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

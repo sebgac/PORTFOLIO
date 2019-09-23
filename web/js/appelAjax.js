@@ -77,19 +77,6 @@
 
         });
 
-        /* 
-        // a supprimer si page fonctionne
-        
-        $('a#inde').on('click', function () {
-
-            $.ajax({
-                url: "pages/pays/inde.php", success: function (result) {
-                    loadingPage(result);
-                    ajouterTitre();
-                }
-            });
-
-        }); */
 
         /* 
 
@@ -118,19 +105,6 @@
             }
 
         }); */
-
-        // script spécial pour mariage, affichage de la page login/mot de passe (essai : à supprimer si besoin)
-
-        $('a#mariage2').on('click', function () {
-
-            $.ajax({
-                url: "pages/protect/mariage2.php", success: function (result) {
-                    loadingAbout(result);
-                }
-            });
-
-        });
-
 
         // pour les liens de #about, je fais un translate(0) pour que le menu ne coulisse pas au clic
 
