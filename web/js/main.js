@@ -198,13 +198,11 @@
     function arrowUp(id) {
         $(id + ' i.fas.fa-arrow-up').show(500);
         $(id + ' i.fas.fa-arrow-down').hide();
-        console.log('arrowUp = ' + id);
     }
 
     function arrowDown(id) {
         $(id + ' i.fas.fa-arrow-down').show(500);
         $(id + ' i.fas.fa-arrow-up').hide();
-        console.log('arrowDown = ' + id);
     }
 
     function continentOpen() {
@@ -296,15 +294,10 @@
     // on fixe une valeur repère qui indique que le menu est fermé
 
     var menuOuvert = false
-    
 
     // Chargement de la page en small devices
 
     initLoadSmall();
-
-    // Chargement de la page en small devices
-
-    /* initLoadLarge(); */
 
     // Détecter le changement d'orientation pour mettre le titre dans le liseret
 
@@ -313,15 +306,14 @@
     });
 
     // Corrections des comportements "anormaux" lors du resize de l'écran (pour rendre responsive en live)
-
     
-
-
+    sizeChange();
 
     // adapter la position absolute de la section à la taille du liseret;
 
     liseretHeight();
 
+    // Comportement au clic sur le liseret
 
     $('.liseret').on('click', function () {
 
@@ -349,13 +341,19 @@
 
     closeFromLinks();
 
+    // Gestion du hover de l'icone - fonctionnalités désactivés 
+    // FIXME: stabiliser l'affichage des flèches. Idée : Empêcher l'affichage de la flèche contraire lors du déroulement
+
+    /* iconeHover();*/
+
+    // Gérer la hauteur de la fenetre pour affichage du livre d'or
+
+    sectionHeightGold();
 
     // Dans le menu, ajouter des catégories continents lorsqu'on clique sur Voyage + changer l'icone fleche haut/bas
 
     // TODO: Code à refactoriser
 
-
-    // définition comportement de base
     var continentsOuvert = false;
     $('.continents').hide();
     $('#voyages i.fas.fa-arrow-up').hide();
@@ -371,8 +369,7 @@
 
     });
 
-
-    // Faire de même avec les sous catégories pays
+    // Comportement clic sur Asie
 
     var asieOuvert = false;
     $('.asie').hide();
@@ -391,6 +388,8 @@
 
     });
 
+    // Comportement clic sur Europe
+
     var europeOuvert = false;
     $('.europe').hide();
     $('#europe i.fas.fa-arrow-up').hide();
@@ -406,6 +405,8 @@
         };
 
     });
+
+    // Comportement clic sur AmSud
 
     var amsudOuvert = false;
     $('.amsud').hide();
@@ -423,7 +424,8 @@
 
     });
 
-    // fermer voyage si on clique sur un autre lien (utile pour affichage smartphone)
+    // fermer cat. voyage si on clique sur un lien de différente catégorie (de cette façon lorsqu'on ouvre de nouveau le menu, on repart sur un menu propre et clair)
+    // voyage reste ouvert si on clique sur un lien de voyage, pour une meilleure expérience de navigation et d'exploration
 
     $('#moi,#livre,#contact,#street,#architecture,#portrait,#mariage').on('click', function () {
         if (continentsOuvert == true) {
@@ -433,15 +435,15 @@
 
     });
 
-    // Lorsqu'on clique sur une autre catégorie que celle ouverte, on ferme la catégorie en cours
-    // et on change le sens de la flèche fas
+    // Lorsqu'on clique sur une autre catégorie que celle ouverte, on ferme la catégorie en cours et on change le sens de la flèche fas
 
     // Pour le continent Asie
 
     $(document).on('click', '#amsud,#europe', function () {
         if (asieOuvert == true) {
             asieClose();
-            arrowDown('#' + $(this).attr('id'));
+            arrowDown('#asie');
+            arrowUp('#' + $(this).attr('id'));
         };
 
     });
@@ -451,7 +453,8 @@
     $(document).on('click', '#asie,#amsud', function () {
         if (europeOuvert == true) {
             europeClose();
-            arrowDown('#' + $(this).attr('id'));
+            arrowDown('#europe');
+            arrowUp('#' + $(this).attr('id'));
         };
 
     });
@@ -461,18 +464,13 @@
     $(document).on('click', '#asie,#europe', function () {
         if (amsudOuvert == true) {
             amsudClose();
-            arrowDown('#' + $(this).attr('id'));
+            arrowDown('#amsud');
+            arrowUp('#' + $(this).attr('id'));
         };
 
     });
 
-    // Gestion du hover de l'icone
-
-    /* iconeHover(); */
-
-    // Gérer la hauteur de la fenetre pour affichage du livre d'or
-
-    sectionHeightGold();
+    
 
 
     /* --------- Fin du script ------------ */

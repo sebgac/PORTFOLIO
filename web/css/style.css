@@ -1,5 +1,7 @@
 /* Note : les border: 1px solid white servent pour situer les boites */
 
+/* On utilise transform: translate(-260px); pour cacher le menu au chargement de la page */
+
 /* On reset les paramètres */
 
 * {
@@ -103,6 +105,8 @@ ul#categories li {
   transition: all 0.5s ease-out;
 }
 
+/* Changement de couleur sur le focus et hover des liens */
+
 .menuGauche li a:hover, #about a:hover {
   color: white;
 }
@@ -122,7 +126,7 @@ ul.continents {
   padding-left: 10px;
 }
 
-/* Opacité 0 pour l'icone flèche, modifiée avec jQuery */
+/* Opacité 0 pour l'icone flèche, modifiée avec jQuery : fonctionnalité désactivée*/
 
 i.fas.fa-arrow-down, i.fas.fa-arrow-up {
   /* color:red; */
