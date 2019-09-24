@@ -32,11 +32,17 @@
 
     function smallDevWithoutArrows() {
         if (window.matchMedia("(max-width: 850px)").matches) {
-            $('.fotorama').fotorama({
-                arrows : false
-              });
+            console.log('ARROW3');
+            $(document).on('fotorama', function (e, fotorama) {
+                fotorama.setOptions({ nav: e.type === 'fotorama:arrows' && 'false' });
+            });
         }
     }
+
+   /*  $('.fotorama').fotorama({
+        arrows: false
+      }); */
+      
 
     // Fonction qui met en majuscule la première lettre d'une chaine de caractère
 
@@ -483,8 +489,6 @@
         };
 
     });
-
-    
 
 
     /* --------- Fin du script ------------ */
