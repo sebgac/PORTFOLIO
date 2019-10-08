@@ -47,30 +47,30 @@
                             <li><a id="asie" href="#">Asie <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
                                 <ul class="asie">
                                     <li><a id="inde" href="#">Inde</a></li>
-                                    <li><a id="japon" href="#">Japon</a></li>
-                                    <li><a id="coree" href="#">Corée du Sud</a></li>
-                                    <li><a id="mongolie" href="#">Mongolie</a></li>
-                                    <li><a id="chine" href="#">Chine</a></li>
-                                    <li><a id="vietnam" href="#">Vietnam</a></li>
-                                    <li><a id="laos" href="#">Laos</a></li>
-                                    <li><a id="thailande" href="#">Thailande</a>
+                                    <li><a id="japon" href="#">Japon </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="coree" href="#">Corée du Sud </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="mongolie" href="#">Mongolie </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="chine" href="#">Chine </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="vietnam" href="#">Vietnam </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="laos" href="#">Laos </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="thailande" href="#">Thailande </a><i class="fas fa-bicycle fa-sm"></i>
                                     </li>
                                 </ul>
                             </li>
                             <li><a id="europe" href="#">Europe <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
                                 <ul class="europe">
-                                    <li><a id="france" href="#">France</a></li>
-                                    <li><a id="allemagne" href="#">Allemagne/Autriche</a></li>
+                                    <li><a id="france" href="#">France </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="allemagne" href="#">Allem./Autriche </a><i class="fas fa-bicycle fa-sm"></i></li>
                                     <!-- <li><a id="autriche" href="#">Autriche</a></li> -->
                                     <!-- <li><a id="slovenie" href="#">Slovénie</a></li> -->
-                                    <li><a id="croatie" href="#">Croatie/Slovénie</a></li>
-                                    <li><a id="montenegro" href="#">Monténegro</a></li>
-                                    <li><a id="albanie" href="#">Albanie</a></li>
-                                    <li><a id="grece" href="#">Grèce</a></li>
+                                    <li><a id="croatie" href="#">Croatie/Slovénie </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="montenegro" href="#">Monténegro </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="albanie" href="#">Albanie </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="grece" href="#">Grèce </a><i class="fas fa-bicycle fa-sm"></i></li>
                                     <!-- <li><a id="Turquie" href="#">Turquie</a></li> -->
-                                    <li><a id="finlande" href="#">Finlande</a></li>
-                                    <li><a id="baltes" href="#">Pays Baltes</a></li>
-                                    <li><a id="hollande" href="#">Hollande/Belgique</a></li>
+                                    <li><a id="finlande" href="#">Finlande </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="baltes" href="#">Pays Baltes </a><i class="fas fa-bicycle fa-sm"></i></li>
+                                    <li><a id="hollande" href="#">Holl./Belgique </a><i class="fas fa-bicycle fa-sm"></i></li>
                                 </ul>
                             </li>
                             <li><a id="amsud" href="#">Amérique du Sud <i class="fas fa-arrow-down"></i><i class="fas fa-arrow-up"></i></a>
