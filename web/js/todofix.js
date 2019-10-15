@@ -27,6 +27,8 @@
 
     // FIXME: manque le liseret bas barre menu lorsqu'on resize de large à small
 
+    // TODO: gérer le redimensionnement des images automatique en fonction du device (voir de la vitesse de la connexion si c'est possible) : voir srcset
+
 
 // En cours de réalisation :
     
